@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"></properties>
+    <typeAliases>
+        <typeAlias type="entity.Userinfo" alias="Userinfo"/>
+        <typeAlias type="entity.Resourcces" alias="Resourcces"/>
+        <typeAlias type="entity.RoleInfo" alias="RoleInfo"/>
+    </typeAliases>
+    <environments default="one">
+
+        <!-- 配置一个运行的环境，环境的编号为one -->
+        <environment id="one">
+            <!-- 指定事物处理交给JDBC来处理 -->
+            <transactionManager type="JDBC" />
+            <!-- 配置数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${uid}" />
+                <property name="password" value="${pwd}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 指定增删改查所需要 映射文件 -->
+    <mappers>
+        <mapper resource="dao/UserinfoDaoMapper.xml"/>
+        <mapper resource="dao/ResourccesDaoMapper.xml"/>
+        <mapper resource="dao/RoleInfoDaoMapper.xml"/>
+    </mappers>
+</configuration>
