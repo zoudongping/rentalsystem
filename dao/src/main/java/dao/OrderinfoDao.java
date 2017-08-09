@@ -13,5 +13,5 @@ public interface OrderinfoDao {
     public int updateRoleInfo(Orderinfo orderinfo);
     public List<Orderinfo> findAll();
     public List<Orderinfo> findByOid(int oid);
-    public Orderinfo findByUserId(int uid);
+    public List<Orderinfo> findByUserId(int uid);
 }

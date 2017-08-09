@@ -84,7 +84,7 @@
         <h6 class="layout padding-left manage-head-con">评论信息
         </h6>
       </div>
-      <form action="findall" method="post">
+      <form action="findcomment" method="post">
         <!-- Unnamed (Droplist) -->
         <div id="u4" class="ax_droplist">
           <select id="by" name="by">

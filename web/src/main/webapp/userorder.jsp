@@ -114,36 +114,42 @@
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
             <div class="th w20">
-              评论商品名
+              订单号
             </div>
             <div class="th w20">
-              评论等级
+              订单时间
             </div>
             <div class="th w20">
-              评论内容
+              订单金额
             </div>
             <div class="th w20">
-              评论人
+              付款方式
             </div>
           </div>
-          <c:forEach var="c" items="${clist}">
+          <c:forEach var="o" items="${olist}">
             <div class="tr clearfix border-bottom-none">
               <div class="td w10">
-                  ${c.commodityinfo.cname}
+                  ${o.oid}
               </div>
               <div class="td w30">
-                  ${c.levelinfo.lname}
+                  ${o.otime}
               </div>
               <div class="td w25">
-                  ${c.content}
+                  ${o.ordertotal}
               </div>
               <div class="td w10">
-                  ${c.userinfo.uname}
+                  ${o.paymenttype.pname}
               </div>
+              <c:if test="${o.orderstatusinfo.sid==1}">
               <div class="td w5">
-                <a href="#" class="button-word2 btn_ajax_confirm">编辑</a> |
-                <a href="#" class="button-word2 btn_ajax_confirm">删除</a>
+                <a href="#" class="button-word2 btn_ajax_confirm">确认收货</a> |
               </div>
+              </c:if>
+              <c:if test="${o.orderstatusinfo.sid==2}">
+              <div class="td w5">
+                <a href="addcomment.jsp?id=${o.commodityinfo.cid}" class="button-word2 btn_ajax_confirm">评价</a>
+              </div>
+              </c:if>
             </div>
           </c:forEach>
         </div>

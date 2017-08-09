@@ -17,9 +17,10 @@ import java.util.List;
  */
 public interface CommentDao {
     public List<CommentInfo> findByLevel(String lname);
-    public List<CommentInfo> findByCommodity(String cname);
+    public List<CommentInfo> findByCommodityname(String cname);
+    public List<CommentInfo> findByCommodityid();
     public List<CommentInfo> findAll();
-    public int delete();
-    public int insert();
+    public int delete(String id);
+    public int insert(CommentInfo commentInfo);
     public List<CommentInfo> findByUid(int uid);
 }
