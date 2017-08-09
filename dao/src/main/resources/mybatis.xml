@@ -3,7 +3,7 @@
 <configuration>
     <properties resource="db.properties"></properties>
     <typeAliases>
-        <typeAlias type="entity.Userinfo" alias="Userinfo"/>
+        <typeAlias type="entity.UserInfo" alias="UserInfo"/>
         <typeAlias type="entity.Resourcces" alias="Resourcces"/>
         <typeAlias type="entity.RoleInfo" alias="RoleInfo"/>
     </typeAliases>
