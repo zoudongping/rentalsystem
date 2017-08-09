@@ -42,6 +42,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("username", user1);
                 request.getSession().setAttribute("username", user1);
             }
+            request.getRequestDispatcher("usercentral.jsp").forward(request,response);
         }else{
             out.print("<center><h1>登录失败！账户或密码错误！</h1><br>" +
                     "<a href='login.html'>点此返回</a></center>");
