@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.UserInfoDao">
+
+    <!-- select 标签专门指定查询方法,其中 id属性代表方法名
+        parameterType 代表方法的参数数据类型
+        resultType:代表方法的返回的集合中的元素类型
+    -->
+    <select id="findAllUser" resultType="UserInfo">
+        select * from userinfo
+    </select>
+
+    <select id="findUserByUserId" parameterType="int" resultType="entity.UserInfo">
+        SELECT * FROM userinfo WHERE uid=#{uid}
+    </select>
+
+    <select id="findUserNameAndPwd" parameterType="Userinfo" resultType="entity.UserInfo">
+    select * from userinfo WHERE uname=#{uname} AND pwd=#{pwd}
+</select>
+
+    <select id="findUserTelAndPwd" parameterType="Userinfo" resultType="entity.UserInfo">
+        select * from userinfo WHERE tel=#{tel} AND pwd=#{pwd}
+    </select>
+
+    <insert id="addUser" parameterType="Userinfo">
+        insert into userinfo values(NULL ,#{uname},#{pwd},#{nickname},#{account},#{email}
+        ,#{tel},0,2,#{sex})
+    </insert>
+
+    <update id="updateUser" parameterType="Userinfo">
+        update userinfo set uname=#{uname},nickname=#{nickname},pwd=#{pwd} where uid=#{uid}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from userinfo where uid=#{uid}
+    </delete>
+</mapper>
