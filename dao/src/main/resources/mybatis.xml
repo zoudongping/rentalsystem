@@ -3,9 +3,8 @@
 <configuration>
     <properties resource="db.properties"></properties>
     <typeAliases>
-        <typeAlias type="entity.Userinfo" alias="Userinfo"/>
-        <typeAlias type="entity.Resourcces" alias="Resourcces"/>
-        <typeAlias type="entity.RoleInfo" alias="RoleInfo"/>
+        <typeAlias type="entity.CommentInfo" alias="CommentInfo"/>
+        <typeAlias type="entity.UserInfo" alias="UserInfo"/>
     </typeAliases>
     <environments default="one">
 
@@ -24,8 +23,8 @@
     </environments>
     <!-- 指定增删改查所需要 映射文件 -->
     <mappers>
-        <mapper resource="dao/UserinfoDaoMapper.xml"/>
-        <mapper resource="dao/ResourccesDaoMapper.xml"/>
-        <mapper resource="dao/RoleInfoDaoMapper.xml"/>
+        <mapper resource="dao/CommentDaoMapper.xml"/>
+        <mapper resource="dao/UserInfoDaoMapper.xml"/>
+        <mapper resource="dao/OrderinfoDaoMapper.xml"/>
     </mappers>
 </configuration>

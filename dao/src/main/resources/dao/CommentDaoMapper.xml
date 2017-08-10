@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.CommentDao">
+    <resultMap id="commentinfoMap" type="CommentInfo">
+        <id property="cid" column="cid"/>
+        <result property="content" column="content"/>
+        <association property="commodityinfo" javaType="entity.CommodityInfo">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"/>
+        </association>
+        <association property="userinfo" javaType="entity.UserInfo">
+            <result column="uname" property="uname"/>
+        </association>
+        <association property="levelinfo" javaType="entity.LevelInfo">
+            <result column="lname" property="lname"/>
+        </association>
+    </resultMap>
+
+    <select id="findByCommodityname" parameterType="String" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+                                    where co.cname like #{cname}
+    </select>
+    <select id="findByLevel" parameterType="String" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+                                    where l.lname like #{lname}
+    </select>
+    <select id="findByCommodityid" parameterType="String" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+                                    where co.cid=#{cid}
+    </select>
+    <select id="findByUid" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+                                    where c.uid=#{uid}
+    </select>
+    <select id="findAll" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+    </select>
+    <delete id="delete" parameterType="String">
+        delete from commentinfo where cid=#{cid}
+    </delete>
+    <insert id="insert" parameterType="CommentInfo">
+        insert into commentinfo VALUES(null,#{commodityid},#{uid},#{content},#{level})
+    </insert>
+</mapper>

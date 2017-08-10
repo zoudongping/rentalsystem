@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OrderinfoDao">
+    <resultMap id="orderinfoMap" type="entity.Orderinfo" >
+        <id property="oid" column="oid"/>
+        <result property="uid" column="uid"/>
+        <result property="otime" column="otime"/>
+        <result property="rentalamount" column="rentalamount"/>
+        <result property="ordertotal" column="ordertotal"/>
+        <result property="deposit" column="deposit"/>
+
+        <association property="commodityinfo" javaType="entity.CommodityInfo">
+            <id column="cid" property="cid"></id>
+            <result column="cname" property="cname"/>
+        </association>
+
+        <association property="orderstatusinfo" javaType="entity.Orderstatusinfo">
+            <id column="sid" property="sid"/>
+            <result column="sname" property="sname"/>
+        </association>
+
+        <association property="paymenttype" javaType="entity.Paymenttype">
+            <result column="pname" property="pname"/>
+        </association>
+
+        <association property="rentaltypeinfo" javaType="entity.Rentaltypeinfo">
+            <result column="tname" property="tname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultType="entity.Orderinfo">
+        select * from orderinfo
+    </select>
+
+    <select id="findByOid" resultType="entity.Orderinfo">
+        select * from orderinfo WHERE oid=#{oid}
+    </select>
+
+    <select id="findByUserId" parameterType="java.lang.Integer" resultMap="orderinfoMap">
+        SELECT *
+        FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
+        LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid  WHERE a.uid=#{uid}
+    </select>
+
+    <insert id="insertOrderinfo" parameterType="entity.Orderinfo">
+        INSERT INTO orderinfo VALUES(#{oid},#{otime},#{ostatus},#{uid},#{rentalamount},#{rentaltype},#{ordertotal},#{deposit},#{payment},#{contractid},#{commodityid})
+    </insert>
+
+    <delete id="deleteOrderinfo" parameterType="int">
+        DELETE FROM orderinfo WHERE rid=#{oid}
+    </delete>
+
+    <update id="updateOrderinfo" parameterType="entity.Orderinfo">
+        UPDATE orderinfo SET rentalamount=#{rentalamount} WHERE oid=#{oid}
+    </update>
+
+</mapper>
