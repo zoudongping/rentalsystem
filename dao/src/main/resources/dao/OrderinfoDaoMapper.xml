@@ -32,8 +32,10 @@
         select * from orderinfo
     </select>
 
-    <select id="findByOid" resultType="entity.Orderinfo">
-        select * from orderinfo WHERE oid=#{oid}
+    <select id="findByOid" parameterType="java.lang.Integer" resultMap="orderinfoMap">
+        SELECT *
+        FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
+        LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid  WHERE a.oid=#{oid}
     </select>
 
     <select id="findByUserId" parameterType="java.lang.Integer" resultMap="orderinfoMap">
@@ -43,15 +45,19 @@
     </select>
 
     <insert id="insertOrderinfo" parameterType="entity.Orderinfo">
-        INSERT INTO orderinfo VALUES(#{oid},#{otime},#{ostatus},#{uid},#{rentalamount},#{rentaltype},#{ordertotal},#{deposit},#{payment},#{contractid},#{commodityid})
+        INSERT INTO orderinfo VALUES(null,sysdate(),1,#{uid},#{rentalamount},#{rentaltype},#{ordertotal},#{deposit},null,#{contractid},#{commodityid})
     </insert>
 
-    <delete id="deleteOrderinfo" parameterType="int">
-        DELETE FROM orderinfo WHERE rid=#{oid}
+    <delete id="deleteOrderinfo" parameterType="String">
+        DELETE FROM orderinfo WHERE oid=#{oid}
     </delete>
 
-    <update id="updateOrderinfo" parameterType="entity.Orderinfo">
-        UPDATE orderinfo SET rentalamount=#{rentalamount} WHERE oid=#{oid}
+    <update id="updateOrderinfo" parameterType="String">
+        UPDATE orderinfo SET ostatus=2 WHERE oid=#{oid}
+    </update>
+
+    <update id="updatepayment" parameterType="entity.Orderinfo">
+        UPDATE orderinfo SET payment=#{payment} WHERE oid=#{oid}
     </update>
 
 </mapper>

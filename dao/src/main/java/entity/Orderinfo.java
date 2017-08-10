@@ -6,13 +6,13 @@ package entity;
 public class Orderinfo {
     private int oid;
     private String otime;
-    private String ostatus;
+    private int ostatus;
     private int uid;
     private int rentalamount;
-    private String rentaltype;
+    private int rentaltype;
     private double ordertotal;
     private double deposit;
-    private String payment;
+    private int payment;
     private int contractid;
     private int commodityid;
     private CommodityInfo commodityinfo;
@@ -57,11 +57,11 @@ public class Orderinfo {
         this.otime = otime;
     }
 
-    public String getOstatus() {
+    public int getOstatus() {
         return ostatus;
     }
 
-    public void setOstatus(String ostatus) {
+    public void setOstatus(int ostatus) {
         this.ostatus = ostatus;
     }
 
@@ -81,11 +81,11 @@ public class Orderinfo {
         this.rentalamount = rentalamount;
     }
 
-    public String getRentaltype() {
+    public int getRentaltype() {
         return rentaltype;
     }
 
-    public void setRentaltype(String rentaltype) {
+    public void setRentaltype(int rentaltype) {
         this.rentaltype = rentaltype;
     }
 
@@ -105,11 +105,11 @@ public class Orderinfo {
         this.deposit = deposit;
     }
 
-    public String getPayment() {
+    public int getPayment() {
         return payment;
     }
 
-    public void setPayment(String payment) {
+    public void setPayment(int payment) {
         this.payment = payment;
     }
 

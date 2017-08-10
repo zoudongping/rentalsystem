@@ -142,7 +142,7 @@
               </div>
               <c:if test="${o.orderstatusinfo.sid==1}">
               <div class="td w5">
-                <a href="#" class="button-word2 btn_ajax_confirm">确认收货</a> |
+                <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">确认收货</a> |
               </div>
               </c:if>
               <c:if test="${o.orderstatusinfo.sid==2}">
