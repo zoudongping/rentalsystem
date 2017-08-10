@@ -32,6 +32,10 @@
         update userinfo set uname=#{uname},nickname=#{nickname},pwd=#{pwd} where uid=#{uid}
     </update>
 
+    <update id="updatePwd" parameterType="String">
+        update userinfo set pwd=#{pwd} where uname=#{uname}
+    </update>
+
     <delete id="deleteUser" parameterType="int">
         delete from userinfo where uid=#{uid}
     </delete>
