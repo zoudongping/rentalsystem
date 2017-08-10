@@ -59,7 +59,7 @@
               </a>
             </div>
             <div class="sidebar-title">
-              <a href="#">
+              <a href="findorder">
                 <span class="icon"><b class="fl icon-arrow-down"></b></span>
                 <span class="text-normal">我的订单</span>
               </a>
@@ -71,7 +71,7 @@
               </a>
             </div>
             <div class="sidebar-title">
-              <a href="usercentral.jsp">
+              <a href="findcomment">
                 <span class="icon"><b class="fl icon-arrow-down"></b></span>
                 <span class="text-normal">我的评论</span>
               </a>

@@ -17,19 +17,21 @@ import java.util.List;
 /**
  * Created by THINK on 2017/8/9.
  */
-@WebServlet(name = "FindAllServlet",urlPatterns = "/findall")
+@WebServlet(name = "FindCommentServlet",urlPatterns = "/findcomment")
 public class FindCommentServlet extends HttpServlet {
     CommentDao commentDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
         String by=request.getParameter("by");
-        String keyword=request.getParameter("keyword");
+        String keyword="%"+request.getParameter("keyword")+"%";
+
         List<CommentInfo> clist=new ArrayList<CommentInfo>();
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        if(userInfo!=null){
+        if(null!=userInfo){
             clist=commentDao.findByUid(userInfo.getUid());
             request.getSession().setAttribute("clist",clist);
+            request.getSession().setAttribute("user",userInfo);
             request.getRequestDispatcher("usercomment.jsp").forward(request,response);
         }
         if(by.equals("all")){
@@ -38,7 +40,7 @@ public class FindCommentServlet extends HttpServlet {
             request.getRequestDispatcher("showcomment.jsp").forward(request,response);
         }
         if(by.equals("commodity")){
-            clist=commentDao.findByCommodity(keyword);
+            clist=commentDao.findByCommodityname(keyword);
             request.getSession().setAttribute("clist",clist);
             request.getRequestDispatcher("showcomment.jsp").forward(request,response);
         }

@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>评论信息</title>
+  <title>用户中心</title>
   <link rel="stylesheet" type="text/css" href="Css/identify.css"/>
   <link rel="stylesheet" type="text/css" href="Css/layout.css"/>
   <link rel="stylesheet" type="text/css" href="Css/style.css"/>
@@ -14,7 +14,6 @@
   <script type="text/javascript" src="Js/select.js"></script>
   <script type="text/javascript" src="Js/haidao.validate.js"></script>
 </head>
-
 <body>
 <div class="view-topbar">
   <div class="topbar-console">
@@ -72,7 +71,7 @@
           </a>
         </div>
         <div class="sidebar-title">
-          <a href="findcomment">
+          <a href="usercentral.jsp">
             <span class="icon"><b class="fl icon-arrow-down"></b></span>
             <span class="text-normal">我的评论</span>
           </a>
@@ -101,7 +100,7 @@
 
     </div>
   </div>
-
+</div>
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
@@ -115,35 +114,42 @@
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
             <div class="th w20">
-              评论商品名
+              订单号
             </div>
             <div class="th w20">
-              评论等级
+              订单时间
             </div>
             <div class="th w20">
-              评论内容
+              订单金额
             </div>
             <div class="th w20">
-              评论人
+              付款方式
             </div>
           </div>
-          <c:forEach var="c" items="${clist}">
+          <c:forEach var="o" items="${olist}">
             <div class="tr clearfix border-bottom-none">
               <div class="td w10">
-                  ${c.commodityinfo.cname}
+                  ${o.oid}
               </div>
               <div class="td w30">
-                  ${c.levelinfo.lname}
+                  ${o.otime}
               </div>
               <div class="td w25">
-                  ${c.content}
+                  ${o.ordertotal}
               </div>
               <div class="td w10">
-                  ${c.userinfo.uname}
+                  ${o.paymenttype.pname}
               </div>
+              <c:if test="${o.orderstatusinfo.sid==1}">
               <div class="td w5">
-                <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
+                <a href="#" class="button-word2 btn_ajax_confirm">确认收货</a> |
               </div>
+              </c:if>
+              <c:if test="${o.orderstatusinfo.sid==2}">
+              <div class="td w5">
+                <a href="addcomment.jsp?id=${o.commodityinfo.cid}" class="button-word2 btn_ajax_confirm">评价</a>
+              </div>
+              </c:if>
             </div>
           </c:forEach>
         </div>
@@ -167,18 +173,16 @@
   </div>
 </div>
 </div>
-
-<script>
-  $(".sidebar-title").live('click', function () {
-    if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
-      $(this).next().slideDown(200);
-      $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
-    } else {
-      $(this).next().slideUp(200);
-      $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
-    }
-  });
-</script>
+  <script>
+    $(".sidebar-title").live('click', function () {
+      if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+        $(this).next().slideDown(200);
+        $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+      } else {
+        $(this).next().slideUp(200);
+        $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+      }
+    });
+  </script>
 </body>
-
 </html>

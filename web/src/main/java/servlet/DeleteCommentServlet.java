@@ -11,38 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by THINK on 2017/8/9.
  */
-@WebServlet(name = "AddCommentServlet",urlPatterns = "/addcommentservlet")
-public class AddCommentServlet extends HttpServlet {
+@WebServlet(name = "DeleteCommentServlet",urlPatterns = "/deleteComment")
+public class DeleteCommentServlet extends HttpServlet {
     CommentDao commentDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
         String id=request.getParameter("id");
-        String content=request.getParameter("content");
-        String level=request.getParameter("level");
+        commentDao.delete(id);
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        CommentInfo c=new CommentInfo();
-        //c.setCommodityid(Integer.valueOf(id));
-        c.setUid(userInfo.getUid());
-        c.setContent(content);
-        if(level.equals("优")) {
-            c.setLevel(1);
-        }
-        if(level.equals("良")) {
-            c.setLevel(2);
-        }
-        if(level.equals("差")) {
-            c.setLevel(3);
-        }
-        commentDao.insert(c);
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("user",userInfo);
-        response.sendRedirect("findorder");
+        response.sendRedirect("findcomment");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -36,11 +36,9 @@ public class LoginServlet extends HttpServlet {
         if(user !=null || user1 !=null){
             out.print("<center><h1>登录成功！</h1>");
             if(user !=null){
-                request.setAttribute("username", user);
-                request.getSession().setAttribute("username", user);
+                request.getSession().setAttribute("user", user);
             }else{
-                request.setAttribute("username", user1);
-                request.getSession().setAttribute("username", user1);
+                request.getSession().setAttribute("user", user1);
             }
             response.sendRedirect("index.jsp");
         }else{

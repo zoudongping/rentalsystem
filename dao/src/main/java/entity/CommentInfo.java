@@ -13,10 +13,13 @@ package entity;
  */
 public class CommentInfo {
     private int cid;
-    private  CommodityInfo commodityinfo;
+    private CommodityInfo commodityinfo;
     private UserInfo userinfo;
     private String content;
     private LevelInfo levelinfo;
+    private int commodityid;
+    private int uid;
+    private int level;
 
     @Override
     public String toString() {
@@ -26,8 +29,36 @@ public class CommentInfo {
                 ", userinfo=" + userinfo +
                 ", content='" + content + '\'' +
                 ", levelinfo=" + levelinfo +
+                ", commodityid=" + commodityid +
+                ", uid=" + uid +
+                ", level=" + level +
                 '}';
     }
+
+    public int getCommodityid() {
+        return commodityid;
+    }
+
+    public void setCommodityid(int commodityid) {
+        this.commodityid = commodityid;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
     public int getCid() {
         return cid;
     }

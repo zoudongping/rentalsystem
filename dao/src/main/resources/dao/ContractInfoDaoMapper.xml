@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.ContractInfoDao">
+
+    <!-- select 标签专门指定查询方法,其中 id属性代表方法名
+        parameterType 代表方法的参数数据类型
+        resultType:代表方法的返回的集合中的元素类型
+    -->
+    <select id="findAll" resultType="ContractInfo">
+        select  *  from contractinfo
+    </select>
+    <select id="findByBeginRentDate" resultType="ContractInfo"  parameterType="String">
+        select *  from contractinfo WHERE beginrentdate=#{beginrentdate}
+       </select>
+    <select id="findByOverRentDate" resultType="ContractInfo"  parameterType="String">
+        select *  from contractinfo WHERE overrentdate=#{overrentdate}
+    </select>
+    <select id="findBySecondParty" resultType="ContractInfo"  parameterType="String">
+        select *  from contractinfo WHERE secondparty=#{secondparty}
+    </select>
+    <select id="findByCid" resultType="ContractInfo"  parameterType="int">
+        select *  from contractinfo WHERE cid=#{cid}
+    </select>
+    <insert id="addContract" parameterType="ContractInfo">
+        INSERT INTO  contractinfo VALUES (NULL ,#{beginrentdate},#{overrentdate},#{content},#{firstparty},#{secondparty},#{penalty},#{cstatusid})
+    </insert>
+    <delete id="deleteContract" parameterType="int">
+        DELETE FROM contractinfo WHERE cid=#{cid}
+    </delete>
+    <update id="updateContract" parameterType="ContractInfo">
+        UPDATE contractinfo SET
+        beginrentdate=#{beginrentdate},
+        overrentdate=#{overrentdate},
+        content=#{content},
+        firstparty=#{firstparty},
+        secondparty=#{secondparty},
+        penalty=#{penalty},
+        cstatusid=#{cstatusid}
+        WHERE cid=#{cid}
+    </update>
+</mapper>

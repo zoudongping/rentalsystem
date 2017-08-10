@@ -17,17 +17,23 @@
         </association>
     </resultMap>
 
-    <select id="findByCommodity" parameterType="String" resultMap="commentinfoMap">
+    <select id="findByCommodityname" parameterType="String" resultMap="commentinfoMap">
         select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
                                     join userinfo u on c.uid=u.uid
                                     join levelinfo l on c.level=l.lid
-                                    where co.cname=#{cname}
+                                    where co.cname like #{cname}
     </select>
     <select id="findByLevel" parameterType="String" resultMap="commentinfoMap">
         select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
                                     join userinfo u on c.uid=u.uid
                                     join levelinfo l on c.level=l.lid
-                                    where l.lname=#{lname}
+                                    where l.lname like #{lname}
+    </select>
+    <select id="findByCommodityid" parameterType="String" resultMap="commentinfoMap">
+        select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
+                                    join userinfo u on c.uid=u.uid
+                                    join levelinfo l on c.level=l.lid
+                                    where co.cid=#{cid}
     </select>
     <select id="findByUid" resultMap="commentinfoMap">
         select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
@@ -40,7 +46,7 @@
                                     join userinfo u on c.uid=u.uid
                                     join levelinfo l on c.level=l.lid
     </select>
-    <delete id="delete" parameterType="java.lang.Integer">
+    <delete id="delete" parameterType="String">
         delete from commentinfo where cid=#{cid}
     </delete>
     <insert id="insert" parameterType="CommentInfo">
