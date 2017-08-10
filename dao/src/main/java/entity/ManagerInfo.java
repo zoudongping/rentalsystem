@@ -17,7 +17,6 @@ public class ManagerInfo {
     private int mid;
     private String pwd;
     private String mname;
-    private OperationInfo operationinfo;
 
     public int getMid() {
         return mid;
@@ -33,14 +32,6 @@ public class ManagerInfo {
 
     public void setGeneralledger(Generalledger generalledger) {
         this.generalledger = generalledger;
-    }
-
-    public OperationInfo getOperationinfo() {
-        return operationinfo;
-    }
-
-    public void setOperationinfo(OperationInfo operationinfo) {
-        this.operationinfo = operationinfo;
     }
 
     public String getMname() {
@@ -67,7 +58,6 @@ public class ManagerInfo {
                 "mid=" + mid +
                 ", pwd='" + pwd + '\'' +
                 ", mname='" + mname + '\'' +
-                ", operationinfo=" + operationinfo +
                 ", generalledger=" + generalledger +
                 '}';
     }
