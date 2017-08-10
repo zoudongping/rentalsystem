@@ -28,5 +28,7 @@ public interface UserInfoDao {
 
     public int updateUser(UserInfo userinfo);
 
+    public int updatePwd(UserInfo userinfo);
+
     public int deleteUser(String uid);
 }

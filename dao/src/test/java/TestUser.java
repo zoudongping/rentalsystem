@@ -35,5 +35,9 @@ public class TestUser {
         userInfo.setPwd("123");
         userInfo=dao.findUserNameAndPwd(userInfo);
         System.out.println(userInfo);
+        userInfo.setUname("8888888");
+        userInfo.setPwd("123");
+        userInfo=dao.findUserTelAndPwd(userInfo);
+        System.out.println(userInfo);
     }
 }

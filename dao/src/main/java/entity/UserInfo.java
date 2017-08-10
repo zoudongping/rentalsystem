@@ -21,20 +21,30 @@ public class UserInfo {
     private String tel;
     private double consumption;
     private String creditstatus;
+    private String sex;
 
     @Override
     public String toString() {
         return "UserInfo{" +
-                "account='" + account + '\'' +
-                ", uid=" + uid +
+                "uid=" + uid +
                 ", uname='" + uname + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", nickname='" + nickname + '\'' +
+                ", account='" + account + '\'' +
                 ", email='" + email + '\'' +
                 ", tel='" + tel + '\'' +
                 ", consumption=" + consumption +
                 ", creditstatus='" + creditstatus + '\'' +
+                ", sex='" + sex + '\'' +
                 '}';
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getAccount() {
