@@ -86,7 +86,7 @@
           </a>
         </li>
         <li>
-          <a href="toUpdatePwd">
+          <a href="updatePwd.html">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">修改密码</span>
           </a>
