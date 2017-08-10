@@ -43,64 +43,71 @@
 </div>
 <div class="view-body">
   <div class="view-sidebar">
-    <div class="sidebar-content">
-      <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-      <div class="sidebar-nav">
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">修改个人资料</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">收货地址</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的订单</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的合同</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="usercentral.jsp">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的评论</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">修改密码</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">绑定银行账户</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">查询账单</span>
-          </a>
+    <div class="view-sidebar">
+      <div class="sidebar-content">
+        <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+        <div class="sidebar-nav">
+          <div class="sidebar-title">
+            <a href="#">
+              <span class="icon"><b class="fl icon-arrow-down"></b></span>
+              <span class="text-normal">菜单</span>
+            </a>
+          </div>
+          <ul class="sidebar-trans">
+            <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">修改个人资料</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">收货地址</span>
+              </a>
+            </li>
+            <li>
+              <a href="findorder">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">我的订单</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">我的合同</span>
+              </a>
+            </li>
+            <li>
+              <a href="findcomment">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">我的评论</span>
+              </a>
+            </li>
+            <li>
+              <a href="updatePwd.html">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">修改密码</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">绑定银行账户</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">查询账单</span>
+              </a>
+            </li>
+
+          </ul>
+          <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
         </div>
       </div>
-
-      <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
-
-    </div>
-  </div>
-</div>
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
