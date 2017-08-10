@@ -25,6 +25,8 @@ public class CommodityInfo {
     private double singlecost;
     private String image;
 
+    private CollocationInfo collocationInfo;
+
     public CommodityInfo() {
     }
 
@@ -116,6 +118,14 @@ public class CommodityInfo {
         this.image = image;
     }
 
+    public CollocationInfo getCollocationInfo() {
+        return collocationInfo;
+    }
+
+    public void setCollocationInfo(CollocationInfo collocationInfo) {
+        this.collocationInfo = collocationInfo;
+    }
+
     @Override
     public String toString() {
         return "CommodityInfo{" +
@@ -130,6 +140,7 @@ public class CommodityInfo {
                 ", brand='" + brand + '\'' +
                 ", singlecost=" + singlecost +
                 ", image='" + image + '\'' +
+                ", collocationInfo=" + collocationInfo +
                 '}';
     }
 }
