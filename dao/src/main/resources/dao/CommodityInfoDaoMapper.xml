@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.CommodityInfoDao">
+    <insert id="add" parameterType="CommodityInfo">
+        INSERT INTO commodityinfo VALUES (#{cid},#{cname},#{dayprice},#{monthprice},#{yearprice},#{deposit},#{collocation},#{stock},#{brand},#{singlecost},#{image})
+    </insert>
+    <delete id="delete" parameterType="int">
+        DELETE FROM commodityinfo where cid=#{cid}
+    </delete>
+    <update id="update" parameterType="CommodityInfo">
+        UPDATE commodityinfo set
+        cname=#{cname},
+        dayprice=#{dayprice},
+        monthprice=#{monthprice},
+        yearprice=#{yearprice},
+        deposit=#{deposit},
+        collocation=#{collocation},
+        stock=#{stock},
+        brand=#{brand},
+        singlecost=#{singlecost},
+        image=#{image} WHERE cid=#{cid}
+    </update>
+    <select id="findAll" resultType="CommodityInfo">
+        SELECT * FROM CommodityInfo
+    </select>
+    <select id="findById" resultType="CommodityInfo" parameterType="int">
+        SELECT * FROM CommodityInfo WHERE cid=#{0}
+    </select>
+
+    <select id="findByCommodityId" parameterType="java.lang.Integer" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE A.cid=#{cid}
+    </select>
+    <resultMap id="CommodityMapper" type="CommodityInfo">
+        <id column="cid" property="cid"/>
+        <result column="cname"  property="cname"/>
+        <result column="dayprice"  property="dayprice"/>
+        <result column="monthprice"  property="monthprice"/>
+        <result column="yearprice"  property="yearprice"/>
+        <result column="deposit"  property="deposit"/>
+        <result column="collocation"  property="collocation"/>
+        <result column="stock"  property="stock"/>
+        <result column="brand"  property="brand"/>
+        <result column="singlecost"  property="singlecost"/>
+        <result column="image"  property="image"/>
+
+        <association property="collocationInfo" javaType="CollocationInfo">
+            <id column="cid" property="cid"/>
+            <result column="level"  property="level"/>
+            <result column="screensize"  property="screensize"/>
+            <result column="color"  property="color"/>
+            <result column="pixel"  property="pixel"/>
+            <result column="condition"  property="condition"/>
+            <result column="sensor"  property="sensor"/>
+            <result column="battery"  property="battery"/>
+        </association>
+    </resultMap>
+
+
+</mapper>

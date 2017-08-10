@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.CollocationInfoDao">
+    <insert id="add" parameterType="CollocationInfo">
+        INSERT INTO collocationinfo VALUES (#{cid},#{level},#{screensize},#{color},#{pixel},#{condition},#{sensor},#{battery})
+    </insert>
+    <delete id="delete" parameterType="int">
+        DELETE FROM collocationinfo WHERE cid=#{cid}
+    </delete>
+    <update id="update" parameterType="CollocationInfo">
+        UPDATE collocationinfo SET
+          `level`=#{level},
+          screensize=#{screensize},
+          color=#{color},
+          pixel=#{pixel},
+          `condition`=#{condition},
+          sensor=#{sensor},
+          battery=#{battery} WHERE cid=#{cid}
+    </update>
+    <select id="findAll" resultType="CollocationInfo">
+        SELECT * FROM collocationinfo
+    </select>
+    <select id="findById" resultType="CollocationInfo" parameterType="int">
+        SELECT * FROM collocationinfo WHERE cid=#{cid}
+    </select>
+</mapper>
