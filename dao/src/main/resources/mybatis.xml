@@ -3,6 +3,7 @@
 <configuration>
     <properties resource="db.properties"></properties>
     <typeAliases>
+        <typeAlias type="entity.CommentInfo" alias="CommentInfo"/>
         <typeAlias type="entity.UserInfo" alias="UserInfo"/>
     </typeAliases>
     <environments default="one">
@@ -22,6 +23,7 @@
     </environments>
     <!-- 指定增删改查所需要 映射文件 -->
     <mappers>
+        <mapper resource="dao/CommentDaoMapper.xml"/>
         <mapper resource="dao/UserInfoDaoMapper.xml"/>
     </mappers>
 </configuration>
