@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.TransInfoDao">
+    <resultMap id="transinfoMap" type="TransInfo">
+        <id property="tid" column="tid"/>
+        <result property="transmoney" column="transmoney"/>
+        <result property="remark" column="remark"/>
+        <result property="transdate" column="transdate"/>
+        <association property="userInfo" javaType="entity.UserInfo">
+            <id property="uid" column="uid"/>
+            <result property="uname" column="uname"/>
+        </association>
+        <association property="transTypeInfo" javaType="entity.TransTypeInfo">
+            <id property="tid" column="tid"/>
+            <result property="tname" column="tname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="transinfoMap">
+        SELECT * FROM transinfo t JOIN userinfo u ON t.uid=u.uid JOIN transtypeinfo tr ON t.transtype=tr.tid
+    </select>
+    <select id="findByUname" parameterType="String" resultMap="transinfoMap">
+        select * from transinfo t join userinfo u on t.uid=u.uid
+                                  join transtypeinfo tr on t.transtype=tr.tid
+                                  where u.uname=#{uname}
+    </select>
+    <select id="findByDate" parameterType="String" resultMap="transinfoMap">
+        select * from transinfo t join userinfo u on t.uid=u.uid
+                                  join transtypeinfo tr on t.transtype=tr.tid
+                                  where t.transdate  BETWEEN  #{transdate}  and sysdate()
+    </select>
+    <select id="findRemark" parameterType="String" resultType="String">
+         select remark from transinfo t join userinfo u on t.uid=u.uid
+                                  join transtypeinfo tr on t.transtype=tr.tid
+                                  where t.transdate  BETWEEN  #{transdate}  and sysdate()
+    </select>
+    <select id="findTransMoney" parameterType="String" resultType="double">
+        select transmoney from transinfo t join userinfo u on t.uid=u.uid
+        join transtypeinfo tr on t.transtype=tr.tid
+        where t.transdate  BETWEEN  #{transdate}  and sysdate()
+    </select>
+
+    <delete id="delete" parameterType="String">
+        delete from transinfo where t.tid=#{tid}
+    </delete>
+    <insert id="insert" parameterType="TransInfo">
+        insert into transinfo VALUES (null,#{transtype},#{transmoney},sysdate(),#{remark},#{uid})
+    </insert>
+</mapper>

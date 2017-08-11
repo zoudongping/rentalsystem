@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.GeneralLedgerDao">
+
+
+    <select id="findAll" resultType="Generalledger">
+        select * from generalledger order by bookkeepingtime desc
+    </select>
+    <select id="findByGid" resultType="Generalledger">
+        select * from generalledger where gid in (select max(gid) from generalledger)
+    </select>
+    <insert id="insert" parameterType="Generalledger">
+        insert into generalledger VALUES (null,#{type},#{content},#{currentamount},#{general},sysdate())
+    </insert>
+
+</mapper>
