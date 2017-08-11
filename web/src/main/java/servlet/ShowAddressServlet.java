@@ -26,7 +26,6 @@ public class ShowAddressServlet extends HttpServlet {
         request.setAttribute("addressList",address);
         request.getRequestDispatcher("showaddress.jsp").forward(request,response);
         SqlSessionHelper.closeSession();
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

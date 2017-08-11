@@ -22,11 +22,12 @@ public class DeleteAddressServlet extends HttpServlet {
         int num=dao.deleteAddress(id);
         if(num==1){
             response.sendRedirect("toShowAddress");
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
         }else{
             response.getWriter().append("Sorry!SYSTEM ERROR!/(ToT)/~~");
         }
     }
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);

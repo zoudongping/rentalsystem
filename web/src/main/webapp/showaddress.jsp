@@ -150,7 +150,7 @@
                 </div>
                 <div class="td w15">
                   <a href="#"  class="button-word2 btn_ajax_confirm">编辑</a>
-                  <a href="toDeleteAddress?id=${r.sid}"  class="button-word2 btn_ajax_confirm">删除</a>
+                  <a href="toDeleteAddress?id=${r.sid}" class="button-word2 btn_ajax_confirm">删除</a>
                 </div>
               </div>
             </c:forEach>
