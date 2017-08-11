@@ -6,7 +6,7 @@
         <id property="cid" column="cid"/>
         <result property="content" column="content"/>
         <association property="commodityinfo" javaType="entity.CommodityInfo">
-            <id column="cid" property="cid"></id>
+            <id column="cid" property="cid"/>
             <result column="cname" property="cname"/>
         </association>
         <association property="userinfo" javaType="entity.UserInfo">

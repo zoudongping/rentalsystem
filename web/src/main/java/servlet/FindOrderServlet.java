@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by THINK on 2017/8/9.
  */
-@WebServlet(name = "FindOrderServlet",urlPatterns = "/findorder")
+@WebServlet(name = "FindOrderServlet",value = "/findorder")
 public class FindOrderServlet extends HttpServlet {
     OrderinfoDao orderinfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
