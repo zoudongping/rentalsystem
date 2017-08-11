@@ -19,6 +19,27 @@ public class Generalledger {
     private String content;
     private double currentamount;
     private double general;
+    private String bookkeepingtime;
+
+    @Override
+    public String toString() {
+        return "Generalledger{" +
+                "bookkeepingtime='" + bookkeepingtime + '\'' +
+                ", gid=" + gid +
+                ", type='" + type + '\'' +
+                ", content='" + content + '\'' +
+                ", currentamount=" + currentamount +
+                ", general=" + general +
+                '}';
+    }
+
+    public String getBookkeepingtime() {
+        return bookkeepingtime;
+    }
+
+    public void setBookkeepingtime(String bookkeepingtime) {
+        this.bookkeepingtime = bookkeepingtime;
+    }
 
     public int getGid() {
         return gid;
@@ -60,14 +81,4 @@ public class Generalledger {
         this.general = general;
     }
 
-    @Override
-    public String toString() {
-        return "Generalledger{" +
-                "gid=" + gid +
-                ", type='" + type + '\'' +
-                ", content='" + content + '\'' +
-                ", currentamount=" + currentamount +
-                ", general=" + general +
-                '}';
-    }
 }
