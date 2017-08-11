@@ -5,7 +5,6 @@
     <typeAliases>
         <typeAlias type="entity.CommentInfo" alias="CommentInfo"/>
         <typeAlias type="entity.UserInfo" alias="UserInfo"/>
-        <typeAlias type="entity.AddressInfo" alias="AddressInfo"/>
     </typeAliases>
     <environments default="one">
 
@@ -27,6 +26,5 @@
         <mapper resource="dao/CommentDaoMapper.xml"/>
         <mapper resource="dao/UserInfoDaoMapper.xml"/>
         <mapper resource="dao/OrderinfoDaoMapper.xml"/>
-        <mapper resource="dao/AddressInfoDaoMapper.xml"/>
     </mappers>
 </configuration>
