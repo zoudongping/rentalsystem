@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.ManagerInfoDao">
+
+    <!-- select 标签专门指定查询方法,其中 id属性代表方法名
+        parameterType 代表方法的参数数据类型
+        resultType:代表方法的返回的集合中的元素类型
+    -->
+    <update id="updatePassword" parameterType="ManagerInfo">
+        update managerinfo set pwd=#{pwd} where mid=#{mid}
+    </update>
+    <select id="findByManagerId" parameterType="ManagerInfo">
+        SELECT *FROM managerinfo WHERE mid=#{mid}
+    </select>
+    <select id="findManagerNameAndPwd" parameterType="ManagerInfo">
+        SELECT *FROM managerinfo WHERE mname=#{mname} AND pwd=#{pwd}
+    </select>
+</mapper>
