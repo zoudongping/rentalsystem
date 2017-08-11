@@ -34,7 +34,7 @@
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -68,18 +68,7 @@
           </a>
         </li>
         <li>
-          <a href="FindAllCommodityServlet">
-            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">商品管理</span>
-          </a>
-        </li>        <li>
-        <a href="FindAllCommodityServlet">
-          <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-          <span class="text-normal">商品管理</span>
-        </a>
-      </li>
-        <li>
-          <a href="findorder">
+          <a href="findallorder">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">订单管理</span>
           </a>
@@ -91,13 +80,13 @@
           </a>
         </li>
         <li>
-          <a href="findcomment">
+          <a href="showcomment.jsp">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">商品评论</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="showtransinfo.jsp">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">交易记录</span>
           </a>
@@ -109,7 +98,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="findallgeneral">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">总账管理</span>
           </a>

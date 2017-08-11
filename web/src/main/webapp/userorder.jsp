@@ -80,7 +80,7 @@
               </a>
             </li>
             <li>
-              <a href="findcomment">
+              <a href="findusercomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">我的评论</span>
               </a>
@@ -112,7 +112,7 @@
   <div class="authority">
     <div class="authority-head">
       <div class="manage-head">
-        <h6 class="layout padding-left manage-head-con">评论信息
+        <h6 class="layout padding-left manage-head-con">订单信息
         </h6>
       </div>
     </div>
@@ -132,29 +132,32 @@
             <div class="th w20">
               付款方式
             </div>
+            <div class="th w20">
+              操作
+            </div>
           </div>
           <c:forEach var="o" items="${olist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w10">
+              <div class="td w20">
                   ${o.oid}
               </div>
-              <div class="td w30">
+              <div class="td w20">
                   ${o.otime}
               </div>
-              <div class="td w25">
+              <div class="td w20">
                   ${o.ordertotal}
               </div>
-              <div class="td w10">
+              <div class="td w20">
                   ${o.paymenttype.pname}
               </div>
               <c:if test="${o.orderstatusinfo.sid==1}">
-              <div class="td w5">
-                <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">确认收货</a> |
+              <div class="td w20">
+                <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">确认收货</a>
               </div>
               </c:if>
               <c:if test="${o.orderstatusinfo.sid==2}">
-              <div class="td w5">
-                <a href="addcomment.jsp?id=${o.commodityinfo.cid}" class="button-word2 btn_ajax_confirm">评价</a>
+              <div class="td w20">
+                <a href="updateorderstatus?id=${o.oid}"class="button-word2 btn_ajax_confirm">评价</a>
               </div>
               </c:if>
             </div>
