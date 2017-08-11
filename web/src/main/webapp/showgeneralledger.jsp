@@ -45,38 +45,76 @@
 </div>
 <div class="view-body">
   <div class="view-sidebar">
-    <div class="sidebar-content">
-      <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-      <c:forEach var="r" items="${reslist}">
-        <c:if test="${r.parentId==null}">
-          <div class="sidebar-nav">
-            <div class="sidebar-title">
-              <a href="#">
-                <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                <span class="text-normal">${r.rname}</span>
-              </a>
-            </div>
-            <ul class="sidebar-trans">
-              <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
-              <c:forEach var="sec_r" items="${reslist}">
-                <c:if test="${sec_r.parentId==r.rid}">
-                  <li>
-                    <a href="${sec_r.resurl}">
-                      <b class="sidebar-icon"><img src="Images/icon_author.png" width="16"
-                                                   height="16"/></b>
-                      <span class="text-normal">${sec_r.rname}</span>
-                    </a>
-                  </li>
-                </c:if>
-              </c:forEach>
-              <!--二级菜单循环从这里结束 ，动态循环显示二级菜单-->
-            </ul>
+    <div class="view-sidebar">
+      <div class="sidebar-content">
+        <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+        <div class="sidebar-nav">
+          <div class="sidebar-title">
+            <a href="#">
+              <span class="icon"><b class="fl icon-arrow-down"></b></span>
+              <span class="text-normal">菜单</span>
+            </a>
           </div>
-        </c:if>
-        <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
-      </c:forEach>
-    </div>
-  </div>
+          <ul class="sidebar-trans">
+            <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">用户管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="FindAllCommodityServlet">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="findorder">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">订单管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="FindAllCollocationServlet">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">合同管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="showcomment.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品评论</span>
+              </a>
+            </li>
+            <li>
+              <a href="showtransinfo.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">交易记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">操作记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallgeneral">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">总账管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="toUpdateManagerPwd.html">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">修改密码</span>
+              </a>
+            </li>
+          </ul>
+          <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
+
+        </div>
 
 
   <div class="view-product">
