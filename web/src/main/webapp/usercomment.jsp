@@ -43,15 +43,15 @@
   </div>
 </div>
 <div class="view-body">
-              <div class="view-sidebar">
-                <div class="view-sidebar">
-                  <div class="sidebar-content">
-                    <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-                    <div class="sidebar-nav">
-                      <div class="sidebar-title">
-                        <a href="#">
-                          <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                          <span class="text-normal">菜单</span>
+  <div class="view-sidebar">
+    <div class="view-sidebar">
+      <div class="sidebar-content">
+        <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+        <div class="sidebar-nav">
+          <div class="sidebar-title">
+            <a href="#">
+              <span class="icon"><b class="fl icon-arrow-down"></b></span>
+              <span class="text-normal">菜单</span>
             </a>
           </div>
           <ul class="sidebar-trans">
@@ -63,7 +63,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="toShowAddress">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">收货地址</span>
               </a>
@@ -81,7 +81,7 @@
               </a>
             </li>
             <li>
-              <a href="findusercomment">
+              <a href="findcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">我的评论</span>
               </a>
@@ -122,7 +122,7 @@
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
             <div class="th w20">
-              评论ID
+              评论商品名
             </div>
             <div class="th w20">
               评论等级
@@ -131,27 +131,24 @@
               评论内容
             </div>
             <div class="th w20">
-              评论商品
-            </div>
-            <div class="th w20">
-              操作
+              评论人
             </div>
           </div>
           <c:forEach var="c" items="${clist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w20">
-                  ${c.cid}
-              </div>
-              <div class="td w20">
-                  ${c.levelinfo.lname}
-              </div>
-              <div class="td w20">
-                  ${c.content}
-              </div>
-              <div class="td w20">
+              <div class="td w10">
                   ${c.commodityinfo.cname}
               </div>
-              <div class="td w20">
+              <div class="td w30">
+                  ${c.levelinfo.lname}
+              </div>
+              <div class="td w25">
+                  ${c.content}
+              </div>
+              <div class="td w10">
+                  ${c.userinfo.uname}
+              </div>
+              <div class="td w5">
                 <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
               </div>
             </div>
