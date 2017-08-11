@@ -28,11 +28,13 @@
         </association>
     </resultMap>
 
-    <select id="findAll" resultType="entity.Orderinfo">
-        select * from orderinfo
+    <select id="findAll" parameterType="java.lang.Integer" resultMap="orderinfoMap">
+        SELECT *
+        FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
+        LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid
     </select>
 
-    <select id="findByOid" parameterType="java.lang.Integer" resultMap="orderinfoMap">
+    <select id="findByOid" parameterType="String" resultMap="orderinfoMap">
         SELECT *
         FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
         LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid  WHERE a.oid=#{oid}
