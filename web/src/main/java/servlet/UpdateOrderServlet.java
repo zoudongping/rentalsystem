@@ -31,6 +31,7 @@ public class UpdateOrderServlet extends HttpServlet {
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("user",userInfo);
         request.getRequestDispatcher("findorder").forward(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
