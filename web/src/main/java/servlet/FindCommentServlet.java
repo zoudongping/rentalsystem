@@ -25,7 +25,6 @@ public class FindCommentServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String by=request.getParameter("by");
         String keyword="%"+request.getParameter("keyword")+"%";
-
         List<CommentInfo> clist=new ArrayList<CommentInfo>();
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         if(null!=userInfo){
