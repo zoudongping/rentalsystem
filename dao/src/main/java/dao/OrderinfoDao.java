@@ -13,6 +13,6 @@ public interface OrderinfoDao {
     public int updateOrderinfo(String oid);
     public int updatepayment(Orderinfo orderinfo);
     public List<Orderinfo> findAll();
-    public List<Orderinfo> findByOid(int oid);
+    public Orderinfo findByOid(String oid);
     public List<Orderinfo> findByUserId(int uid);
 }
