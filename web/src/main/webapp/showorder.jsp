@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>交易记录</title>
+  <title>管理员中心</title>
   <link rel="stylesheet" type="text/css" href="Css/identify.css"/>
   <link rel="stylesheet" type="text/css" href="Css/layout.css"/>
   <link rel="stylesheet" type="text/css" href="Css/style.css"/>
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
 <div class="view-topbar">
   <div class="topbar-console">
     <div class="tobar-head fl">
@@ -31,11 +32,11 @@
       <li class="fl topbar-info-item">
         <div class="dropdown">
           <a href="#" class="topbar-btn">
-            <span class="fl text-normal">${user.uname}</span>
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -115,113 +116,94 @@
 
         </div>
 
-<div class="view-product">
-  <div class="authority">
-    <div class="authority-head">
-      <div class="manage-head">
-        <h6 class="layout padding-left manage-head-con">交易记录
-        </h6>
-      </div>
-      <form action="findtransinfo" method="post">
-        <!-- Unnamed (Droplist) -->
 
-        <div class="tr-th clearfix">
-        <div id="u4" class="th w20">
-          <select id="by" name="by">
-            <option selected value="all">全部</option>
-            <option value="date">日期</option>
-            <option value="uname">用户名</option>
-          </select>
-        </div>
-
-        <!-- Unnamed (Text Field) -->
-
-        <div id="u5" class="th w20">
-          <input name="keyword" type="text" value=""/>
-        </div>
-
-        <!-- Unnamed (HTML Button) -->
-        <div id="u6" class="th w20">
-
-          <input id="u6_input" type="submit" value="搜索"/>
-
-        </div>
-
-        </div>
-      </form>
-    </div>
-    <div class="authority-content">
-      <div class="list-content show">
-        <div class="offcial-table tr-border margin-big-top clearfix">
-          <div class="tr-th clearfix">
-            <div class="th w20">
-              交易编号
-            </div>
-            <div class="th w20">
-              交易类型
-            </div>
-            <div class="th w20">
-              交易金额
-            </div>
-            <div class="th w20">
-              交易时间
-            </div>
-            <div class="th w20">
-              交易描述
-            </div>
-          </div>
-          <c:forEach var="t" items="${tlist}">
-            <div class="tr clearfix border-bottom-none">
-              <div class="td w20">
-                  ${t.tid}
-              </div>
-              <div class="td w20">
-                  ${t.transTypeInfo.tname}
-              </div>
-              <div class="td w20">
-                  ${t.transmoney}
-              </div>
-              <div class="td w20">
-                  ${t.transdate}
-              </div>
-              <div class="td w20">
-                  ${t.remark}
+        <div class="view-product">
+          <div class="authority">
+            <div class="authority-head">
+              <div class="manage-head">
+                <h6 class="layout padding-left manage-head-con">订单管理中心
+                </h6>
+                <form action="findbyoid">
+                <div class="margin-tb manage-detail-con clearfix">
+                  <div class="name border-bottom">
+                  <input type="text" placeholder="输入订单号" name="oid"/>
+                  </div>
+                  <button class="h5 margin-large-left custom fl" type="submit">查询</button>
+                </div>
+                </form>
               </div>
             </div>
-          </c:forEach>
-        </div>
-      </div>
-      <div class="show-page padding-big-right">
-        <div class="page">
-          <div class="page">
-            <ul class="offcial-page margin-top margin-big-right">
-              <li>共<em class="margin-small-left margin-small-right">1</em>条数据</li>
-              <li>每页显示<em class="margin-small-left margin-small-right">15</em>条</li>
-              <li><a class="next disable">上一页</a></li>
-              <li></li>
-              <li><a class="next disable">下一页</a></li>
-              <li><span class="fl">共<em class="margin-small-left margin-small-right">1</em>页</span>
-              </li>
-            </ul>
+            <div class="authority-content">
+              <div class="list-content show">
+                <div class="offcial-table tr-border margin-big-top clearfix">
+                  <div class="tr-th clearfix">
+                    <div class="th w20">
+                      订单号
+                    </div>
+                    <div class="th w20">
+                      订单时间
+                    </div>
+                    <div class="th w20">
+                      订单金额
+                    </div>
+                    <div class="th w20">
+                      付款方式
+                    </div>
+                    <div class="th w20">
+                      操作
+                    </div>
+                  </div>
+                  <c:forEach var="o" items="${olist}">
+                    <div class="tr clearfix border-bottom-none">
+                      <div class="td w20">
+                          ${o.oid}
+                      </div>
+                      <div class="td w20">
+                          ${o.otime}
+                      </div>
+                      <div class="td w20">
+                          ${o.ordertotal}
+                      </div>
+                      <div class="td w20">
+                          ${o.paymenttype.pname}
+                      </div>
+                        <div class="td w20">
+                          <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">编辑</a>
+                        </div>
+                    </div>
+                  </c:forEach>
+                </div>
+              </div>
+              <div class="show-page padding-big-right">
+                <div class="page">
+                  <div class="page">
+                    <ul class="offcial-page margin-top margin-big-right">
+                      <li>共<em class="margin-small-left margin-small-right">1</em>条数据</li>
+                      <li>每页显示<em class="margin-small-left margin-small-right">15</em>条</li>
+                      <li><a class="next disable">上一页</a></li>
+                      <li></li>
+                      <li><a class="next disable">下一页</a></li>
+                      <li><span class="fl">共<em class="margin-small-left margin-small-right">1</em>页</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-</div>
 
-<script>
-  $(".sidebar-title").live('click', function () {
-    if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
-      $(this).next().slideDown(200);
-      $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
-    } else {
-      $(this).next().slideUp(200);
-      $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
-    }
-  });
-</script>
+      <script>
+        $(".sidebar-title").live('click', function () {
+          if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+            $(this).next().slideDown(200);
+            $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+          } else {
+            $(this).next().slideUp(200);
+            $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+          }
+        });
+      </script>
 </body>
-
 </html>

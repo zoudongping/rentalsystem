@@ -1,8 +1,8 @@
 package servlet;
 
-import dao.OrderinfoDao;
+import dao.CommentDao;
 import dao.SqlSessionHelper;
-import entity.Orderinfo;
+import entity.CommentInfo;
 import entity.UserInfo;
 
 import javax.servlet.ServletException;
@@ -15,22 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by THINK on 2017/8/9.
+ * Created by THINK on 2017/8/11.
  */
-@WebServlet(name = "FindOrderServlet",value = "/findorder")
-public class FindOrderServlet extends HttpServlet {
-    OrderinfoDao orderinfoDao;
+@WebServlet(name = "FindUserCommentServlet",urlPatterns = "/findusercomment")
+public class FindUserCommentServlet extends HttpServlet {
+    CommentDao commentDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        orderinfoDao= SqlSessionHelper.getSqlSession().getMapper(OrderinfoDao.class);
+        commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
+        List<CommentInfo> clist=new ArrayList<CommentInfo>();
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        List<Orderinfo> olist=new ArrayList<Orderinfo>();
-        if(null!=userInfo){
-            olist=orderinfoDao.findByUserId(userInfo.getUid());
-            request.getSession().setAttribute("olist",olist);
-            request.getSession().setAttribute("user",userInfo);
-            request.getRequestDispatcher("userorder.jsp").forward(request,response);
-        }
+        clist=commentDao.findByUid(userInfo.getUid());
+        request.getSession().setAttribute("clist",clist);
+        request.getSession().setAttribute("user",userInfo);
+        request.getRequestDispatcher("usercomment.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

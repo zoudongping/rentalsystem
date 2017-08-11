@@ -54,8 +54,8 @@
         DELETE FROM orderinfo WHERE oid=#{oid}
     </delete>
 
-    <update id="updateOrderinfo" parameterType="String">
-        UPDATE orderinfo SET ostatus=2 WHERE oid=#{oid}
+    <update id="updateOrderinfo" parameterType="entity.Orderinfo">
+        UPDATE orderinfo SET ostatus=#{ostatus} WHERE oid=#{oid}
     </update>
 
     <update id="updatepayment" parameterType="entity.Orderinfo">
