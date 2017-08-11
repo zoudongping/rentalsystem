@@ -62,7 +62,7 @@
           </a>
         </li>
         <li>
-          <a href="toShowAddress">
+          <a href="#">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">收货地址</span>
           </a>
@@ -115,15 +115,50 @@
     <div class="authority">
       <div class="authority-head">
         <div class="manage-head">
-          <h6 class="layout padding-left manage-head-con">我的个人中心
+          <h6 class="layout padding-left manage-head-con">我的收货地址
           </h6>
         </div>
       </div>
       <div class="authority-content">
         <div class="list-content show">
-          <h1>就是这么牛逼</h1>
+          <div class="offcial-table tr-border margin-big-top clearfix">
+            <div class="tr-th clearfix">
+              <div class="th w20">
+                姓名
+              </div>
+              <div class="th w20">
+                地址
+              </div>
+              <div class="th w20">
+                电话
+              </div>
+              <div class="th w20">
+                操作
+              </div>
+            </div>
+
+            <c:forEach var="r" items="${addressList}">
+              <div class="tr clearfix border-bottom-none">
+                <div class="td w20">
+                    ${r.name}
+                </div>
+                <div class="td w20">
+                    ${r.address}
+                </div>
+                <div class="td w20">
+                    ${r.tel}
+                </div>
+                <div class="td w15">
+                  <a href="#"  class="button-word2 btn_ajax_confirm">编辑</a>
+                  <a href="toDeleteAddress?id=${r.sid}"  class="button-word2 btn_ajax_confirm">删除</a>
+                </div>
+              </div>
+            </c:forEach>
+          </div>
         </div>
-      </div>
+    </div>
+  </div>
+  </div>
     </div>
   </div>
 </div>
@@ -138,5 +173,7 @@
     }
   });
 </script>
+
+
 </body>
 </html>
