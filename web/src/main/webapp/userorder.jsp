@@ -62,7 +62,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="toShowAddress">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">收货地址</span>
               </a>

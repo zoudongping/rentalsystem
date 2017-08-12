@@ -24,19 +24,9 @@ public class FindAllOrderServlet extends HttpServlet {
         orderinfoDao= SqlSessionHelper.getSqlSession().getMapper(OrderinfoDao.class);
         request.setCharacterEncoding("UTF-8");
         List<Orderinfo> olist=new ArrayList<Orderinfo>();
-        String oid=request.getParameter("oid");
-        if(oid==null){
-            olist=orderinfoDao.findAll();
-            request.getSession().setAttribute("olist",olist);
-            request.getRequestDispatcher("managerorder.jsp").forward(request,response);
-        }
-        else {
-            Orderinfo o=orderinfoDao.findByOid(oid);
-            request.getSession().setAttribute("oid",oid);
-            request.getRequestDispatcher("managerorder.jsp").forward(request,response);
-
-        }
-
+        olist=orderinfoDao.findAll();
+        request.getSession().setAttribute("olist",olist);
+        request.getRequestDispatcher("showorder.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

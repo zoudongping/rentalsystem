@@ -18,28 +18,21 @@ public class ManagerInfo {
     private String pwd;
     private String mname;
 
+    @Override
+    public String toString() {
+        return "ManagerInfo{" +
+                "mid=" + mid +
+                ", pwd='" + pwd + '\'' +
+                ", mname='" + mname + '\'' +
+                '}';
+    }
+
     public int getMid() {
         return mid;
     }
 
     public void setMid(int mid) {
         this.mid = mid;
-    }
-
-    public Generalledger getGeneralledger() {
-        return generalledger;
-    }
-
-    public void setGeneralledger(Generalledger generalledger) {
-        this.generalledger = generalledger;
-    }
-
-    public String getMname() {
-        return mname;
-    }
-
-    public void setMname(String mname) {
-        this.mname = mname;
     }
 
     public String getPwd() {
@@ -50,15 +43,11 @@ public class ManagerInfo {
         this.pwd = pwd;
     }
 
-    private Generalledger generalledger;
+    public String getMname() {
+        return mname;
+    }
 
-    @Override
-    public String toString() {
-        return "ManagerInfo{" +
-                "mid=" + mid +
-                ", pwd='" + pwd + '\'' +
-                ", mname='" + mname + '\'' +
-                ", generalledger=" + generalledger +
-                '}';
+    public void setMname(String mname) {
+        this.mname = mname;
     }
 }
