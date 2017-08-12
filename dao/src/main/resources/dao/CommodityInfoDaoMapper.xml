@@ -20,16 +20,25 @@
         singlecost=#{singlecost},
         image=#{image} WHERE cid=#{cid}
     </update>
-    <select id="findAll" resultType="CommodityInfo">
-        SELECT * FROM CommodityInfo
+    <select id="findAll" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
     </select>
-    <select id="findById" resultType="CommodityInfo" parameterType="int">
-        SELECT * FROM CommodityInfo WHERE cid=#{0}
-    </select>
-
-    <select id="findByCommodityId" parameterType="java.lang.Integer" resultMap="CommodityMapper">
+    <select id="findById" resultMap="CommodityMapper" parameterType="int">
         SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE A.cid=#{cid}
     </select>
+
+    <select id="findByBrand" parameterType="java.lang.String" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE A.brand=#{brand}
+    </select>
+
+    <select id="findByLevel" parameterType="java.lang.String" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE B.level=#{level}
+    </select>
+
+    <select id="findByCondition" parameterType="java.lang.String" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE B.condition=#{condition}
+    </select>
+
     <resultMap id="CommodityMapper" type="CommodityInfo">
         <id column="cid" property="cid"/>
         <result column="cname"  property="cname"/>

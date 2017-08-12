@@ -26,7 +26,7 @@ public class DeleteOrderServlet extends HttpServlet {
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("user",userInfo);
-        response.sendRedirect("findcomment");
+        response.sendRedirect("findallorder");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

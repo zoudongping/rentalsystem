@@ -7,9 +7,15 @@
         SELECT * FROM shippingaddress where uid=#{uid}
     </select>
     <update id="updateAddress" parameterType="AddressInfo">
-        UPDATE shippingaddress name=#{name},address=#{address},tel=#{tel} where sid=#{sid}
+        UPDATE shippingaddress set  `name`=#{name},address=#{address},tel=#{tel} where sid=#{sid}
     </update>
+    <select id="findBySid" parameterType="String" resultType="AddressInfo">
+        select * from shippingaddress where sid=#{sid}
+    </select>
     <delete id="deleteAddress" parameterType="String">
         DELETE FROM shippingaddress where sid=#{sid}
     </delete>
+    <insert id="insert" parameterType="AddressInfo">
+        INSERT into shippingaddress VALUES (null,#{name},#{address},#{tel},#{uid})
+    </insert>
 </mapper>

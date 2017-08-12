@@ -23,9 +23,10 @@ public class ShowAddressServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         List<AddressInfo> address=dao.findAllByUid(userInfo.getUid());
+        SqlSessionHelper.closeSession();
         request.setAttribute("addressList",address);
         request.getRequestDispatcher("showaddress.jsp").forward(request,response);
-        SqlSessionHelper.closeSession();
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

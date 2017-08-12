@@ -17,6 +17,8 @@ import java.util.List;
  */
 public interface AddressInfoDao {
     public List<AddressInfo> findAllByUid(int uid);
+    public AddressInfo findBySid(String sid);
     public int updateAddress(AddressInfo addressInfo);
     public int deleteAddress(String sid);
+    public int insert(AddressInfo addressInfo);
 }

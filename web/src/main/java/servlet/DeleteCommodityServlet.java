@@ -22,8 +22,14 @@ public class DeleteCommodityServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
-        commodityInfoDao.delete(5);
+        int num =commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
         sqlSession.commit();
+        if(num!=0){
+            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+        }else {
+            request.getRequestDispatcher("Error.jsp").forward(request,response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

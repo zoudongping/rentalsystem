@@ -6,6 +6,13 @@
         <typeAlias type="entity.CommentInfo" alias="CommentInfo"/>
         <typeAlias type="entity.UserInfo" alias="UserInfo"/>
         <typeAlias type="entity.AddressInfo" alias="AddressInfo"/>
+        <typeAlias type="entity.TransInfo" alias="TransInfo"/>
+        <typeAlias type="entity.Generalledger" alias="Generalledger"/>
+        <typeAlias type="entity.CommodityInfo" alias="CommodityInfo"/>
+        <typeAlias type="entity.CollocationInfo" alias="CollocationInfo"/>
+        <typeAlias type="entity.ContractInfo" alias="ContractInfo"/>
+        <typeAlias type="entity.ManagerInfo" alias="ManagerInfo"/>
+        <typeAlias type="entity.ContractInfo" alias="ContractInfo"/>
     </typeAliases>
     <environments default="one">
 
@@ -28,5 +35,12 @@
         <mapper resource="dao/UserInfoDaoMapper.xml"/>
         <mapper resource="dao/OrderinfoDaoMapper.xml"/>
         <mapper resource="dao/AddressInfoDaoMapper.xml"/>
+        <mapper resource="dao/TransDaoMapper.xml"/>
+        <mapper resource="dao/GeneralLedgerDaoMapper.xml"/>
+        <mapper resource="dao/CommodityInfoDaoMapper.xml"/>
+        <mapper resource="dao/CollocationInfoDaoMapper.xml"/>
+        <mapper resource="dao/ManagerInfoDaoMapper.xml"/>
+        <mapper resource="dao/ContractInfoDaoMapper.xml"/>
+        <mapper resource="dao/ContractInfoDaoMapper.xml"/>
     </mappers>
 </configuration>
