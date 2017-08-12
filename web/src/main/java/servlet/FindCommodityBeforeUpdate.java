@@ -30,6 +30,7 @@ public class FindCommodityBeforeUpdate extends HttpServlet {
             request.getRequestDispatcher("updatecommodity.jsp").forward(request,response);
         }else {
             request.getRequestDispatcher("Error.jsp").forward(request,response);
+
         }
 
     }
