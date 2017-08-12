@@ -3,6 +3,7 @@ package servlet;
 import dao.CommodityInfoDao;
 import dao.SqlSessionHelper;
 import entity.CommodityInfo;
+import entity.UserInfo;
 import org.apache.ibatis.jdbc.Null;
 import org.apache.ibatis.session.SqlSession;
 
@@ -25,20 +26,21 @@ public class FindCommodityServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
-        String id=request.getParameter("id");
         String cid=request.getParameter("cid");
         String classification=request.getParameter("classification");
+        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         List<CommodityInfo> list=new ArrayList<CommodityInfo>();
-        if(id!=null){
-            CommodityInfo commodityInfo=commodityInfoDao.findById(Integer.valueOf(id));
-            request.getSession().setAttribute("commodityInfo",commodityInfo);
+
+        if(cid!=null){
+            CommodityInfo commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
+            request.getSession().setAttribute("c",commodityInfo);
             request.getRequestDispatcher("detailInfo.jsp").forward(request,response);
         }
 
 //        if(classification.equals("all")){
             list=commodityInfoDao.findAll();
             request.getSession().setAttribute("list",list);
-            request.getRequestDispatcher("commodityList.jsp").forward(request,response);
+            request.getRequestDispatcher("home.jsp").forward(request,response);
 //        } else if(classification.equals("brand")){
 //            list=commodityInfoDao.findByBrand("brand");
 //            request.getSession().setAttribute("list",list);

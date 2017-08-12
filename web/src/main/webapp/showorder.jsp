@@ -70,7 +70,7 @@
               </a>
             </li>
             <li>
-              <a href="findorder">
+              <a href="findallorder">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">订单管理</span>
               </a>
@@ -137,39 +137,60 @@
               <div class="list-content show">
                 <div class="offcial-table tr-border margin-big-top clearfix">
                   <div class="tr-th clearfix">
-                    <div class="th w20">
+                    <div class="th w10">
                       订单号
                     </div>
                     <div class="th w20">
                       订单时间
                     </div>
                     <div class="th w20">
+                      商品名
+                    </div>
+                    <div class="th w10">
+                      租赁类型
+                    </div>
+                    <div class="th w10">
                       订单金额
                     </div>
-                    <div class="th w20">
+                    <div class="th w10">
                       付款方式
                     </div>
-                    <div class="th w20">
+                    <div class="th w10">
+                      订单状态
+                    </div>
+                    <div class="th w10">
                       操作
                     </div>
                   </div>
                   <c:forEach var="o" items="${olist}">
                     <div class="tr clearfix border-bottom-none">
-                      <div class="td w20">
+                      <div class="td w10">
                           ${o.oid}
                       </div>
                       <div class="td w20">
                           ${o.otime}
                       </div>
                       <div class="td w20">
+                          ${o.commodityinfo.cname}
+                      </div>
+                      <div class="td w10">
+                          ${o.rentaltypeinfo.tname}
+                      </div>
+                      <div class="td w10">
                           ${o.ordertotal}
                       </div>
-                      <div class="td w20">
+                      <div class="td w10">
                           ${o.paymenttype.pname}
                       </div>
-                        <div class="td w20">
-                          <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">编辑</a>
-                        </div>
+                      <div class="td w10">
+                          ${o.orderstatusinfo.sname}
+                      </div>
+                      <div class="td w5">
+                        <a href="#" class="button-word2 btn_ajax_confirm">编辑</a>
+                      </div>
+                      <div class="td w5">
+                        <a href="deleteOrder?id=${o.oid}"class="button-word2 btn_ajax_confirm">删除</a>
+                      </div>
                     </div>
                   </c:forEach>
                 </div>

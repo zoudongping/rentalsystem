@@ -3,8 +3,6 @@ package servlet;
 import dao.CommodityInfoDao;
 import dao.SqlSessionHelper;
 import entity.CommodityInfo;
-import entity.UserInfo;
-import org.apache.ibatis.jdbc.Null;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
@@ -13,27 +11,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by Dave on 2017/8/9.
+ * Created by Dave on 2017/8/11.
  */
-@WebServlet(name = "FindByCommodityIdServlet",value = "/FindByCommodityIdServlet")
-public class FindByCommodityIdServlet extends HttpServlet {
+@WebServlet(name = "FindCommodityBeforeUpdate",value = "/FindCommodityBeforeUpdate")
+public class FindCommodityBeforeUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
+        CommodityInfo commodityInfo=new CommodityInfo();
         String cid=request.getParameter("cid");
-//        String classification=request.getParameter("classification");
-        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        List<CommodityInfo> list=new ArrayList<CommodityInfo>();
         if(cid!=null){
-            CommodityInfo commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
-            request.getSession().setAttribute("c",commodityInfo);
-            request.getRequestDispatcher("detailInfo.jsp").forward(request,response);
+            commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
+            request.setAttribute("c",commodityInfo);
+            request.getRequestDispatcher("updatecommodity.jsp").forward(request,response);
+        }else {
+            request.getRequestDispatcher("Error.jsp").forward(request,response);
 
         }
 
