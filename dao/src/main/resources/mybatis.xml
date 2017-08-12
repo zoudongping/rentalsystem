@@ -40,5 +40,6 @@
         <mapper resource="dao/CollocationInfoDaoMapper.xml"/>
         <mapper resource="dao/ManagerInfoDaoMapper.xml"/>
         <mapper resource="dao/ContractInfoDaoMapper.xml"/>
+
     </mappers>
 </configuration>
