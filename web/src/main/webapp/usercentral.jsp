@@ -56,7 +56,7 @@
       <ul class="sidebar-trans">
         <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
         <li>
-          <a href="#">
+          <a href="updateownuser.html">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">修改个人资料</span>
           </a>
