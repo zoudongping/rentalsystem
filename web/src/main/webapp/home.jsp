@@ -143,40 +143,43 @@
           <div class="offcial-table tr-border margin-big-top clearfix">
             <div class="tr-th clearfix">
               <div class="th w20">
-                管理员
+                相机名称
               </div>
               <div class="th w20">
-                所属于角色
+                分类
               </div>
               <div class="th w20">
-                状态
+                库存
               </div>
               <div class="th w20">
-                创建时间
+                押金
               </div>
               <div class="th w20">
                 操作
               </div>
             </div>
-            <div class="tr clearfix border-bottom-none">
-              <div class="td w20">
-                吴文杰
+            <c:forEach var="c" items="${list}" varStatus="rs">
+              <div class="tr clearfix border-bottom-none">
+                <div class="td w20">
+                  <span class="text-normal"> ${c.cname}</span>
+                </div>
+                <div class="td w20">
+                  <span class="text-normal"> ${c.collocationInfo.level}</span>
+                </div>
+                <div class="td w20">
+                  <span class="text-normal">  ${c.stock}</span>
+                </div>
+                <div class="td w20">
+                  <span class="text-normal"> ${c.deposit}</span>
+                </div>
+                <div class="td w20">
+                  <a href="FindByCommodityIdServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
+                </div>
               </div>
-              <div class="td w20">
-                管理员
-              </div>
-              <div class="td w20">
-                水电费
-              </div>
-              <div class="td w20">
-                2016-01-10 11:54:07
-              </div>
-              <div class="td w20">
-                <a href="#"  class="button-word2 btn_ajax_confirm">删除</a>
-              </div>
-            </div>
+            </c:forEach>
           </div>
         </div>
+
         <div class="show-page padding-big-right">
           <div class="page">
             <div class="page">

@@ -122,8 +122,9 @@
                                     <span class="text-normal"> ${c.deposit}</span>
                                 </div>
                             <div class="td w20">
-                                <a href="detailInfo.jsp?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
-                                <a href="FindCommodityByforeUpdate?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">编辑</a>
+                                <a href="FindCommodityServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
+                                <a href="addcommodity.jsp"  class="button-word2 btn_ajax_confirm">增加</a>
+                                <a href="FindCommodityBeforeUpdate?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">编辑</a>
                                 <a href="DeleteCommodityServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">删除</a>
                             </div>
                         </div>

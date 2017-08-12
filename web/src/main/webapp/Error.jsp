@@ -93,7 +93,7 @@
           <div class="offcial-table tr-border margin-big-top clearfix">
 
             <div class="unit-style padding-big-lr clearfix">
-              <h4 class="real-name-head margin-large-top">操作失败！<a href='javascript:window.parent.location.reload()'  class="button-word2 btn_ajax_confirm">点击此处返回</a></h4>
+              <h4 class="real-name-head margin-large-top">操作失败！<a href='login.html'  class="button-word2 btn_ajax_confirm">点击此处返回</a></h4>
             </div>
           </div>
         </div>
