@@ -1,8 +1,8 @@
 package servlet;
 
-import dao.ContractInfoDao;
 import dao.SqlSessionHelper;
-import entity.ContractInfo;
+import dao.UserInfoDao;
+import entity.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,17 +13,17 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by THINK on 2017/8/9.
+ * Created by Administrator on 2017/8/12.
  */
-@WebServlet(name = "GetContractInfoServlet",urlPatterns="/getcontractinfo")
-public class GetContractInfoServlet extends HttpServlet {
-    ContractInfoDao contractInfoDao;
+@WebServlet(name = "ShowUserServlet",value ="/toShowUser")
+public class ShowUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        contractInfoDao= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
-        List<ContractInfo> all=contractInfoDao.findAll();
+        UserInfoDao dao=SqlSessionHelper.getSqlSession().getMapper(UserInfoDao.class);
+        request.setCharacterEncoding("UTF-8");
+        List<UserInfo> userInfoList=dao.findAllUser();
+        request.setAttribute("userInfoList",userInfoList);
+        request.getRequestDispatcher("showuser.jsp").forward(request,response);
         SqlSessionHelper.closeSession();
-        request.setAttribute("all",all);
-        request.getRequestDispatcher("contractinfo.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

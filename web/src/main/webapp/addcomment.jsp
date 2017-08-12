@@ -24,7 +24,7 @@
 					<a href="#" class="topbar-logo fl">
 					<span><img src="Images/logo.png" width="20" height="20"/></span>
 					</a>
-					<a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>主页</span></a>
+					<a href="home.jsp" class="topbar-home-link topbar-btn text-center fl"><span>首页</span></a>
 				</div>
 			</div>
 			<div class="topbar-info">
@@ -52,11 +52,71 @@
 		</div>
 		<div class="view-body">
 			<div class="view-sidebar">
-				<div class="sidebar-content">
+				<div class="view-sidebar">
+					<div class="sidebar-content">
+						<!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+						<div class="sidebar-nav">
+							<div class="sidebar-title">
+								<a href="#">
+									<span class="icon"><b class="fl icon-arrow-down"></b></span>
+									<span class="text-normal">菜单</span>
+								</a>
+							</div>
+							<ul class="sidebar-trans">
+								<!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+								<li>
+									<a href="updateownuser.jsp">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">修改个人资料</span>
+									</a>
+								</li>
+								<li>
+									<a href="toShowAddress">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">收货地址</span>
+									</a>
+								</li>
+								<li>
+									<a href="findorder">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">我的订单</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">我的合同</span>
+									</a>
+								</li>
+								<li>
+									<a href="findusercomment">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">我的评论</span>
+									</a>
+								</li>
+								<li>
+									<a href="updatePwd.html">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">修改密码</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">绑定银行账户</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+										<span class="text-normal">查询账单</span>
+									</a>
+								</li>
 
+							</ul>
+							<!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
-				</div>
-			</div>
+						</div>
 			<div class="view-product">
 				<div class="company_identify">
 					<div class="manage-head">
@@ -81,7 +141,11 @@
 										评论等级
 									</p>
 									<div class="content-right-zoon">
-										<input class="width-main input" type="text" name="level">
+										<select name="level">
+											<option>优</option>
+											<option>良</option>
+											<option>差</option>
+										</select>
 									</div>
 								</div>
 								<p>&nbsp;</p>
@@ -98,6 +162,16 @@
 		</div>
 
 		<script>
+			console.log(window.location.href);
+			var url = window.location.search;
+			var ary = url.split("&");
+			var obj = {};
+			for(
+					var i = 0 ; i < ary.length; i++){obj[ary[i].split("=")[0]] =  ary[i].split("=")[1]
+			}
+			$(".fi").click(function(){
+				$.get("/AddCommentServlet.java",obj);
+			});
 			$(".sidebar-title").live('click', function() {
 				if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
 					$(this).next().slideDown(200);

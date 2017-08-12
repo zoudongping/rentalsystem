@@ -203,6 +203,7 @@ p,.p{line-height:25px;}
 .margin-large-right{margin-right:30px;}
 .margin-large-bottom{margin-bottom:30px;}
 .margin-large-left{margin-left:30px;}
+.margin-center{margin:auto}
 
 .margin-big{margin:20px;}
 .margin-big-top{margin-top:20px;}
@@ -245,6 +246,7 @@ ol{padding-left: 24px;}
 .layout{width: 100%;}
 .container{margin: 0 auto;width: 1200px;}
 /*宽度比例*/
+.w9 { width: 9%; }
 .w10 { width: 10%; }
 .w20 { width: 20%; }
 .w30 { width: 30%; }
@@ -298,6 +300,7 @@ ol{padding-left: 24px;}
 .text-green{color:green;}
 /*行高*/
 .text-lh-little{line-height: 16px;}
+.text-lh-tolittle{line-height: 10px;}
 .text-lh-small{line-height: 18px;}
 .text-lh{line-height: 22px;}
 .text-lh-big{line-height: 24px;}

@@ -9,9 +9,10 @@ import java.util.List;
  */
 public interface OrderinfoDao {
     public int insertOrderinfo(Orderinfo orderinfo);
-    public int deleteOrderinfo(int oid);
-    public int updateRoleInfo(Orderinfo orderinfo);
+    public int deleteOrderinfo(String oid);
+    public int updateOrderinfo(Orderinfo orderinfo);
+    public int updatepayment(Orderinfo orderinfo);
     public List<Orderinfo> findAll();
-    public List<Orderinfo> findByOid(int oid);
+    public List<Orderinfo> findByOid(String oid);
     public List<Orderinfo> findByUserId(int uid);
 }

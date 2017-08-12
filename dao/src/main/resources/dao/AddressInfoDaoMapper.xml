@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper 标签 用于指定配置文件所属的接口名，通过 namespace来指定 -->
+<mapper namespace="dao.AddressInfoDao">
+
+    <select id="findAllByUid" parameterType="int" resultType="AddressInfo">
+        SELECT * FROM shippingaddress where uid=#{uid}
+    </select>
+    <update id="updateAddress" parameterType="AddressInfo">
+        UPDATE shippingaddress set  `name`=#{name},address=#{address},tel=#{tel} where sid=#{sid}
+    </update>
+    <select id="findBySid" parameterType="String" resultType="AddressInfo">
+        select * from shippingaddress where sid=#{sid}
+    </select>
+    <delete id="deleteAddress" parameterType="String">
+        DELETE FROM shippingaddress where sid=#{sid}
+    </delete>
+    <insert id="insert" parameterType="AddressInfo">
+        INSERT into shippingaddress VALUES (null,#{name},#{address},#{tel},#{uid})
+    </insert>
+</mapper>
