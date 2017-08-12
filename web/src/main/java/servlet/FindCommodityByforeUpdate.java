@@ -11,22 +11,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
- * Created by Dave on 2017/8/9.
+ * Created by Dave on 2017/8/11.
  */
-@WebServlet(name = "FindAllCommodityServlet",value = "/FindAllCommodityServlet")
-public class FindAllCommodityServlet extends HttpServlet {
+@WebServlet(name = "FindCommodityByforeUpdate",value = "/FindCommodityByforeUpdate")
+public class FindCommodityByforeUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
-        List<CommodityInfo> list=commodityInfoDao.findAll();
-        for (CommodityInfo c:list){
-            System.out.println(c);
+        CommodityInfo commodityInfo=new CommodityInfo();
+        String cid=request.getParameter("cid");
+        if(cid!=null){
+            commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
+            request.setAttribute("c",commodityInfo);
+            request.getRequestDispatcher("updatecommodity.jsp").forward(request,response);
+        }else {
+            request.getRequestDispatcher("Error.jsp").forward(request,response);
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
