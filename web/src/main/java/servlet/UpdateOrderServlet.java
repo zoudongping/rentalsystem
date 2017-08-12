@@ -11,26 +11,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by THINK on 2017/8/9.
+ * Created by Nehcey on 2017/8/10.
  */
-@WebServlet(name = "FindOrderServlet",value = "/findorder")
-public class FindOrderServlet extends HttpServlet {
+@WebServlet(name = "UpdateOrderServlet",value = "/updateorder")
+public class UpdateOrderServlet extends HttpServlet {
     OrderinfoDao orderinfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         orderinfoDao= SqlSessionHelper.getSqlSession().getMapper(OrderinfoDao.class);
         request.setCharacterEncoding("UTF-8");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        List<Orderinfo> olist=new ArrayList<Orderinfo>();
-        if(null!=userInfo){
-            olist=orderinfoDao.findByUserId(userInfo.getUid());
-            request.getSession().setAttribute("olist",olist);
-            request.getSession().setAttribute("user",userInfo);
-            request.getRequestDispatcher("userorder.jsp").forward(request,response);
-        }
+        Orderinfo o=new Orderinfo();
+        String oid=request.getParameter("id");
+        o.setOid(Integer.valueOf(oid));
+        o.setOstatus(2);
+        orderinfoDao.updateOrderinfo(o);
+        SqlSessionHelper.getSqlSession().commit();
+        SqlSessionHelper.closeSession();
+        request.getSession().setAttribute("user",userInfo);
+        request.getRequestDispatcher("findorder").forward(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

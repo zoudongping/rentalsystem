@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>用户中心</title>
+  <title>管理员中心</title>
   <link rel="stylesheet" type="text/css" href="Css/identify.css"/>
   <link rel="stylesheet" type="text/css" href="Css/layout.css"/>
   <link rel="stylesheet" type="text/css" href="Css/style.css"/>
@@ -30,11 +30,11 @@
       <li class="fl topbar-info-item">
         <div class="dropdown">
           <a href="#" class="topbar-btn">
-            <span class="fl text-normal">${user.uname}</span>
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -58,52 +58,57 @@
         <li>
           <a href="#">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">修改个人资料</span>
+            <span class="text-normal">用户管理</span>
           </a>
         </li>
         <li>
-          <a href="toShowAddress">
+          <a href="FindAllCommodityServlet">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">收货地址</span>
+            <span class="text-normal">商品管理</span>
           </a>
         </li>
         <li>
-          <a href="findorder">
+          <a href="findallorder">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">我的订单</span>
+            <span class="text-normal">订单管理</span>
+          </a>
+        </li>
+        <li>
+          <a href="FindAllCollocationServlet">
+            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+            <span class="text-normal">合同管理</span>
+          </a>
+        </li>
+        <li>
+          <a href="showcomment.jsp">
+            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+            <span class="text-normal">商品评论</span>
+          </a>
+        </li>
+        <li>
+          <a href="showtransinfo.jsp">
+            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+            <span class="text-normal">交易记录</span>
           </a>
         </li>
         <li>
           <a href="#">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">我的合同</span>
+            <span class="text-normal">操作记录</span>
           </a>
         </li>
         <li>
-          <a href="findcomment">
+          <a href="findallgeneral">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">我的评论</span>
+            <span class="text-normal">总账管理</span>
           </a>
         </li>
         <li>
-          <a href="updatePwd.html">
+          <a href="toUpdateManagerPwd.html">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">修改密码</span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">绑定银行账户</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-            <span class="text-normal">查询账单</span>
-          </a>
-        </li>
-
       </ul>
       <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
@@ -121,7 +126,9 @@
       </div>
       <div class="authority-content">
         <div class="list-content show">
-          <h1>就是这么牛逼</h1>
+          <h1>Welcome!</h1>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -138,5 +145,6 @@
     }
   });
 </script>
+
 </body>
 </html>

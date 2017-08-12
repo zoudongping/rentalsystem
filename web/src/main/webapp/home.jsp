@@ -24,7 +24,23 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="#" class="topbar-home-link topbar-btn text-center fl"><span>管理权限管理系统</span></a>
+      <a href="usercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>个人中心</span></a>
+    </div>
+  </div>
+  <div class="">
+    <div class="margin-center padding-little-top" align="center">
+      <form action="#" method="post">
+        <table>
+          <tr>
+            <td>
+              <input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">
+            </td>
+            <td>
+              <input class="width-mains input"  type="button" value="搜索">
+            </td>
+          </tr>
+        </table>
+      </form>
     </div>
   </div>
   <div class="topbar-info">
@@ -33,7 +49,7 @@
       <li class="fl topbar-info-item">
         <div class="dropdown">
           <a href="#" class="topbar-btn">
-            <span class="fl text-normal">${username.uname}</span>
+            <span class="fl text-normal">${user.uname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
@@ -48,32 +64,66 @@
   <div class="view-sidebar">
     <div class="sidebar-content">
       <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-      <c:forEach var="r" items="${reslist}">
-        <c:if test="${r.parentID==null}">
           <div class="sidebar-nav">
             <div class="sidebar-title">
               <a href="#">
                 <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                <span class="text-normal">${r.rname}</span>
+                <span class="text-normal">单反品牌类别</span>
               </a>
             </div>
             <ul class="sidebar-trans">
               <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
-              <c:forEach var="child_r" items="${reslist}">
-                <c:if test="${child_r.parentID==r.rid}">
                   <li>
-                    <a href="${child_r.resurl}">
+                    <a href="#">
                       <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                      <span class="text-normal">${child_r.rname}</span>
+                      <span class="text-normal">佳能（Canon）</span>
                     </a>
                   </li>
-                </c:if>
-              </c:forEach>
-
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">尼康（Nikon）</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">宾得（PENTAX）</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">徕卡（Leica）</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">索尼（SONY）</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">Panasonic </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">威图</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">其他</span>
+                </a>
+              </li>
             </ul>
           </div>
-        </c:if>
-      </c:forEach>
+
       <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
     </div>
   </div>

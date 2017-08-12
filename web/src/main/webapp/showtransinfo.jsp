@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>用户中心</title>
+  <title>交易记录</title>
   <link rel="stylesheet" type="text/css" href="Css/identify.css"/>
   <link rel="stylesheet" type="text/css" href="Css/layout.css"/>
   <link rel="stylesheet" type="text/css" href="Css/style.css"/>
@@ -14,6 +14,7 @@
   <script type="text/javascript" src="Js/select.js"></script>
   <script type="text/javascript" src="Js/haidao.validate.js"></script>
 </head>
+
 <body>
 <div class="view-topbar">
   <div class="topbar-console">
@@ -21,7 +22,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>用户中心</span></a>
+      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -58,105 +59,134 @@
             <li>
               <a href="#">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">修改个人资料</span>
+                <span class="text-normal">用户管理</span>
               </a>
             </li>
             <li>
-              <a href="toShowAddress">
+              <a href="FindAllCommodityServlet">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">收货地址</span>
+                <span class="text-normal">商品管理</span>
               </a>
             </li>
             <li>
               <a href="findorder">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的订单</span>
+                <span class="text-normal">订单管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="FindAllCollocationServlet">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">合同管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="showcomment.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品评论</span>
+              </a>
+            </li>
+            <li>
+              <a href="showtransinfo.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">交易记录</span>
               </a>
             </li>
             <li>
               <a href="#">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的合同</span>
+                <span class="text-normal">操作记录</span>
               </a>
             </li>
             <li>
-              <a href="findcomment">
+              <a href="findallgeneral">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的评论</span>
+                <span class="text-normal">总账管理</span>
               </a>
             </li>
             <li>
-              <a href="updatePwd.html">
+              <a href="toUpdateManagerPwd.html">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">绑定银行账户</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">查询账单</span>
-              </a>
-            </li>
-
           </ul>
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
+
         </div>
-      </div>
+
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
       <div class="manage-head">
-        <h6 class="layout padding-left manage-head-con">评论信息
+        <h6 class="layout padding-left manage-head-con">交易记录
         </h6>
       </div>
+      <form action="findtransinfo" method="post">
+        <!-- Unnamed (Droplist) -->
+
+        <div class="tr-th clearfix">
+        <div id="u4" class="th w20">
+          <select id="by" name="by">
+            <option selected value="all">全部</option>
+            <option value="date">日期</option>
+            <option value="uname">用户名</option>
+          </select>
+        </div>
+
+        <!-- Unnamed (Text Field) -->
+
+        <div id="u5" class="th w20">
+          <input name="keyword" type="text" value=""/>
+        </div>
+
+        <!-- Unnamed (HTML Button) -->
+        <div id="u6" class="th w20">
+
+          <input id="u6_input" type="submit" value="搜索"/>
+
+        </div>
+
+        </div>
+      </form>
     </div>
     <div class="authority-content">
       <div class="list-content show">
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
             <div class="th w20">
-              订单号
+              交易编号
             </div>
             <div class="th w20">
-              订单时间
+              交易类型
             </div>
             <div class="th w20">
-              订单金额
+              交易金额
             </div>
             <div class="th w20">
-              付款方式
+              交易时间
+            </div>
+            <div class="th w20">
+              交易描述
             </div>
           </div>
-          <c:forEach var="o" items="${olist}">
+          <c:forEach var="t" items="${tlist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w10">
-                  ${o.oid}
+              <div class="td w20">
+                  ${t.tid}
               </div>
-              <div class="td w30">
-                  ${o.otime}
+              <div class="td w20">
+                  ${t.transTypeInfo.tname}
               </div>
-              <div class="td w25">
-                  ${o.ordertotal}
+              <div class="td w20">
+                  ${t.transmoney}
               </div>
-              <div class="td w10">
-                  ${o.paymenttype.pname}
+              <div class="td w20">
+                  ${t.transdate}
               </div>
-              <c:if test="${o.orderstatusinfo.sid==1}">
-              <div class="td w5">
-                <a href="updateorder?id=${o.oid}" class="button-word2 btn_ajax_confirm">确认收货</a> |
+              <div class="td w20">
+                  ${t.remark}
               </div>
-              </c:if>
-              <c:if test="${o.orderstatusinfo.sid==2}">
-              <div class="td w5">
-                <a href="addcomment.jsp?id=${o.commodityinfo.cid}" class="button-word2 btn_ajax_confirm">评价</a>
-              </div>
-              </c:if>
             </div>
           </c:forEach>
         </div>
@@ -180,16 +210,18 @@
   </div>
 </div>
 </div>
-  <script>
-    $(".sidebar-title").live('click', function () {
-      if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
-        $(this).next().slideDown(200);
-        $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
-      } else {
-        $(this).next().slideUp(200);
-        $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
-      }
-    });
-  </script>
+
+<script>
+  $(".sidebar-title").live('click', function () {
+    if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+      $(this).next().slideDown(200);
+      $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+    } else {
+      $(this).next().slideUp(200);
+      $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+    }
+  });
+</script>
 </body>
+
 </html>

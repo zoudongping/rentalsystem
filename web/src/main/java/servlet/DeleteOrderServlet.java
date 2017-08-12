@@ -2,7 +2,6 @@ package servlet;
 
 import dao.OrderinfoDao;
 import dao.SqlSessionHelper;
-import entity.Orderinfo;
 import entity.UserInfo;
 
 import javax.servlet.ServletException;
@@ -11,26 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Created by THINK on 2017/8/9.
+ * Created by 李晨曦 on 2017/8/10.
  */
-@WebServlet(name = "FindOrderServlet",value = "/findorder")
-public class FindOrderServlet extends HttpServlet {
+@WebServlet(name = "DeleteOrderServlet",urlPatterns = "/deleteOrder")
+public class DeleteOrderServlet extends HttpServlet {
     OrderinfoDao orderinfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         orderinfoDao= SqlSessionHelper.getSqlSession().getMapper(OrderinfoDao.class);
         request.setCharacterEncoding("UTF-8");
+        String id=request.getParameter("id");
+        orderinfoDao.deleteOrderinfo(id);
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        List<Orderinfo> olist=new ArrayList<Orderinfo>();
-        if(null!=userInfo){
-            olist=orderinfoDao.findByUserId(userInfo.getUid());
-            request.getSession().setAttribute("olist",olist);
-            request.getSession().setAttribute("user",userInfo);
-            request.getRequestDispatcher("userorder.jsp").forward(request,response);
-        }
+        SqlSessionHelper.getSqlSession().commit();
+        SqlSessionHelper.closeSession();
+        request.getSession().setAttribute("user",userInfo);
+        response.sendRedirect("findcomment");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
