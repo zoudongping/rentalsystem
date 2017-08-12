@@ -34,6 +34,7 @@ public class FindByCommodityIdServlet extends HttpServlet {
             CommodityInfo commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
             request.getSession().setAttribute("c",commodityInfo);
             request.getRequestDispatcher("detailInfo.jsp").forward(request,response);
+
         }
 
     }
