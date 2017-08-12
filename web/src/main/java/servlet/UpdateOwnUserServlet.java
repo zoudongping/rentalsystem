@@ -29,12 +29,20 @@ public class UpdateOwnUserServlet extends HttpServlet {
         String phone=request.getParameter("phone");
         String sex=request.getParameter("sex");
         UserInfo userInfo1=new UserInfo();
-        userInfo1.setUid(userInfo.getUid());
-        userInfo1.setNickname(nicheng);
-        userInfo1.setEmail(email);
-        userInfo1.setTel(phone);
-        userInfo1.setSex(sex);
-        int num=dao.updateUser(userInfo1);
+        if(nicheng.equals("")==false) {
+            userInfo.setNickname(nicheng);
+        }
+        if(email.equals("")==false) {
+            userInfo.setEmail(email);
+        }
+
+        if(phone.equals("")==false) {
+            userInfo.setTel(phone);
+         }
+        if(sex.equals("")==false) {
+            userInfo.setSex(sex);
+        }
+        int num=dao.updateUser(userInfo);
         if(num==1){
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();

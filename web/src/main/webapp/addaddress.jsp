@@ -24,7 +24,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>主页</span></a>
+      <a href="home.jsp" class="topbar-home-link topbar-btn text-center fl"><span>首页</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -65,13 +65,13 @@
           <ul class="sidebar-trans">
             <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
             <li>
-              <a href="#">
+              <a href="updateownuser.jsp">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改个人资料</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="toShowAddress">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">收货地址</span>
               </a>
