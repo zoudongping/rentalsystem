@@ -12,3 +12,8 @@ public interface CollocationInfoDao {
     public List<CollocationInfo> findAll();
     public CollocationInfo findById(int id);
 }
+
+
+
+
+

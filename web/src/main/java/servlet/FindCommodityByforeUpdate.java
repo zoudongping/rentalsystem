@@ -1,8 +1,8 @@
 package servlet;
 
-import dao.CollocationInfoDao;
+import dao.CommodityInfoDao;
 import dao.SqlSessionHelper;
-import entity.CollocationInfo;
+import entity.CommodityInfo;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
@@ -13,17 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Dave on 2017/8/9.
+ * Created by Dave on 2017/8/11.
  */
-@WebServlet(name = "FindByCollocationIdServlet",value = "/FindByCollocationIdServlet")
-public class FindByCollocationIdServlet extends HttpServlet {
+@WebServlet(name = "FindCommodityByforeUpdate",value = "/FindCommodityByforeUpdate")
+public class FindCommodityByforeUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
-        CollocationInfoDao collocationInfoDao=sqlSession.getMapper(CollocationInfoDao.class);
-        CollocationInfo collocationInfo=new CollocationInfo();
-        System.out.println(collocationInfoDao.findById(3));
+        CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
+        CommodityInfo commodityInfo=new CommodityInfo();
+        String cid=request.getParameter("cid");
+        if(cid!=null){
+            commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
+            request.setAttribute("c",commodityInfo);
+            request.getRequestDispatcher("updatecommodity.jsp").forward(request,response);
+        }else {
+            request.getRequestDispatcher("Error.jsp").forward(request,response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
