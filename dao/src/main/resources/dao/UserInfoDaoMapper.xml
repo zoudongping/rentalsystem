@@ -29,7 +29,7 @@
     </insert>
 
     <update id="updateUser" parameterType="Userinfo">
-        update userinfo set uname=#{uname},nickname=#{nickname},pwd=#{pwd} where uid=#{uid}
+        update userinfo set nickname=#{nickname},email=#{email},tel=#{tel},sex=#{sex} where uid=#{uid}
     </update>
 
     <update id="updatePwd" parameterType="String">

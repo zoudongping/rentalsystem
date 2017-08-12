@@ -1,8 +1,7 @@
 package servlet;
 
-import dao.AddressInfoDao;
 import dao.SqlSessionHelper;
-import entity.AddressInfo;
+import dao.UserInfoDao;
 import entity.UserInfo;
 
 import javax.servlet.ServletException;
@@ -14,19 +13,17 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/11.
+ * Created by Administrator on 2017/8/12.
  */
-@WebServlet(name = "ShowAddressServlet",value = "/toShowAddress")
-public class ShowAddressServlet extends HttpServlet {
+@WebServlet(name = "ShowUserServlet",value ="/toShowUser")
+public class ShowUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        AddressInfoDao dao= SqlSessionHelper.getSqlSession().getMapper(AddressInfoDao.class);
+        UserInfoDao dao=SqlSessionHelper.getSqlSession().getMapper(UserInfoDao.class);
         request.setCharacterEncoding("UTF-8");
-        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        List<AddressInfo> address=dao.findAllByUid(userInfo.getUid());
+        List<UserInfo> userInfoList=dao.findAllUser();
+        request.setAttribute("userInfoList",userInfoList);
+        request.getRequestDispatcher("showuser.jsp").forward(request,response);
         SqlSessionHelper.closeSession();
-        request.setAttribute("addressList",address);
-        request.getRequestDispatcher("showaddress.jsp").forward(request,response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

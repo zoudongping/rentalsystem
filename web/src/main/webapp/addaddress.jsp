@@ -4,12 +4,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>评论信息</title>
-  <link rel="stylesheet" type="text/css" href="Css/identify.css"/>
-  <link rel="stylesheet" type="text/css" href="Css/layout.css"/>
-  <link rel="stylesheet" type="text/css" href="Css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="Css/control_index.css"/>
+  <title>增加地址操作</title>
+  <link rel="stylesheet" type="text/css" href="Css/identify.css" />
+  <link rel="stylesheet" type="text/css" href="Css/layout.css" />
+  <link rel="stylesheet" type="text/css" href="Css/account.css" />
+  <link rel="stylesheet" type="text/css" href="Css/style.css" />
+  <link rel="stylesheet" type="text/css" href="Css/control_index.css" />
   <script type="text/javascript" src="Js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="Js/layer/layer.js"></script>
   <script type="text/javascript" src="Js/haidao.offcial.general.js"></script>
   <script type="text/javascript" src="Js/select.js"></script>
   <script type="text/javascript" src="Js/haidao.validate.js"></script>
@@ -27,10 +29,16 @@
   </div>
   <div class="topbar-info">
     <ul class="fr">
+      <li class="fl dropdown topbar-notice topbar-btn">
+        <a href="#" class="dropdown-toggle">
+          <span class="icon-notice"></span>
+          <span class="topbar-num have">0</span>
+          <!--have表示有消息，没有消息去掉have-->
+        </a>
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
+          <a href="usercentral.jsp" class="topbar-btn">
             <span class="fl text-normal">${user.uname}</span>
             <span class="icon-arrow-down"></span>
           </a>
@@ -104,88 +112,78 @@
                 <span class="text-normal">查询账单</span>
               </a>
             </li>
+
           </ul>
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
-        </div>
-      </div>
 
-<div class="view-product">
-  <div class="authority">
-    <div class="authority-head">
-      <div class="manage-head">
-        <h6 class="layout padding-left manage-head-con">评论信息
-        </h6>
-      </div>
-    </div>
-    <div class="authority-content">
-      <div class="list-content show">
-        <div class="offcial-table tr-border margin-big-top clearfix">
-          <div class="tr-th clearfix">
-            <div class="th w20">
-              评论商品名
-            </div>
-            <div class="th w20">
-              评论等级
-            </div>
-            <div class="th w20">
-              评论内容
-            </div>
-            <div class="th w20">
-              评论人
-            </div>
-          </div>
-          <c:forEach var="c" items="${clist}">
-            <div class="tr clearfix border-bottom-none">
-              <div class="td w10">
-                  ${c.commodityinfo.cname}
-              </div>
-              <div class="td w30">
-                  ${c.levelinfo.lname}
-              </div>
-              <div class="td w25">
-                  ${c.content}
-              </div>
-              <div class="td w10">
-                  ${c.userinfo.uname}
-              </div>
-              <div class="td w5">
-                <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
-              </div>
-            </div>
-          </c:forEach>
         </div>
-      </div>
-      <div class="show-page padding-big-right">
-        <div class="page">
-          <div class="page">
-            <ul class="offcial-page margin-top margin-big-right">
-              <li>共<em class="margin-small-left margin-small-right">1</em>条数据</li>
-              <li>每页显示<em class="margin-small-left margin-small-right">15</em>条</li>
-              <li><a class="next disable">上一页</a></li>
-              <li></li>
-              <li><a class="next disable">下一页</a></li>
-              <li><span class="fl">共<em class="margin-small-left margin-small-right">1</em>页</span>
-              </li>
-            </ul>
+        <div class="view-product">
+          <div class="company_identify">
+            <div class="manage-head">
+              <h6 class="padding-left manage-head-con">增加收货地址</h6>
+            </div>
+            <form name="setp0" action="addaddress" method="post" autocomplete="off">
+              <div class="basic-info-detail clearfix">
+                <div class="unit-style padding-big-lr clearfix">
+                  <h4 class="real-name-head margin-large-top">填写地址</h4>
+                  <div class="real-name-con height-main margin-top-25">
+                    <p class="content-left-zoon">
+                      收货人姓名
+                    </p>
+                    <div class="content-right-zoon">
+                      <input class="width-main input" type="text" name="name" datatype="*">
+                    </div>
+                  </div>
+                  <div class="real-name-con height-main margin-top-25">
+                    <p class="content-left-zoon">
+                      收货地址
+                    </p>
+                    <div class="content-right-zoon">
+                      <input class="width-main input" type="text" name="address" datatype="*">
+                    </div>
+                  </div>
+                  <div class="real-name-con height-main margin-top-25">
+                    <p class="content-left-zoon">
+                      收货人电话
+                    </p>
+                    <div class="content-right-zoon">
+                      <input class="width-main input" type="text" name="tel" datatype="*">
+                    </div>
+                  </div>
+                  <p>&nbsp;</p>
+                </div>
+              </div>
+              <div class="unit-style padding-large-tb clearfix">
+                <div class="margin-large-top padding-left text-left content-right-zoon">
+                  <input type="submit" value="增加" class="submit fl">
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-</div>
 
-<script>
-  $(".sidebar-title").live('click', function () {
-    if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
-      $(this).next().slideDown(200);
-      $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
-    } else {
-      $(this).next().slideUp(200);
-      $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
-    }
-  });
-</script>
+      <script>
+        console.log(window.location.href);
+        var url = window.location.search;
+        var ary = url.split("&");
+        var obj = {};
+        for(
+                var i = 0 ; i < ary.length; i++){obj[ary[i].split("=")[0]] =  ary[i].split("=")[1]
+        }
+        $(".fi").click(function(){
+          $.get("/AddCommentServlet.java",obj);
+        });
+        $(".sidebar-title").live('click', function() {
+          if ($(this).parent(".sidebar-nav").hasClass("sidebar-nav-fold")) {
+            $(this).next().slideDown(200);
+            $(this).parent(".sidebar-nav").removeClass("sidebar-nav-fold");
+          } else {
+            $(this).next().slideUp(200);
+            $(this).parent(".sidebar-nav").addClass("sidebar-nav-fold");
+          }
+        });
+      </script>
 </body>
 
 </html>

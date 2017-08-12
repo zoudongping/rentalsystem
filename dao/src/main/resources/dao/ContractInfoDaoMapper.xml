@@ -10,32 +10,17 @@
     <select id="findAll" resultType="ContractInfo">
         select  *  from contractinfo
     </select>
-    <select id="findByBeginRentDate" resultType="ContractInfo"  parameterType="String">
-        select *  from contractinfo WHERE beginrentdate=#{beginrentdate}
-       </select>
-    <select id="findByOverRentDate" resultType="ContractInfo"  parameterType="String">
-        select *  from contractinfo WHERE overrentdate=#{overrentdate}
-    </select>
-    <select id="findBySecondParty" resultType="ContractInfo"  parameterType="String">
-        select *  from contractinfo WHERE secondparty=#{secondparty}
-    </select>
-    <select id="findByCid" resultType="ContractInfo"  parameterType="int">
-        select *  from contractinfo WHERE cid=#{cid}
+    <select id="findByCid" resultType="ContractInfo"  parameterType="ContractInfo">
+        select *  from contractinfo WHERE cid=#{cid} or secondparty LIKE '%${secondparty}%'
     </select>
     <insert id="addContract" parameterType="ContractInfo">
-        INSERT INTO  contractinfo VALUES (NULL ,#{beginrentdate},#{overrentdate},#{content},#{firstparty},#{secondparty},#{penalty},#{cstatusid})
+        INSERT INTO  contractinfo VALUES (NULL ,#{beginrentdate},#{overrentdate},NULL ,'深圳爱租网络平台',#{secondparty},NULL ,#{cstatusid})
     </insert>
     <delete id="deleteContract" parameterType="int">
-        DELETE FROM contractinfo WHERE cid=#{cid}
+        DELETE  FROM contractinfo WHERE cid=#{cid}
     </delete>
     <update id="updateContract" parameterType="ContractInfo">
         UPDATE contractinfo SET
-        beginrentdate=#{beginrentdate},
-        overrentdate=#{overrentdate},
-        content=#{content},
-        firstparty=#{firstparty},
-        secondparty=#{secondparty},
-        penalty=#{penalty},
         cstatusid=#{cstatusid}
         WHERE cid=#{cid}
     </update>
