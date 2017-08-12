@@ -45,7 +45,6 @@ public class UpdateOwnUserServlet extends HttpServlet {
                     "<a href='usercentral.jsp'>点此返回个人中心</a></center>");
         }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
