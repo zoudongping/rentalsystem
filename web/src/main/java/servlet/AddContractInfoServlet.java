@@ -17,23 +17,17 @@ import java.io.IOException;
 @WebServlet(name = "AddContractInfoServlet",value = "/addcontractinfo")
 public class AddContractInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ContractInfoDao dao= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
         request.setCharacterEncoding("utf-8");
-        String cid=request.getParameter("cid");
         String beginrentdate=request.getParameter("beginrentdate");
         String overrentdate =request.getParameter("overrentdate");
-        String content=request.getParameter("content");
         String secondparty=request.getParameter("secondparty");
-        String penalty=request.getParameter("penalty");
         String cstatusid=request.getParameter("cstatusid");
         ContractInfo r=new ContractInfo();
-        r.setCid(Integer.getInteger(cid));
         r.setBeginrentdate(beginrentdate);
         r.setOverrentdate(overrentdate);
-        r.setContent(content);
         r.setSecondparty(secondparty);
-        r.setPenalty(Double.parseDouble(penalty));
-        r.setCstatusid(Integer.parseInt(cstatusid));
-        ContractInfoDao dao= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
+        r.setCstatusid(Integer.valueOf(cstatusid));
         int num=dao.addContract(r);
         SqlSessionHelper.getSqlSession().commit();
         System.out.println("受影响行数"+num);

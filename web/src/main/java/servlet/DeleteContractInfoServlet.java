@@ -13,12 +13,12 @@ import java.io.IOException;
 /**
  * Created by THINK on 2017/8/10.
  */
-@WebServlet(name = "DeleteContractInfoServlet",value = "/deletecontractinfo")
+@WebServlet(name = "DeleteContractInfoServlet",value = "/deletecontractinfo.action")
 public class DeleteContractInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String cid=request.getParameter("cid");
+        String cid=request.getParameter("pid");
         ContractInfoDao d= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
-        int bo=d.deleteContract(Integer.getInteger(cid));
+        int bo=d.deleteContract(Integer.valueOf(cid));
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         if(bo==1){

@@ -13,13 +13,7 @@ public interface ContractInfoDao {
 
     public List<ContractInfo> findAll();
 
-    public List<ContractInfo> findByBeginRentDate(String beginrentdate);
-
-    public List<ContractInfo> findByOverRentDate(String overrentdate);
-
-    public List<ContractInfo> findBySecondParty(String secondparty);
-
-    public ContractInfo findByCid(int cid);
+    public List<ContractInfo> findByCid(ContractInfo contractInfo);
 
     public int addContract(ContractInfo contractInfo);
 
