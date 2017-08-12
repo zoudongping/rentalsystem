@@ -34,6 +34,13 @@
         <mapper resource="dao/CommentDaoMapper.xml"/>
         <mapper resource="dao/UserInfoDaoMapper.xml"/>
         <mapper resource="dao/OrderinfoDaoMapper.xml"/>
+        <mapper resource="dao/AddressInfoDaoMapper.xml"/>
+        <mapper resource="dao/TransDaoMapper.xml"/>
+        <mapper resource="dao/GeneralLedgerDaoMapper.xml"/>
+        <mapper resource="dao/CommodityInfoDaoMapper.xml"/>
+        <mapper resource="dao/CollocationInfoDaoMapper.xml"/>
+        <mapper resource="dao/ManagerInfoDaoMapper.xml"/>
+        <mapper resource="dao/ContractInfoDaoMapper.xml"/>
         <mapper resource="dao/ContractInfoDaoMapper.xml"/>
     </mappers>
 </configuration>
