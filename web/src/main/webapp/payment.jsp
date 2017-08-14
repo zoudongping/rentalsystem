@@ -142,7 +142,7 @@
         <div class="manage-head">
           <h6 class="padding-left manage-head-con">支付信息</h6>
         </div>
-        <form name="setp0" action="#" method="post" autocomplete="off">
+        <form name="setp0" action="afterpay" method="post" autocomplete="off">
 
           <div class="authority-content">
             <div class="list-content show">
@@ -220,7 +220,7 @@
           <div class="unit-style padding-large-tb clearfix">
             <div class="margin-large-top padding-left text-left content-right-zoon">
               <input type="submit" value="确认支付" class="submit fl">
-              <a href="#" class="submit fl margin-large-left">取消</a>
+              <a href="cancelorder" class="submit fl margin-large-left">取消</a>
             </div>
           </div>
         </form>
@@ -237,13 +237,13 @@
               <div class="th w10">
                 结租时间
               </div>
-              <div class="th w15">
+              <div class="th w20">
                 甲方
               </div>
               <div class="th w10">
                 乙方
               </div>
-              <div class="th w9">
+              <div class="th w10">
                 违约金
               </div>
               <div class="th w20">
@@ -261,13 +261,13 @@
                 <div class="td w10">
                   ${c.overrentdate}
                 </div>
-                <div class="td w15">
+                <div class="td w20">
                   ${c.firstparty}
                 </div>
                 <div class="td w10">
                   ${c.secondparty}
                 </div>
-                <div class="td w9">
+                <div class="td w10">
                   ${c.penalty}
                 </div>
                 <div class="td w20">
