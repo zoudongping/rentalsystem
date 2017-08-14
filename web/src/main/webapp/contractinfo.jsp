@@ -121,9 +121,6 @@
             <div style="float: right"><input type="text" name="keyword" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
               <input type="submit" style="display:  inline-block" class="custom" value="搜索" /></div>
             </form>
-            <%--<div style="float: right">--%>
-                <%--<input class="width-main input" type="text" name="secondparty" datatype="*" value="">--%>
-              <%--<input type="button" style="display: inline-block" class="custom" href>--%>
 
             </div>
           </div>
