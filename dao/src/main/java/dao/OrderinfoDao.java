@@ -16,4 +16,5 @@ public interface OrderinfoDao {
     public List<Orderinfo> findByOid(String oid);
     public List<Orderinfo> findByUserId(int uid);
     public Orderinfo findByPayment(int uid);
+    public double findTotalBillByUid(int uid);
 }

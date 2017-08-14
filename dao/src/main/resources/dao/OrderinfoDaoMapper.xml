@@ -34,6 +34,10 @@
         LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid
     </select>
 
+    <select id="findTotalBillByUid" parameterType="java.lang.Integer" resultType="java.lang.Double">
+        SELECT SUM(ordertotal) FROM orderinfo WHERE uid=#{uid} AND ostatus="2"
+    </select>
+
     <select id="findByOid" parameterType="String" resultMap="orderinfoMap">
         SELECT *
         FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
