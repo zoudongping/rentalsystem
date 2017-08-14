@@ -50,7 +50,7 @@
     </p>
   </div>
   <!--conet -->
-  <form action="#">
+  <form action="addcontract">
   <div class="tb-property">
     <div class="tr-nobdr">
       <%--相机名称--%>

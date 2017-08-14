@@ -3,6 +3,7 @@ package servlet;
 import dao.OrderinfoDao;
 import dao.SqlSessionHelper;
 import entity.CommodityInfo;
+import entity.ContractInfo;
 import entity.Orderinfo;
 import entity.UserInfo;
 
@@ -22,28 +23,27 @@ public class AddOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         orderinfoDao= SqlSessionHelper.getSqlSession().getMapper(OrderinfoDao.class);
         request.setCharacterEncoding("UTF-8");
-        String id=request.getParameter("id");
-        String rentalamount=request.getParameter("rentalamount");
-        String rentaltype=request.getParameter("rentaltype");
-        String timeamount=request.getParameter("timeamount");
-        String contractid=request.getParameter("contractid");
+        String rentalamount=request.getParameter("number");
+        String rentaltype=request.getParameter("price");
+        String timeamount=request.getParameter("time");
+        ContractInfo c=(ContractInfo)request.getSession().getAttribute("r1");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         CommodityInfo commodityInfo=(CommodityInfo)request.getSession().getAttribute("commodity");
         Orderinfo o=new Orderinfo();
         o.setUid(userInfo.getUid());
         o.setRentalamount(Integer.valueOf(rentalamount));
-        o.setContractid(Integer.valueOf(contractid));
+        o.setContractid(Integer.valueOf(c.getCid()));
         o.setCommodityid(commodityInfo.getCid());
         o.setDeposit(commodityInfo.getDeposit()*Double.valueOf(rentalamount));
-        if(rentaltype.equals("日租")) {
+        if(rentaltype.equals("dayprice")) {
             o.setRentaltype(1);
             o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getDayprice());
         }
-        if(rentaltype.equals("月租")) {
+        if(rentaltype.equals("monthprice")) {
             o.setRentaltype(2);
             o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getMonthprice());
         }
-        if(rentaltype.equals("年租")) {
+        if(rentaltype.equals("yearprice")) {
             o.setRentaltype(3);
             o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getYearprice());
         }
@@ -52,7 +52,9 @@ public class AddOrderServlet extends HttpServlet {
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("user",userInfo);
-        request.getRequestDispatcher("findcomment").forward(request,response);
+        request.getSession().setAttribute("o",o);
+        request.getSession().setAttribute("c",c);
+        request.getRequestDispatcher("").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

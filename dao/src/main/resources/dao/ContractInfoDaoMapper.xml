@@ -13,8 +13,14 @@
     <select id="findByCid" resultType="ContractInfo"  parameterType="ContractInfo">
         select *  from contractinfo WHERE cid=#{cid} or secondparty LIKE '%${secondparty}%'
     </select>
+    <select id="findByName" resultType="ContractInfo" parameterType="String">
+        SELECT * from contractinfo where secondparty = #{secondparty} and cstatusid is null
+    </select>
     <insert id="addContract" parameterType="ContractInfo">
         INSERT INTO  contractinfo VALUES (NULL ,#{beginrentdate},#{overrentdate},NULL ,'深圳爱租网络平台',#{secondparty},NULL ,#{cstatusid})
+    </insert>
+    <insert id="insert" parameterType="ContractInfo">
+        insert into contractinfo values (null,sysdate(),sysdate()+2,#{content},'深圳爱租网络平台',#{secondparty},#{penalty},null)
     </insert>
     <delete id="deleteContract" parameterType="int">
         DELETE  FROM contractinfo WHERE cid=#{cid}
