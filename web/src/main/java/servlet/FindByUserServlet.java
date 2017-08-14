@@ -31,7 +31,6 @@ public class FindByUserServlet extends HttpServlet {
         SqlSessionHelper.closeSession();
         request.setAttribute("all",list);
         request.getRequestDispatcher("contractinfo.jsp").forward(request,response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
