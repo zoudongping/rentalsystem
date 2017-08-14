@@ -37,24 +37,25 @@ public class AddOrderServlet extends HttpServlet {
         o.setDeposit(commodityInfo.getDeposit()*Double.valueOf(rentalamount));
         if(rentaltype.equals("dayprice")) {
             o.setRentaltype(1);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getDayprice());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getDayprice()+commodityInfo.getDeposit());
         }
         if(rentaltype.equals("monthprice")) {
             o.setRentaltype(2);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getMonthprice());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getMonthprice()+commodityInfo.getDeposit());
         }
         if(rentaltype.equals("yearprice")) {
             o.setRentaltype(3);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getYearprice());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getYearprice()+commodityInfo.getDeposit());
         }
 
         orderinfoDao.insertOrderinfo(o);
         SqlSessionHelper.getSqlSession().commit();
+        Orderinfo o1=orderinfoDao.findByPayment(userInfo.getUid());
         SqlSessionHelper.closeSession();
-        request.getSession().setAttribute("user",userInfo);
-        request.getSession().setAttribute("o",o);
+        request.getSession().setAttribute("user", userInfo);
+        request.getSession().setAttribute("o",o1);
         request.getSession().setAttribute("c",c);
-        request.getRequestDispatcher("").forward(request,response);
+        request.getRequestDispatcher("payment.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

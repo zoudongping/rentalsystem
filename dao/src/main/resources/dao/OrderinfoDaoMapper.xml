@@ -40,6 +40,12 @@
         LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid  WHERE a.oid=#{oid}
     </select>
 
+    <select id="findByPayment" parameterType="java.lang.Integer" resultMap="orderinfoMap">
+        SELECT *
+        FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
+        LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid
+        WHERE  uid=#{uid} and payment is null
+    </select>
     <select id="findByUserId" parameterType="java.lang.Integer" resultMap="orderinfoMap">
         SELECT *
         FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
