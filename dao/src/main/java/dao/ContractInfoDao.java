@@ -21,4 +21,6 @@ public interface ContractInfoDao {
 
     public int updateContract(ContractInfo contractinfo);
 
+    public List<ContractInfo> findByUser(String sname);
+
 }

@@ -24,4 +24,7 @@
         cstatusid=#{cstatusid}
         WHERE cid=#{cid}
     </update>
+    <select id="findByUser" parameterType="String" resultType="ContractInfo">
+        SELECT *  FROM contractinfo where  secondparty =#{secondparty}
+    </select>
 </mapper>

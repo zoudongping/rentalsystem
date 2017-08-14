@@ -31,7 +31,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理控制台</span></a>
+      <a href="getcontractinfo" class="topbar-home-link topbar-btn text-center fl"><span>管理控制台</span></a>
     </div>
   </div>
   <div class="topbar-info">
