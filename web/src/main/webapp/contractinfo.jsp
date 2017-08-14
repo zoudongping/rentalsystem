@@ -111,12 +111,21 @@
           <div class="margin-tb manage-detail-con clearfix">
             <a class="h5 margin-large-left custom fl" href="addcontract.jsp">新增合同</a>
             <a class="h5 margin-large-left custom fl" href="updatecontract.jsp">修改合同状态</a>
-            <%--<form action="#">--%>
-              <%--<div class="name border-bottom">--%>
-                  <%--<input type="text" name="a" style="border: dotted">--%>
-                <%--<button class="h5 margin-large-right custom fl"  type="submit">搜索</button>--%>
+            <%--<form action="finbyuserservlet">--%>
+              <%--<div style="float: right" class="name border-bottom">--%>
+                  <%--<input class="width-main input" type="text" name="secondparty" datatype="*" value="">--%>
+                <%--<button class="h5 margin-large-left custom fl"  type="submit">搜索</button>--%>
                 <%--</div>--%>
             <%--</form>--%>
+            <form action="finbyuserservlet">
+            <div style="float: right"><input type="text" name="keyword" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
+              <input type="submit" style="display:  inline-block" class="custom" value="搜索" /></div>
+            </form>
+            <%--<div style="float: right">--%>
+                <%--<input class="width-main input" type="text" name="secondparty" datatype="*" value="">--%>
+              <%--<input type="button" style="display: inline-block" class="custom" href>--%>
+
+            </div>
           </div>
         </div>
       </div>
