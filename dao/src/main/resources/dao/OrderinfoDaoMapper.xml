@@ -69,7 +69,7 @@
     </update>
 
     <update id="updatepayment" parameterType="entity.Orderinfo">
-        UPDATE orderinfo SET payment=#{payment} WHERE oid=#{oid}
+        UPDATE orderinfo SET payment=#{payment} WHERE contractid=#{contractid}
     </update>
 
 </mapper>
