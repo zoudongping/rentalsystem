@@ -18,6 +18,7 @@ import java.util.List;
  */
 @WebServlet(name = "FindByUnameServlet",value = "/findbyunameservlet")
 public class FindByUnameServlet extends HttpServlet {
+
     ContractInfoDao contractInfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          contractInfoDao= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
