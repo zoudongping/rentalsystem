@@ -14,6 +14,6 @@
         SELECT *FROM managerinfo WHERE mid=#{mid}
     </select>
     <select id="findManagerNameAndPwd" parameterType="ManagerInfo">
-        SELECT *FROM managerinfo WHERE mname=#{mname} AND pwd=#{pwd}
+        SELECT *FROM managerinfo WHERE mname=#{mname} AND pwd
     </select>
 </mapper>
