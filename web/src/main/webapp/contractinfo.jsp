@@ -124,43 +124,55 @@
         <div class="list-content show">
           <div class="offcial-table tr-border margin-big-top clearfix">
             <div class="tr-th clearfix">
-              <div class="th w15">
+              <div class="th w10">
                 合同号
               </div>
-              <div class="th w20">
+              <div class="th w15">
                 租赁单位
               </div>
-              <div class="th w20">
+              <div class="th w15">
                 起租时间
               </div>
-              <div class="th w20">
+              <div class="th w15">
                 结租时间
+              </div>
+              <div class="th w15">
+                合同描述
+              </div>
+              <div class="th w10">
+                违约金
               </div>
               <div class="th w10">
                 合同状态
               </div>
-              <div class="th w15">
+              <div class="th w10">
                 操作
               </div>
             </div>
             <c:forEach var="r" items="${all}">
               <div class="tr clearfix border-bottom-none">
-                 <div class="td w15">
+                 <div class="td w10">
                    ${r.cid}
                  </div>
-                <div class="td w20">
+                <div class="td w15">
                     ${r.secondparty}
                 </div>
-                <div class="td w20">
+                <div class="td w15">
                     ${r.beginrentdate}
                 </div>
-                <div class="td w20">
+                <div class="td w15">
                     ${r.overrentdate}
+                </div>
+                <div class="td w15">
+                  ${r.content}
+                </div>
+                <div class="td w10">
+                  ${r.penalty}
                 </div>
                 <div class="td w10">
                     ${r.cstatusid}
                 </div>
-                <div class="td w15">
+                <div class="td w10">
                   <a href="deletecontractinfo.action?pid=${r.cid}" class="button-word2 btn_ajax_confirm">删除</a>
                 </div>
 
