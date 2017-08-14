@@ -18,7 +18,7 @@ import java.util.List;
 public interface CommentDao {
     public List<CommentInfo> findByLevel(String lname);
     public List<CommentInfo> findByCommodityname(String cname);
-    public List<CommentInfo> findByCommodityid();
+    public List<CommentInfo> findByCommodityid(int cid);
     public List<CommentInfo> findAll();
     public int delete(String id);
     public int insert(CommentInfo commentInfo);

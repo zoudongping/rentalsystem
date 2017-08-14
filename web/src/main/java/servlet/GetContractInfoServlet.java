@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by THINK on 2017/8/9.
  */
-@WebServlet(name = "GetContractInfoServlet",urlPatterns="/getcontractinfo")
+@WebServlet(name = "GetContractInfoServlet",value="/getcontractinfo")
 public class GetContractInfoServlet extends HttpServlet {
     ContractInfoDao contractInfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
