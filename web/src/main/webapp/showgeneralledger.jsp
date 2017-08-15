@@ -58,7 +58,7 @@
           <ul class="sidebar-trans">
             <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
             <li>
-              <a href="#">
+              <a href="toShowUser">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">用户管理</span>
               </a>
@@ -82,13 +82,13 @@
               </a>
             </li>
             <li>
-              <a href="showcomment.jsp">
+              <a href="findallcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">商品评论</span>
               </a>
             </li>
             <li>
-              <a href="showtransinfo.jsp">
+              <a href="findalltransinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">交易记录</span>
               </a>
@@ -115,10 +115,10 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
         </div>
-        </div>
+
       </div>
     </div>
-
+  </div>
 
   <div class="view-product">
     <div class="authority">

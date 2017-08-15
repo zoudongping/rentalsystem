@@ -3,7 +3,6 @@ package servlet;
 import dao.CommentDao;
 import dao.SqlSessionHelper;
 import entity.CommentInfo;
-import entity.UserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,28 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by THINK on 2017/8/9.
+ * Created by THINK on 2017/8/15.
  */
-@WebServlet(name = "FindCommentServlet",urlPatterns = "/findcomment")
-public class FindCommentServlet extends HttpServlet {
+@WebServlet(name = "FindAllCommentServlet",urlPatterns = "/findallcomment")
+public class FindAllCommentServlet extends HttpServlet {
     CommentDao commentDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
-        String by=request.getParameter("by");
-        String keyword="%"+request.getParameter("keyword")+"%";
         List<CommentInfo> clist=new ArrayList<CommentInfo>();
-        if(by.equals("commodity")){
-            clist=commentDao.findByCommodityname(keyword);
-            request.getSession().setAttribute("clist",clist);
-            request.getRequestDispatcher("showcomment.jsp").forward(request,response);
-        }
-        if(by.equals("level")){
-            clist=commentDao.findByLevel(keyword);
-            request.getSession().setAttribute("clist",clist);
-            request.getRequestDispatcher("showcomment.jsp").forward(request,response);
-        }
-
+        clist=commentDao.findAll();
+        request.getSession().setAttribute("clist",clist);
+        request.getRequestDispatcher("showcomment.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

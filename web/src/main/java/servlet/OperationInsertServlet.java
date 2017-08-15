@@ -42,16 +42,7 @@ public class OperationInsertServlet extends HttpServlet {
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();
             request.setAttribute("manager",m);
-            request.getRequestDispatcher("findcomment").forward(request,response);
-        }
-        else if (oper.equals("删除地址")){
-            operationInfo.setContent(operation);
-            operationInfo.setManagerid(m.getMid());
-            operationDao.insert(operationInfo);
-            SqlSessionHelper.getSqlSession().commit();
-            SqlSessionHelper.closeSession();
-            request.setAttribute("manager",m);
-            request.getRequestDispatcher("toShowAddress").forward(request,response);
+            request.getRequestDispatcher("findallcomment").forward(request,response);
         }
         else if (oper.equals("删除商品")){
             operationInfo.setContent(operation);

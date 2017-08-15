@@ -44,7 +44,7 @@ public class BookkeepingServlet extends HttpServlet {
         g2.setGeneral(b + g1.getGeneral());
         generalLedgerDao.insert(g2);
         String oper="添加总账";
-        String operation="添加了"+g2+"账务";
+        String operation="添加了总账记录";
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("operation", operation);
