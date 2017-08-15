@@ -22,7 +22,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
+      <a href="managercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -30,12 +30,12 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
-            <span class="fl text-normal">${user.uname}</span>
+          <a href="managercentral.jsp" class="topbar-btn">
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -57,122 +57,126 @@
           <ul class="sidebar-trans">
             <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
             <li>
-              <a href="#">
+              <a href="toShowUser">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">修改个人资料</span>
+                <span class="text-normal">用户管理</span>
               </a>
             </li>
             <li>
-              <a href="toShowAddress">
+              <a href="FindAllCommodityServlet">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">收货地址</span>
+                <span class="text-normal">商品管理</span>
               </a>
             </li>
             <li>
               <a href="findallorder">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的订单</span>
+                <span class="text-normal">订单管理</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="getcontractinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的合同</span>
+                <span class="text-normal">合同管理</span>
               </a>
             </li>
             <li>
-              <a href="findcomment">
+              <a href="findallcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">我的评论</span>
+                <span class="text-normal">商品评论</span>
               </a>
             </li>
             <li>
-              <a href="updatePwd.html">
+              <a href="findalltransinfo">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">交易记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findoperation">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">操作记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallgeneral">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">总账管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="toUpdateManagerPwd.html">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">绑定银行账户</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">查询账单</span>
-              </a>
-            </li>
           </ul>
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
+
         </div>
+
       </div>
+    </div>
+  </div>
 
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
       <div class="manage-head">
-        <h6 class="layout padding-left manage-head-con">评论信息
+        <h6 class="layout padding-left manage-head-con">评论管理
         </h6>
       </div>
-      <form action="findcomment" method="post">
-        <!-- Unnamed (Droplist) -->
-        <div id="u4" class="ax_droplist">
-          <select id="by" name="by">
-            <option selected value="all">全部</option>
-            <option value="level">评论等级</option>
-            <option value="commodity">商品名</option>
-          </select>
-        </div>
-
-        <!-- Unnamed (Text Field) -->
-        <div id="u5" class="ax_text_field">
-          <input name="keyword" type="text" value=""/>
-        </div>
-
-        <!-- Unnamed (HTML Button) -->
-        <div id="u6" class="ax_html_button">
-
-          <input id="u6_input" type="submit" value="搜索"/>
-
+      <div class="margin-tb manage-detail-con clearfix">
+      <form action="findcomment">
+        <div style="float: right">
+          <div id="u4" class="ax_droplist">
+            <select id="by" name="by">
+              <option value="level" selected>评论等级</option>
+              <option value="commodity">商品名</option>
+            </select>
+          </div>
+          <input type="text" name="keyword" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
+          <input type="submit" style="display:  inline-block" class="custom" value="搜索" />
         </div>
       </form>
+      </div>
     </div>
     <div class="authority-content">
       <div class="list-content show">
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
-            <div class="th w20">
+            <div class="th w25">
               评论商品名
             </div>
-            <div class="th w20">
+            <div class="th w15">
               评论等级
             </div>
-            <div class="th w20">
+            <div class="th w35">
               评论内容
             </div>
-            <div class="th w20">
+            <div class="th w15">
               评论人
+            </div>
+            <div class="th w10">
+              操作
             </div>
           </div>
           <c:forEach var="c" items="${clist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w10">
+              <div class="td w25">
                   ${c.commodityinfo.cname}
               </div>
-              <div class="td w30">
+              <div class="td w15">
                   ${c.levelinfo.lname}
               </div>
-              <div class="td w25">
+              <div class="td w35">
                   ${c.content}
               </div>
-              <div class="td w10">
+              <div class="td w15">
                   ${c.userinfo.uname}
               </div>
-              <div class="td w5">
-                <a href="#" class="button-word2 btn_ajax_confirm">编辑</a> |
-                <a href="#" class="button-word2 btn_ajax_confirm">删除</a>
+              <div class="td w10">
+                <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
               </div>
             </div>
           </c:forEach>

@@ -31,22 +31,23 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理控制台</span></a>
+      <a href="managercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
     <ul class="fr">
       <li class="fl dropdown topbar-notice topbar-btn">
-        <a href="#" class="dropdown-toggle">
+        <a href="managercentral.jsp" class="topbar-btn">
           <span class="icon-notice"></span>
           <span class="topbar-num have">0</span>
           <!--have表示有消息，没有消息去掉have-->
         </a>
 
+      </li>
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
-            <span class="fl text-normal"></span>
+          <a href="managercentral.jsp" class="topbar-btn">
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
@@ -59,10 +60,80 @@
 </div>
 <div class="view-body">
   <div class="view-sidebar">
-    <div class="sidebar-content">
+    <div class="view-sidebar">
+      <div class="sidebar-content">
+        <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+        <div class="sidebar-nav">
+          <div class="sidebar-title">
+            <a href="#">
+              <span class="icon"><b class="fl icon-arrow-down"></b></span>
+              <span class="text-normal">菜单</span>
+            </a>
+          </div>
+          <ul class="sidebar-trans">
+            <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+            <li>
+              <a href="toShowUser">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">用户管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="FindAllCommodityServlet">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallorder">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">订单管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="getcontractinfo">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">合同管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallcomment">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品评论</span>
+              </a>
+            </li>
+            <li>
+              <a href="findalltransinfo">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">交易记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findoperation">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">操作记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallgeneral">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">总账管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="toUpdateManagerPwd.html">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">修改密码</span>
+              </a>
+            </li>
+          </ul>
+          <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
+        </div>
 
+      </div>
     </div>
+  </div>
   </div>
   <div class="view-product">
     <div class="company_identify">
@@ -88,7 +159,10 @@
                 输入新状态
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" name="cstatusid" datatype="*" value="">
+                <select name="cstatusid" class="width-main input">
+                  <option value="1">生效</option>
+                  <option value="2">失效</option>
+                </select>
               </div>
             </div>
             <p>&nbsp;</p>

@@ -25,12 +25,18 @@ public class DeleteCommodityServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
+        int num =commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
+        String oper="删除商品";
+        String operation= "删除了"+num+"商品";
         CollocationInfoDao collocationInfoDao=sqlSession.getMapper(CollocationInfoDao.class);
         ImageListDao imageListDao = sqlSession.getMapper(ImageListDao.class);
         int num1 = commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
         int num2 = collocationInfoDao.delete(Integer.valueOf(request.getParameter("collocationId")));
         int num3 = imageListDao.delete(Integer.valueOf(request.getParameter("imageId")));
         sqlSession.commit();
+        if(num!=0){
+//            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+            request.getRequestDispatcher("operationinsert").forward(request,response);
         if(num1!=0&&num2!=0&&num3!=0){
             request.getRequestDispatcher("FindAllCommodity").forward(request,response);
         }else {

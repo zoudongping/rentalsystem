@@ -22,7 +22,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
+      <a href="managercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -30,12 +30,12 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
-            <span class="fl text-normal">${user.uname}</span>
+          <a href="managercentral.jsp" class="topbar-btn">
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="m">退出</a></li>
           </ul>
         </div>
       </li>
@@ -57,7 +57,7 @@
           <ul class="sidebar-trans">
             <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
             <li>
-              <a href="#">
+              <a href="toShowUser">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">用户管理</span>
               </a>
@@ -75,25 +75,25 @@
               </a>
             </li>
             <li>
-              <a href="FindAllCollocationServlet">
+              <a href="getcontractinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">合同管理</span>
               </a>
             </li>
             <li>
-              <a href="showcomment.jsp">
+              <a href="findallcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">商品评论</span>
               </a>
             </li>
             <li>
-              <a href="showtransinfo.jsp">
+              <a href="findalltransinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">交易记录</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findoperation">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">操作记录</span>
               </a>
@@ -115,6 +115,10 @@
 
         </div>
 
+      </div>
+    </div>
+  </div>
+
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
@@ -122,33 +126,20 @@
         <h6 class="layout padding-left manage-head-con">交易记录
         </h6>
       </div>
-      <form action="findtransinfo" method="post">
-        <!-- Unnamed (Droplist) -->
-
-        <div class="tr-th clearfix">
-        <div id="u4" class="th w20">
-          <select id="by" name="by">
-            <option selected value="all">全部</option>
-            <option value="date">日期</option>
-            <option value="uname">用户名</option>
-          </select>
-        </div>
-
-        <!-- Unnamed (Text Field) -->
-
-        <div id="u5" class="th w20">
-          <input name="keyword" type="text" value=""/>
-        </div>
-
-        <!-- Unnamed (HTML Button) -->
-        <div id="u6" class="th w20">
-
-          <input id="u6_input" type="submit" value="搜索"/>
-
-        </div>
-
-        </div>
-      </form>
+      <div class="margin-tb manage-detail-con clearfix">
+        <form action="findtransinfo">
+          <div style="float: right">
+            <div id="u4" class="ax_droplist">
+              <select id="by" name="by">
+                <option value="date" selected>日期</option>
+                <option value="uname">用户名</option>
+              </select>
+            </div>
+            <input type="text" name="keyword" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
+            <input type="submit" style="display:  inline-block" class="custom" value="搜索" />
+          </div>
+        </form>
+      </div>
     </div>
     <div class="authority-content">
       <div class="list-content show">

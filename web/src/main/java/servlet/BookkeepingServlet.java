@@ -43,9 +43,16 @@ public class BookkeepingServlet extends HttpServlet {
         g2.setCurrentamount(b);
         g2.setGeneral(b + g1.getGeneral());
         generalLedgerDao.insert(g2);
+        String oper="添加总账";
+        String operation="添加了总账记录";
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
-        request.getRequestDispatcher("findallgeneral").forward(request,response);
+        request.getSession().setAttribute("operation", operation);
+        request.getSession().setAttribute("oper", oper);
+        response.sendRedirect("operationinsert");
+//        SqlSessionHelper.getSqlSession().commit();
+//        SqlSessionHelper.closeSession();
+//        request.getRequestDispatcher("findallgeneral").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

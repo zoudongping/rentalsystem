@@ -36,11 +36,6 @@ public class FindTransInfoServlet extends HttpServlet {
             request.getSession().setAttribute("tlist",tlist);
             request.getRequestDispatcher("showtransinfo.jsp").forward(request,response);
         }
-        if(by.equals("all")){
-            tlist=transInfoDao.findAll();
-            request.getSession().setAttribute("tlist",tlist);
-            request.getRequestDispatcher("showtransinfo.jsp").forward(request,response);
-        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

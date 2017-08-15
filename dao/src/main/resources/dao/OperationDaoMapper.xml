@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OperationDao">
+    <resultMap id="operationMap" type="entity.OperationInfo" >
+        <id property="oid" column="oid"/>
+        <result property="content" column="content"/>
+        <result property="otime" column="otime"/>
+        <result property="managerid" column="managerid"/>
+        <association property="managerInfo" javaType="entity.ManagerInfo">
+            <result property="mname" column="mname"/>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="operationMap">
+        select * from operationinfo o join managerinfo m on o.managerid=m.mid order by otime desc
+    </select>
+    <insert id="insert" parameterType="OperationInfo">
+        insert into operationinfo VALUES (null,#{content},#{managerid},sysdate())
+    </insert>
+</mapper>

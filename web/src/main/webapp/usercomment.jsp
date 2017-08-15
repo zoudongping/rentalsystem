@@ -30,7 +30,7 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
+          <a href="usercentral.jsp" class="topbar-btn">
             <span class="fl text-normal">${user.uname}</span>
             <span class="icon-arrow-down"></span>
           </a>
@@ -75,7 +75,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findbyunameservlet">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">我的合同</span>
               </a>
@@ -87,19 +87,13 @@
               </a>
             </li>
             <li>
-              <a href="updatePwd.html">
+              <a href="updatePwd.jsp">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
               </a>
             </li>
             <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">绑定银行账户</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <a href="toShowBill">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">查询账单</span>
               </a>
@@ -108,6 +102,8 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
         </div>
       </div>
+      </div>
+    </div>
 
 <div class="view-product">
   <div class="authority">
@@ -121,34 +117,37 @@
       <div class="list-content show">
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
-            <div class="th w20">
+            <div class="th w25">
               评论商品名
             </div>
-            <div class="th w20">
+            <div class="th w15">
               评论等级
             </div>
-            <div class="th w20">
+            <div class="th w30">
               评论内容
             </div>
             <div class="th w20">
               评论人
             </div>
+            <div class="th w10">
+              操作
+            </div>
           </div>
           <c:forEach var="c" items="${clist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w10">
+              <div class="td w25">
                   ${c.commodityinfo.cname}
               </div>
-              <div class="td w30">
+              <div class="td w15">
                   ${c.levelinfo.lname}
               </div>
-              <div class="td w25">
+              <div class="td w30">
                   ${c.content}
               </div>
-              <div class="td w10">
+              <div class="td w20">
                   ${c.userinfo.uname}
               </div>
-              <div class="td w5">
+              <div class="td w10">
                 <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
               </div>
             </div>

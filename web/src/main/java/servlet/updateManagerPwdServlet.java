@@ -1,7 +1,9 @@
 package servlet;
 
+import dao.ManagerInfoDao;
 import dao.SqlSessionHelper;
 import dao.UserInfoDao;
+import entity.ManagerInfo;
 import entity.UserInfo;
 
 import javax.servlet.ServletException;
@@ -15,42 +17,44 @@ import java.io.PrintWriter;
 /**
  * Created by Administrator on 2017/8/10.
  */
-@WebServlet(name = "updatePwdServlet",value = "/toUpdatePwd")
-public class updatePwdServlet extends HttpServlet {
+@WebServlet(name = "updateManagerPwdServlet",value = "/toUpdateManagerPwd")
+public class updateManagerPwdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserInfoDao dao=SqlSessionHelper.getSqlSession().getMapper(UserInfoDao.class);
+        ManagerInfoDao dao=SqlSessionHelper.getSqlSession().getMapper(ManagerInfoDao.class);
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
-        String oldPwd = request.getParameter("oldPwd");
-        String newPwd = request.getParameter("newPwd");
-        String rePwd = request.getParameter("rePwd");
-        UserInfo userInfo1=new UserInfo();
-        userInfo1.setUname(userInfo.getUname());
-        userInfo1.setPwd(oldPwd);
-        UserInfo user=dao.findUserNameAndPwd(userInfo1);
-        if(user!=null){
+        ManagerInfo managerInfo=(ManagerInfo)request.getSession().getAttribute("manager");
+        String oldPwd= request.getParameter("oldPwd");
+        String newPwd= request.getParameter("newPwd");
+        String rePwd= request.getParameter("rePwd");
+        ManagerInfo managerInfo1= new ManagerInfo();
+        managerInfo1.setMname(managerInfo.getMname());
+        managerInfo1.setPwd(oldPwd);
+        ManagerInfo manager=dao.findManagerNameAndPwd(managerInfo1);
+
+
+        if(manager!=null){
             if(newPwd.equals(rePwd)){
-                user.setPwd(newPwd);
-                int num=dao.updatePwd(user);
+                manager.setPwd(newPwd);
+                int num=dao.updatePassword()
                 if(num==1){
                     SqlSessionHelper.getSqlSession().commit();
                     SqlSessionHelper.closeSession();
                     out.print("<center><h1>密码修改成功！</h1><br>" +
-                            "<a href='usercentral.jsp'>点此返回个人中心</a></center>");
+                            "<a href='managercentral.jsp'>点此返回个人中心</a></center>");
                 }else{
                     out.print("<center><h1>Sorry,发生系统异常!</h1><br>" +
-                            "<a href='usercentral.jsp'>点此返回个人中心</a></center>");
+                            "<a href='managercentral.jsp'>点此返回个人中心</a></center>");
                 }
             }else{
                 out.print("<center><h1>抱歉，新密码与确认密码不一致！</h1><br>" +
-                        "<a href='updatePwd.html'>点此返回</a></center>");
+                        "<a href='updateManagerPwd.html'>点此返回</a></center>");
             }
         }else{
             out.print("<center><h1>抱歉，原密码错误！</h1><br>" +
-                    "<a href='updatePwd.html'>点此返回</a></center>");
+                    "<a href='updateManagerPwd.html'>点此返回</a></center>");
         }
     }
 
@@ -58,3 +62,14 @@ public class updatePwdServlet extends HttpServlet {
         doPost(request,response);
     }
 }
+
+
+
+
+
+
+
+
+
+
+//        UserInfo user=dao.findUserNameAndPwd(userInfo1);

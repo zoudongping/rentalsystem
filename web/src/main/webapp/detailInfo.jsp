@@ -11,6 +11,7 @@
   <script type="text/javascript" src="Js/jquery-1.9.1.min.js"></script>
   <script src="Js/common.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript">
+
     $(document).ready(function(){
       var showproduct = {
         "boxid":"showbox",
@@ -50,7 +51,7 @@
     </p>
   </div>
   <!--conet -->
-  <form action="#">
+  <form action="addcontract">
   <div class="tb-property">
     <div class="tr-nobdr">
       <%--相机名称--%>
@@ -61,8 +62,8 @@
     <div class="txt">
       <span class="nowprice">￥<a href="">${c.singlecost}</a></span>
       <div class="cumulative">
-        <span class="number ty1">累计租出<br /><em id="add_sell_num_363">370</em></span>
-        <span class="number tyu">累计评价<br /><em id="add_sell_num_363">25</em></span>
+        <span class="number ty1">累计租出<br /><em >370</em></span>
+        <span class="number tyu">累计评价<br /><em >25</em></span>
       </div>
     </div>
     <div class="txt-h">
@@ -189,7 +190,7 @@
           <a href="#">商品介绍</a>
         </li>
         <li>
-          <a href="#">商品评价</a>
+          <a href="findcommentbycommodity">商品评价</a>
         </li>
         <li>
           <a href="#">售后保障</a>
@@ -231,7 +232,42 @@
       <!--3.商品评价-->
       <div id="ui-c" class="ui-c">
         <ul style="display:none;">
-          <p>商品评价</p>
+          <div class="view-product">
+            <div class="authority">
+              <div class="authority-head">
+                <div class="manage-head">
+                  <h6 class="layout padding-left manage-head-con">评论信息
+                  </h6>
+                </div>
+              </div>
+              <div class="authority-content">
+                <div class="list-content show">
+                  <div class="offcial-table tr-border margin-big-top clearfix">
+                    <c:forEach var="c" items="${clist}">
+                      <div class="tr clearfix border-bottom-none">
+                        <div class="td w25">
+                          评论商品名: ${c.commodityinfo.cname}
+                        </div>
+                        <div class="td w25">
+                          评论等级: ${c.levelinfo.lname}
+                        </div>
+                        <div class="td w30">
+                          评论内容: ${c.content}
+                        </div>
+                        <div class="td w20">
+                          评论人: ${c.userinfo.uname}
+                        </div>
+                        <div class="td w20">
+                          --------------------------------------------------------------
+                        </div>
+                      </div>
+                    </c:forEach>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
         </ul>
       </div>
       <!--4.售后保障-->

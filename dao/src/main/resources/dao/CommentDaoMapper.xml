@@ -29,7 +29,7 @@
                                     join levelinfo l on c.level=l.lid
                                     where l.lname like #{lname}
     </select>
-    <select id="findByCommodityid" parameterType="String" resultMap="commentinfoMap">
+    <select id="findByCommodityid" parameterType="java.lang.Integer" resultMap="commentinfoMap">
         select * from commentinfo c join commodityinfo co on c.commodityid=co.cid
                                     join userinfo u on c.uid=u.uid
                                     join levelinfo l on c.level=l.lid

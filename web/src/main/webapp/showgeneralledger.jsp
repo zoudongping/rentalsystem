@@ -23,7 +23,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
+      <a href="managercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -31,12 +31,12 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
-            <span class="fl text-normal">小朱</span>
+          <a href="managercentral.jsp" class="topbar-btn">
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -58,7 +58,7 @@
           <ul class="sidebar-trans">
             <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
             <li>
-              <a href="#">
+              <a href="toShowUser">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">用户管理</span>
               </a>
@@ -76,25 +76,25 @@
               </a>
             </li>
             <li>
-              <a href="FindAllCollocationServlet">
+              <a href="getcontractinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">合同管理</span>
               </a>
             </li>
             <li>
-              <a href="showcomment.jsp">
+              <a href="findallcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">商品评论</span>
               </a>
             </li>
             <li>
-              <a href="showtransinfo.jsp">
+              <a href="findalltransinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">交易记录</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findoperation">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">操作记录</span>
               </a>
@@ -116,6 +116,9 @@
 
         </div>
 
+      </div>
+    </div>
+  </div>
 
   <div class="view-product">
     <div class="authority">

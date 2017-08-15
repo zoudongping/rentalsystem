@@ -36,7 +36,12 @@
         update userinfo set pwd=#{pwd} where uname=#{uname}
     </update>
 
-    <delete id="deleteUser" parameterType="int">
+    <update id="updateUserStatus" parameterType="Userinfo">
+        update userinfo set creditstatus=#{creditstatus} where uid=#{uid}
+    </update>
+
+
+    <delete id="deleteUser"  parameterType="String">
         delete from userinfo where uid=#{uid}
     </delete>
 </mapper>

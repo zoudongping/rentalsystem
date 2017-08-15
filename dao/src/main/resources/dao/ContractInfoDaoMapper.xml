@@ -7,14 +7,35 @@
         parameterType 代表方法的参数数据类型
         resultType:代表方法的返回的集合中的元素类型
     -->
-    <select id="findAll" resultType="ContractInfo">
-        select  *  from contractinfo
+    <resultMap id="contractMap" type="ContractInfo">
+        <id property="cid" column="cid"/>
+        <result property="beginrentdate" column="beginrentdate"/>
+        <result property="overrentdate" column="overrentdate"/>
+        <result property="content" column="content"/>
+        <result property="firstparty" column="firstparty"/>
+        <result property="secondparty" column="secondparty"/>
+        <result property="penalty" column="penalty"/>
+        <result property="cstatusid" column="cstatusid"/>
+
+        <association property="contractStatusInfo" javaType="entity.ContractStatusInfo">
+            <result property="sname" column="sname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="contractMap">
+        select  *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid
     </select>
-    <select id="findByCid" resultType="ContractInfo"  parameterType="ContractInfo">
-        select *  from contractinfo WHERE cid=#{cid} or secondparty LIKE '%${secondparty}%'
+    <select id="findByCid" resultMap="contractMap"  parameterType="ContractInfo">
+        select *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid WHERE c.cid=#{cid} or secondparty LIKE '%${secondparty}%'
+    </select>
+    <select id="findByName" resultMap="contractMap" parameterType="String">
+        SELECT * from contractinfo where secondparty = #{secondparty} and cstatusid is null
     </select>
     <insert id="addContract" parameterType="ContractInfo">
         INSERT INTO  contractinfo VALUES (NULL ,#{beginrentdate},#{overrentdate},NULL ,'深圳爱租网络平台',#{secondparty},NULL ,#{cstatusid})
+    </insert>
+    <insert id="insert" parameterType="ContractInfo">
+        insert into contractinfo values (null,sysdate(),sysdate()+2,#{content},'深圳爱租网络平台',#{secondparty},#{penalty},null)
     </insert>
     <delete id="deleteContract" parameterType="int">
         DELETE  FROM contractinfo WHERE cid=#{cid}
@@ -23,5 +44,9 @@
         UPDATE contractinfo SET
         cstatusid=#{cstatusid}
         WHERE cid=#{cid}
+
     </update>
+    <select id="findByUser" parameterType="String" resultMap="contractMap">
+        select  *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid where c.secondparty=#{secondparty}
+    </select>
 </mapper>

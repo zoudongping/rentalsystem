@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by THINK on 2017/8/9.
  */
-@WebServlet(name = "GetContractInfoServlet",urlPatterns="/getcontractinfo")
+@WebServlet(name = "GetContractInfoServlet",value="/getcontractinfo")
 public class GetContractInfoServlet extends HttpServlet {
     ContractInfoDao contractInfoDao;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,9 +23,8 @@ public class GetContractInfoServlet extends HttpServlet {
         List<ContractInfo> all=contractInfoDao.findAll();
         SqlSessionHelper.closeSession();
         request.setAttribute("all",all);
-        request.getRequestDispatcher("#").forward(request,response);
+        request.getRequestDispatcher("contractinfo.jsp").forward(request,response);
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }

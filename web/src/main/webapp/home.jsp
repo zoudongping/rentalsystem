@@ -29,18 +29,18 @@
   </div>
   <div class="">
     <div class="margin-center padding-little-top" align="center">
-      <%--<form action="#" method="post">--%>
-        <%--<table>--%>
-          <%--<tr>--%>
-            <%--<td>--%>
-              <%--<input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">--%>
-            <%--</td>--%>
-            <%--<td>--%>
-              <%--<input class="width-mains input"  type="button" value="搜索">--%>
-            <%--</td>--%>
-          <%--</tr>--%>
-        <%--</table>--%>
-      <%--</form>--%>
+      <form action="#" method="post">
+        <table>
+          <tr>
+            <td>
+              <input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">
+            </td>
+            <td>
+              <input class="width-mains input"  type="button" value="搜索">
+            </td>
+          </tr>
+        </table>
+      </form>
     </div>
   </div>
   <div class="topbar-info">
@@ -101,6 +101,24 @@
                 <a href="FindCommodityByBrandServlet?brand=卡西欧（CASIO）">
                   <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                   <span class="text-normal">卡西欧（CASIO）</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">Panasonic </span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">威图</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                  <span class="text-normal">其他</span>
                 </a>
               </li>
             </ul>

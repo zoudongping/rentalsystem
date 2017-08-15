@@ -21,6 +21,8 @@ public class DeleteAddressServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int num=dao.deleteAddress(id);
         if(num==1){
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
             response.sendRedirect("toShowAddress");
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();

@@ -26,11 +26,6 @@ public class FindCommentServlet extends HttpServlet {
         String by=request.getParameter("by");
         String keyword="%"+request.getParameter("keyword")+"%";
         List<CommentInfo> clist=new ArrayList<CommentInfo>();
-        if(by.equals("all")){
-            clist=commentDao.findAll();
-            request.getSession().setAttribute("clist",clist);
-            request.getRequestDispatcher("showcomment.jsp").forward(request,response);
-        }
         if(by.equals("commodity")){
             clist=commentDao.findByCommodityname(keyword);
             request.getSession().setAttribute("clist",clist);
