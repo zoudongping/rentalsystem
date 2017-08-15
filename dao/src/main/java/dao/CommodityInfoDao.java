@@ -13,6 +13,8 @@ public interface CommodityInfoDao {
     public int update(CommodityInfo commodityInfo);
     public List<CommodityInfo> findAll();
     public CommodityInfo findById(int id);
+    public List<CommodityInfo> searchById(int id);
+    public List<CommodityInfo> searchByKeyword(String keyword);
     public List<CommodityInfo> findByBrand(String brand);
     public List<CommodityInfo> findByLevel(String level);
     public List<CommodityInfo> findByCondition(String condition);

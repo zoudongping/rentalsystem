@@ -108,7 +108,7 @@
                 相机名称
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" value="${c.cname}" name="cname" datatype="*">
+                <input class="width-main input" type="text" value="${c.cname}" name="cname" >
               </div>
             </div>
 
@@ -125,7 +125,7 @@
                 月租价格
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" value="${c.monthprice}" name="monthprice" datatype="*" >
+                <input class="width-main input" type="text" value="${c.monthprice}" name="monthprice">
               </div>
             </div>
 
@@ -142,7 +142,7 @@
                 押金
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" value="${c.deposit}" name="deposit" datatype="*" >
+                <input class="width-main input" type="text" value="${c.deposit}" name="deposit">
               </div>
             </div>
 
@@ -159,7 +159,7 @@
                 库存
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" value="${c.stock}" name="stock" datatype="*" >
+                <input class="width-main input" type="text" value="${c.stock}" name="stock">
               </div>
             </div>
 
@@ -196,7 +196,7 @@
                   单反级别
                 </p>
                 <div class="content-right-zoon">
-                  <input class="width-main input" type="text" value="${c.collocationInfo.level}" name="level" datatype="*" >
+                  <input class="width-main input" type="text" value="${c.collocationInfo.level}" name="level">
                 </div>
               </div>
 
@@ -213,7 +213,7 @@
                   颜色
                 </p>
                 <div class="content-right-zoon">
-                  <input class="width-main input" type="text" value="${c.collocationInfo.color}" name="color" datatype="*" >
+                  <input class="width-main input" type="text" value="${c.collocationInfo.color}" name="color">
                 </div>
               </div>
 
@@ -230,7 +230,7 @@
                   成色
                 </p>
                 <div class="content-right-zoon">
-                  <input class="width-main input" type="text" value="${c.collocationInfo.condition}" name="condition" datatype="*" >
+                  <input class="width-main input" type="text" value="${c.collocationInfo.condition}" name="condition">
                 </div>
               </div>
 
@@ -250,8 +250,63 @@
                   <input class="width-main input" type="text" value="${c.collocationInfo.battery}" name="battery">
                 </div>
               </div>
-
             </div>
+
+            <div class="unit-style padding-big-lr clearfix">
+              <h4 class="real-name-head margin-large-top">图片列表</h4>
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址1
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image1}" name="image1">
+                </div>
+              </div>
+
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址2
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image2}" name="image2">
+                </div>
+              </div>
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址3
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image3}" name="image3">
+                </div>
+              </div>
+
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址4
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image4}" name="image4">
+                </div>
+              </div>
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址5
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image5}" name="image5">
+                </div>
+              </div>
+
+              <div class="real-name-con height-main margin-top-25">
+                <p class="content-left-zoon">
+                  图片地址6
+                </p>
+                <div class="content-right-zoon">
+                  <input class="width-main input" type="text" value="${c.imageList.image6}" name="image6">
+                </div>
+              </div>
+            </div>
+
           </div>
           <div class="unit-style padding-large-tb clearfix">
             <div class="margin-large-top padding-left text-left content-right-zoon">

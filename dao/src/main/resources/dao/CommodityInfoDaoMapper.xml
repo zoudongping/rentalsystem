@@ -22,21 +22,43 @@
     </update>
     <select id="findAll" resultMap="CommodityMapper">
         SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+                                      JOIN imagelist C ON A.image=C.id
     </select>
-    <select id="findById" resultMap="CommodityMapper" parameterType="int">
-        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE A.cid=#{cid}
+    <select id="findById" parameterType="int" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+                                      JOIN imagelist C ON A.image=C.id
+                                      WHERE A.cid=#{cid}
+    </select>
+
+    <select id="searchById" parameterType="int" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+        JOIN imagelist C ON A.image=C.id
+        WHERE A.cid=#{cid}
+    </select>
+
+    <select id="searchByKeyword" parameterType="java.lang.String" resultMap="CommodityMapper">
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+        JOIN imagelist C ON A.image=C.id
+        WHERE CONCAT(A.`cname`,A.`brand`,B.`level`,B.`color`,B.`pixel`,B.`condition`,B.`sensor`,B.`battery`)
+        LIKE #{keyword}
     </select>
 
     <select id="findByBrand" parameterType="java.lang.String" resultMap="CommodityMapper">
-        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE A.brand=#{brand}
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+                                      JOIN imagelist C ON A.image=C.id
+                                      WHERE A.brand=#{brand}
     </select>
 
     <select id="findByLevel" parameterType="java.lang.String" resultMap="CommodityMapper">
-        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE B.level=#{level}
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+                                      JOIN imagelist C ON A.image=C.id
+                                      WHERE B.level=#{level}
     </select>
 
     <select id="findByCondition" parameterType="java.lang.String" resultMap="CommodityMapper">
-        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid WHERE B.condition=#{condition}
+        SELECT * FROM commodityinfo A JOIN collocationinfo B ON A.`collocation`=B.cid
+                                      JOIN imagelist C ON A.image=C.id
+                                      WHERE B.condition=#{condition}
     </select>
 
     <resultMap id="CommodityMapper" type="CommodityInfo">
@@ -61,6 +83,16 @@
             <result column="condition"  property="condition"/>
             <result column="sensor"  property="sensor"/>
             <result column="battery"  property="battery"/>
+        </association>
+
+        <association property="imageList" javaType="entity.ImageList">
+            <id column="id" property="id"/>
+            <result column="image1" property="image1"/>
+            <result column="image2" property="image2"/>
+            <result column="image3" property="image3"/>
+            <result column="image4" property="image4"/>
+            <result column="image5" property="image5"/>
+            <result column="image6" property="image6"/>
         </association>
     </resultMap>
 

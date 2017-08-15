@@ -35,11 +35,11 @@
   <!--left -->
   <div class="showbot">
     <div id="showbox">
-      <img src="Images/photos/sony1.png" width="400" height="400" />
-      <img src="Images/photos/sony2.png" width="400" height="400" />
-      <img src="Images/photos/sony3.png" width="400" height="400" />
-      <img src="Images/photos/sony4.png" width="400" height="400" />
-
+      <img src="${c.imageList.image1}" width="400" height="400" />
+      <img src="${c.imageList.image2}" width="400" height="400" />
+      <img src="${c.imageList.image3}" width="400" height="400" />
+      <img src="${c.imageList.image4}" width="400" height="400" />
+      <img src="${c.imageList.image5}" width="400" height="400" />
     </div><!--展示图片盒子-->
     <div id="showsum">
       <!--展示图片里边-->
@@ -148,24 +148,24 @@
   <div class="aside">
     <h3>看了还看<span><img src="Images/fod.png"width="22" height="22"/>换一批</span></h3>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/hdy_09.png"/></a></dt>
+      <dt><a href=""><img src="Images/photos/small_sony1.png"/></a></dt>
       <dd>
-        O2+车载空气净化器DM2
-        <span>￥99</span>
+        O2+索尼（SONY） DSC-H400 长焦数码相机
+        <span>￥1949</span>
       </dd>
     </dl>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/hdy_07.png"/></a></dt>
+      <dt><a href=""><img src="Images/photos/small_canon1.png"/></a></dt>
       <dd>
-        O2+车载空气净化器DM2
-        <span>￥99</span>
+        O2+佳能（Canon）EOS 800D 单反套机
+        <span>￥5499</span>
       </dd>
     </dl>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/hdy_11.jpg"/></a></dt>
+      <dt><a href=""><img src="Images/photos/small_nikon1.png"/></a></dt>
       <dd>
-        O2+车载空气净化器DM2
-        <span>￥99</span>
+        O2+尼康（Nikon）D5300套机
+        <span>￥4799</span>
       </dd>
     </dl>
   </div>
@@ -204,16 +204,21 @@
       <!--1.规格参数-->
       <div id="ui-a" class="ui-a">
         <ul style="display:block;">
-          <li>商品名称：仙人指路道镜前后双录智能后视镜导航仪行车记录仪后视预警一体机</li>
-          <li>商品编号：ECS001983</li>
-          <li>品牌</li>
-          <li>上架时间：2016-05-24</li>
-          <li>商品毛重：0克</li>
-          <li>库存： 999 </li>
-          <li><img src="Images/ko-1.jpg"/></li>
-          <li><img src="Images/ko-2.jpg"/></li>
-          <li><img src="Images/ko.jpg"/></li>
-          <li><img src="Images/ko-1.jpg"/></li>
+          <li>相机名称：${c.cname}</li>
+          <li>相机编号：${c.cid}</li>
+          <li>品牌：${c.brand}</li>
+          <li>单反级别：${c.collocationInfo.level}</li>
+          <li>屏幕尺寸：${c.collocationInfo.screensize}</li>
+          <li>颜色：${c.collocationInfo.color}</li>
+          <li>像素：${c.collocationInfo.pixel}</li>
+          <li>成色：${c.collocationInfo.condition}</li>
+          <li>传感器：${c.collocationInfo.sensor}</li>
+          <li>电池类型：${c.collocationInfo.battery}</li>
+
+<%--          <li>上架时间：2016-05-24</li>--%>
+          <%--<li>商品毛重：0克</li>--%>
+          <%--<li>库存：${c.stock} </li>--%>
+          <li><img src="${c.imageList.image6}" width="400" height="400" /></li>
         </ul>
       </div>
       <!--2.商品介绍-->

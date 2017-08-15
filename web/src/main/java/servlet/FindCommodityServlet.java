@@ -30,30 +30,12 @@ public class FindCommodityServlet extends HttpServlet {
         String classification=request.getParameter("classification");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         List<CommodityInfo> list=new ArrayList<CommodityInfo>();
-
-        if(cid!=null){
-            CommodityInfo commodityInfo=commodityInfoDao.findById(Integer.valueOf(cid));
-            request.getSession().setAttribute("c",commodityInfo);
-            request.getRequestDispatcher("detailInfo.jsp").forward(request,response);
-        }
-
-//        if(classification.equals("all")){
+        List<CommodityInfo> list1=new ArrayList<CommodityInfo>();
             list=commodityInfoDao.findAll();
+            list1=commodityInfoDao.findAll();
             request.getSession().setAttribute("list",list);
+            request.getSession().setAttribute("list1",list1);
             request.getRequestDispatcher("home.jsp").forward(request,response);
-//        } else if(classification.equals("brand")){
-//            list=commodityInfoDao.findByBrand("brand");
-//            request.getSession().setAttribute("list",list);
-//            request.getRequestDispatcher("commodityInfo.jsp").forward(request,response);
-//        }else if(classification.equals("level")){
-//            list=commodityInfoDao.findByLevel("level");
-//            request.getSession().setAttribute("list",list);
-//            request.getRequestDispatcher("commodityInfo.jsp").forward(request,response);
-//        }else if(classification.equals("condition")){
-//            list=commodityInfoDao.findByBrand("condition");
-//            request.getSession().setAttribute("list",list);
-//            request.getRequestDispatcher("commodityInfo.jsp").forward(request,response);
-//        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

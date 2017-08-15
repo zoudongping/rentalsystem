@@ -23,9 +23,11 @@ public class CommodityInfo {
     private int stock;
     private String brand;
     private double singlecost;
-    private String image;
+    private int image;
 
     private CollocationInfo collocationInfo;
+
+    private ImageList imageList;
 
     public CommodityInfo() {
     }
@@ -110,11 +112,11 @@ public class CommodityInfo {
         this.singlecost = singlecost;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 
@@ -124,6 +126,14 @@ public class CommodityInfo {
 
     public void setCollocationInfo(CollocationInfo collocationInfo) {
         this.collocationInfo = collocationInfo;
+    }
+
+    public ImageList getImageList() {
+        return imageList;
+    }
+
+    public void setImageList(ImageList imageList) {
+        this.imageList = imageList;
     }
 
     @Override
@@ -141,6 +151,7 @@ public class CommodityInfo {
                 ", singlecost=" + singlecost +
                 ", image='" + image + '\'' +
                 ", collocationInfo=" + collocationInfo +
+                ", imageList=" + imageList +
                 '}';
     }
 }

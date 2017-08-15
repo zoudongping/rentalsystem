@@ -29,18 +29,18 @@
   </div>
   <div class="">
     <div class="margin-center padding-little-top" align="center">
-      <form action="#" method="post">
-        <table>
-          <tr>
-            <td>
-              <input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">
-            </td>
-            <td>
-              <input class="width-mains input"  type="button" value="搜索">
-            </td>
-          </tr>
-        </table>
-      </form>
+      <%--<form action="#" method="post">--%>
+        <%--<table>--%>
+          <%--<tr>--%>
+            <%--<td>--%>
+              <%--<input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">--%>
+            <%--</td>--%>
+            <%--<td>--%>
+              <%--<input class="width-mains input"  type="button" value="搜索">--%>
+            <%--</td>--%>
+          <%--</tr>--%>
+        <%--</table>--%>
+      <%--</form>--%>
     </div>
   </div>
   <div class="topbar-info">
@@ -68,62 +68,82 @@
             <div class="sidebar-title">
               <a href="#">
                 <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                <span class="text-normal">单反品牌类别</span>
+                <span class="text-normal">品牌：</span>
               </a>
             </div>
             <ul class="sidebar-trans">
               <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
-                  <li>
-                    <a href="#">
-                      <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                      <span class="text-normal">佳能（Canon）</span>
-                    </a>
-                  </li>
+                <li>
+                  <a href="FindCommodityByBrandServlet?brand=尼康（Nikon）">
+                    <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                    <span class="text-normal">尼康（Nikon）</span>
+                  </a>
+                </li>
               <li>
-                <a href="#">
+                <a href="FindCommodityByBrandServlet?brand=佳能（Canon）">
                   <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">尼康（Nikon）</span>
+                  <span class="text-normal">佳能（Canon）</span>
                 </a>
               </li>
               <li>
-                <a href="#">
-                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">宾得（PENTAX）</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">徕卡（Leica）</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
+                <a href="FindCommodityByBrandServlet?brand=索尼（SONY）">
                   <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                   <span class="text-normal">索尼（SONY）</span>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="FindCommodityByBrandServlet?brand=徕卡（Leica）">
                   <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">Panasonic </span>
+                  <span class="text-normal">徕卡（Leica）</span>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="FindCommodityByBrandServlet?brand=卡西欧（CASIO）">
                   <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">威图</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                  <span class="text-normal">其他</span>
+                  <span class="text-normal">卡西欧（CASIO）</span>
                 </a>
               </li>
             </ul>
           </div>
+      <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
+      <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+      <div class="sidebar-nav">
+        <div class="sidebar-title">
+          <a href="#">
+            <span class="icon"><b class="fl icon-arrow-down"></b></span>
+            <span class="text-normal">分类：</span>
+          </a>
+        </div>
+        <ul class="sidebar-trans">
+          <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+
+          <li>
+            <a href="FindCommodityByLevelServlet?level=入门级">
+              <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+              <span class="text-normal">入门级</span>
+            </a>
+            </li>
+          <li>
+            <a href="FindCommodityByLevelServlet?level=中高级">
+              <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+              <span class="text-normal">中高级</span>
+            </a>
+          </li>
+          <li>
+            <a href="FindCommodityByLevelServlet?level=中高级">
+              <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+              <span class="text-normal">中端</span>
+            </a>
+          </li>
+          <li>
+            <a href="FindCommodityByLevelServlet?level=专业级">
+              <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+              <span class="text-normal">专业级</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
     </div>
   </div>
@@ -133,10 +153,18 @@
       <div class="authority-head">
         <div class="manage-head">
           <h6 class="layout padding-left manage-head-con">用户管理
-            <span class="fr text-small text-normal padding-top">发布时间：2016-07-08</span>
+            <%--<span class="fr text-small text-normal padding-top">发布时间：2016-07-08</span>
             <span class="fr margin-large-right padding-top text-small text-normal">最新版本：<em class="text-main">2.4.0.160708</em></span>
+          --%>
           </h6>
-        </div>
+          <div class="margin-tb manage-detail-con clearfix">
+            <form action="SearchByKeywordServlet">
+              <div style="float: right">
+                <input type="text" name="keyword" placeholder="关键字" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
+                <input type="submit" style="display:  inline-block" class="custom" value="搜索"/>
+              </div>
+            </form>
+          </div>
       </div>
       <div class="authority-content">
         <div class="list-content show">
@@ -158,7 +186,7 @@
                 操作
               </div>
             </div>
-            <c:forEach var="c" items="${list}" varStatus="rs">
+            <c:forEach var="c" items="${list1}" varStatus="rs">
               <div class="tr clearfix border-bottom-none">
                 <div class="td w20">
                   <span class="text-normal"> ${c.cname}</span>
@@ -173,7 +201,7 @@
                   <span class="text-normal"> ${c.deposit}</span>
                 </div>
                 <div class="td w20">
-                  <a href="FindByCommodityIdServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
+                  <a href="FindByCommodityId?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
                 </div>
               </div>
             </c:forEach>

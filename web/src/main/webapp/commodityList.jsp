@@ -47,33 +47,27 @@
 <div class="view-body">
     <div class="view-sidebar">
         <div class="sidebar-content">
-            <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-                    <div class="sidebar-nav">
-                        <div class="sidebar-title">
-                            <a href="#">
-                                <span class="icon"><b class="fl icon-arrow-down"></b></span>
-                                <span class="text-normal">品牌</span>
-                            </a>
-                        </div>
-                        <ul class="sidebar-trans">
-                            <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
-
-                                    <li>
-                                        <a href="${child_r.resurl}">
-                                            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                                            <span class="text-normal">佳能</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="${child_r.resurl}" >
-                                            <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                                            <span class="text-normal">索尼</span>
-                                        </a>
-                                    </li>
-
-                        </ul>
-                    </div>
-            <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
+            <%--<!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->--%>
+            <%--<div class="sidebar-nav">--%>
+                <%--<div class="sidebar-title">--%>
+                    <%--<a href="#">--%>
+                        <%--<span class="icon"><b class="fl icon-arrow-down"></b></span>--%>
+                        <%--<span class="text-normal">品牌：</span>--%>
+                    <%--</a>--%>
+                <%--</div>--%>
+                <%--<ul class="sidebar-trans">--%>
+                    <%--<!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->--%>
+                    <%--<c:forEach var="c" items="${list}">--%>
+                        <%--<li>--%>
+                            <%--<a href="FindCommodityByBrandServlet?brand=${c.brand}">--%>
+                                <%--<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>--%>
+                                <%--<span class="text-normal">${c.brand}</span>--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
+                    <%--</c:forEach>--%>
+                <%--</ul>--%>
+            <%--</div>--%>
+            <%--<!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->--%>
         </div>
     </div>
 
@@ -82,9 +76,23 @@
             <div class="authority-head">
                 <div class="manage-head">
                     <h6 class="layout padding-left manage-head-con">相机管理
-                        <span class="fr text-small text-normal padding-top">发布时间：2016-07-08</span>
-                        <span class="fr margin-large-right padding-top text-small text-normal">最新版本：<em class="text-main">2.4.0.160708</em></span>
+                        <%--<span class="fr text-small text-normal padding-top">发布时间：2016-07-08</span>--%>
+                        <%--<span class="fr margin-large-right padding-top text-small text-normal">最新版本：<em class="text-main">2.4.0.160708</em></span>--%>
                     </h6>
+                    <div class="margin-tb manage-detail-con clearfix">
+
+                        <div style="float: left">
+                            <a style="display:  inline-block" class="custom" href="addcommodity.jsp">增加</a>
+                        </div>
+
+
+                        <form action="FindByCommodityIdServlet">
+                            <div style="float: right">
+                                <input type="text" name="searchId" placeholder="相机编号" style="border: 1px solid #ccc;height: 30px;width: 175px;border-radius: 3px"/>
+                                <input type="submit" style="display:  inline-block" class="custom" value="搜索"/>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="authority-content">
@@ -122,10 +130,10 @@
                                     <span class="text-normal"> ${c.deposit}</span>
                                 </div>
                             <div class="td w20">
-                                <a href="FindCommodityServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
-                                <a href="addcommodity.jsp"  class="button-word2 btn_ajax_confirm">增加</a>
+                                <a href="FindByCommodityId?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
+                                <%--<a href="addcommodity.jsp"  class="button-word2 btn_ajax_confirm">增加</a>--%>
                                 <a href="FindCommodityBeforeUpdate?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">编辑</a>
-                                <a href="DeleteCommodityServlet?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">删除</a>
+                                <a href="DeleteCommodityServlet?cid=${c.cid}&collocationId=${c.collocationInfo.cid}&imageId=${c.imageList.id}"  class="button-word2 btn_ajax_confirm">删除</a>
                             </div>
                         </div>
                     </c:forEach>
