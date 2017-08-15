@@ -15,8 +15,8 @@ import java.io.PrintWriter;
 /**
  * Created by Administrator on 2017/8/10.
  */
-@WebServlet(name = "updatePwdServlet",value = "/toUpdatePwd")
-public class updatePwdServlet extends HttpServlet {
+@WebServlet(name = "UpdatePasswordServlet",value = "/toUpdatePwd")
+public class UpdatePasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserInfoDao dao=SqlSessionHelper.getSqlSession().getMapper(UserInfoDao.class);
         request.setCharacterEncoding("UTF-8");
