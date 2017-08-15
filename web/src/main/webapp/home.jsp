@@ -132,7 +132,7 @@
     <div class="authority">
       <div class="authority-head">
         <div class="manage-head">
-          <h6 class="layout padding-left manage-head-con">用户管理
+          <h6 class="layout padding-left manage-head-con">商品信息
             <span class="fr text-small text-normal padding-top">发布时间：2016-07-08</span>
             <span class="fr margin-large-right padding-top text-small text-normal">最新版本：<em class="text-main">2.4.0.160708</em></span>
           </h6>

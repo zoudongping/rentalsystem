@@ -31,13 +31,12 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="getcontractinfo" class="topbar-home-link topbar-btn text-center fl"><span>管理控制台</span></a>
+      <a href="managercentral.jsp" class="topbar-home-link topbar-btn text-center fl"><span>管理中心</span></a>
     </div>
   </div>
   <div class="topbar-info">
     <ul class="fr">
       <li class="fl dropdown topbar-notice topbar-btn">
-        <a href="#" class="dropdown-toggle">
           <span class="icon-notice"></span>
           <span class="topbar-num have">0</span>
           <!--have表示有消息，没有消息去掉have-->
@@ -45,8 +44,8 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
-            <span class="fl text-normal"></span>
+          <a href="managercentral.jsp" class="topbar-btn">
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">

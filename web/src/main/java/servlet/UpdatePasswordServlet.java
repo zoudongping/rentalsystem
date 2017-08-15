@@ -46,11 +46,11 @@ public class UpdatePasswordServlet extends HttpServlet {
                 }
             }else{
                 out.print("<center><h1>抱歉，新密码与确认密码不一致！</h1><br>" +
-                        "<a href='updatePwd.html'>点此返回</a></center>");
+                        "<a href='updatePwd.jsp'>点此返回</a></center>");
             }
         }else{
             out.print("<center><h1>抱歉，原密码错误！</h1><br>" +
-                    "<a href='updatePwd.html'>点此返回</a></center>");
+                    "<a href='updatePwd.jsp'>点此返回</a></center>");
         }
     }
 

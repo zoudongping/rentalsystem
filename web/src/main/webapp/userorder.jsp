@@ -21,15 +21,14 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>用户中心</span></a>
+      <a href="home.jsp" class="topbar-home-link topbar-btn text-center fl"><span>首页</span></a>
     </div>
   </div>
   <div class="topbar-info">
     <ul class="fr">
-
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
+          <a href="usercentral.jsp" class="topbar-btn">
             <span class="fl text-normal">${user.uname}</span>
             <span class="icon-arrow-down"></span>
           </a>
@@ -74,7 +73,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findbyunameservlet">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">我的合同</span>
               </a>
@@ -86,19 +85,14 @@
               </a>
             </li>
             <li>
-              <a href="updatePwd.html">
+              <a href="updatePwd.jsp">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
               </a>
             </li>
+
             <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">绑定银行账户</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              <a href="toShowBill">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">查询账单</span>
               </a>
@@ -108,6 +102,8 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
         </div>
       </div>
+      </div>
+    </div>
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">

@@ -23,10 +23,10 @@
     </resultMap>
 
     <select id="findAll" resultMap="contractMap">
-        select  *  from contractinfo
+        select  *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid
     </select>
     <select id="findByCid" resultMap="contractMap"  parameterType="ContractInfo">
-        select *  from contractinfo WHERE cid=#{cid} or secondparty LIKE '%${secondparty}%'
+        select *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid WHERE c.cid=#{cid} or secondparty LIKE '%${secondparty}%'
     </select>
     <select id="findByName" resultMap="contractMap" parameterType="String">
         SELECT * from contractinfo where secondparty = #{secondparty} and cstatusid is null
@@ -47,6 +47,6 @@
 
     </update>
     <select id="findByUser" parameterType="String" resultMap="contractMap">
-        SELECT *  FROM contractinfo where  secondparty =#{secondparty}
+        select  *  from contractinfo c join contractstatusinfo co on c.cstatusid=co.sid where c.secondparty=#{secondparty}
     </select>
 </mapper>
