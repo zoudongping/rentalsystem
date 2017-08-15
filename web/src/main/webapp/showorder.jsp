@@ -76,7 +76,7 @@
               </a>
             </li>
             <li>
-              <a href="FindAllCollocationServlet">
+              <a href="getcontractinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">合同管理</span>
               </a>
@@ -94,7 +94,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findoperation">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">操作记录</span>
               </a>
@@ -115,6 +115,9 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
         </div>
+        </div>
+      </div>
+    </div>
 
 
         <div class="view-product">
@@ -185,10 +188,7 @@
                       <div class="td w10">
                           ${o.orderstatusinfo.sname}
                       </div>
-                      <div class="td w5">
-                        <a href="#" class="button-word2 btn_ajax_confirm">编辑</a>
-                      </div>
-                      <div class="td w5">
+                      <div class="td w10">
                         <a href="deleteOrder?id=${o.oid}"class="button-word2 btn_ajax_confirm">删除</a>
                       </div>
                     </div>

@@ -35,7 +35,7 @@ public class ManagerLoginServlet extends HttpServlet {
         if (manager != null) {
             out.print("<center><h1>登录成功！</h1>");
             request.getSession().setAttribute("manager", manager);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("managercentral.jsp");
         } else {
             out.print("<center><h1>登录失败！账户或密码错误！</h1><br>" +
                     "<a href='managerlogin.html'>点此返回</a></center>");

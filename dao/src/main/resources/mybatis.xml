@@ -12,7 +12,7 @@
         <typeAlias type="entity.CollocationInfo" alias="CollocationInfo"/>
         <typeAlias type="entity.ContractInfo" alias="ContractInfo"/>
         <typeAlias type="entity.ManagerInfo" alias="ManagerInfo"/>
-        <typeAlias type="entity.ContractInfo" alias="ContractInfo"/>
+        <typeAlias type="entity.OperationInfo" alias="OperationInfo"/>
     </typeAliases>
     <environments default="one">
 
@@ -41,6 +41,6 @@
         <mapper resource="dao/CollocationInfoDaoMapper.xml"/>
         <mapper resource="dao/ManagerInfoDaoMapper.xml"/>
         <mapper resource="dao/ContractInfoDaoMapper.xml"/>
-        <mapper resource="dao/ContractInfoDaoMapper.xml"/>
+        <mapper resource="dao/OperationDaoMapper.xml"/>
     </mappers>
 </configuration>

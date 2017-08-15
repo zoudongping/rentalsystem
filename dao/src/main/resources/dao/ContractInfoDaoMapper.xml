@@ -7,13 +7,28 @@
         parameterType 代表方法的参数数据类型
         resultType:代表方法的返回的集合中的元素类型
     -->
-    <select id="findAll" resultType="ContractInfo">
+    <resultMap id="contractMap" type="ContractInfo">
+        <id property="cid" column="cid"/>
+        <result property="beginrentdate" column="beginrentdate"/>
+        <result property="overrentdate" column="overrentdate"/>
+        <result property="content" column="content"/>
+        <result property="firstparty" column="firstparty"/>
+        <result property="secondparty" column="secondparty"/>
+        <result property="penalty" column="penalty"/>
+        <result property="cstatusid" column="cstatusid"/>
+
+        <association property="contractStatusInfo" javaType="entity.ContractStatusInfo">
+            <result property="sname" column="sname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="contractMap">
         select  *  from contractinfo
     </select>
-    <select id="findByCid" resultType="ContractInfo"  parameterType="ContractInfo">
+    <select id="findByCid" resultMap="contractMap"  parameterType="ContractInfo">
         select *  from contractinfo WHERE cid=#{cid} or secondparty LIKE '%${secondparty}%'
     </select>
-    <select id="findByName" resultType="ContractInfo" parameterType="String">
+    <select id="findByName" resultMap="contractMap" parameterType="String">
         SELECT * from contractinfo where secondparty = #{secondparty} and cstatusid is null
     </select>
     <insert id="addContract" parameterType="ContractInfo">
@@ -31,7 +46,7 @@
         WHERE cid=#{cid}
 
     </update>
-    <select id="findByUser" parameterType="String" resultType="ContractInfo">
+    <select id="findByUser" parameterType="String" resultMap="contractMap">
         SELECT *  FROM contractinfo where  secondparty =#{secondparty}
     </select>
 </mapper>

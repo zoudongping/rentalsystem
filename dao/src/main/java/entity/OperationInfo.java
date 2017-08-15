@@ -19,6 +19,27 @@ public class OperationInfo {
     private int managerid;
     private String otime;
 
+    @Override
+    public String toString() {
+        return "OperationInfo{" +
+                "content='" + content + '\'' +
+                ", oid=" + oid +
+                ", managerid=" + managerid +
+                ", otime='" + otime + '\'' +
+                ", managerInfo=" + managerInfo +
+                '}';
+    }
+
+    public ManagerInfo getManagerInfo() {
+        return managerInfo;
+    }
+
+    public void setManagerInfo(ManagerInfo managerInfo) {
+        this.managerInfo = managerInfo;
+    }
+
+    private ManagerInfo managerInfo;
+
     public int getOid() {
         return oid;
     }
@@ -51,13 +72,4 @@ public class OperationInfo {
         this.otime = otime;
     }
 
-    @Override
-    public String toString() {
-        return "OperationInfo{" +
-                "oid=" + oid +
-                ", content='" + content + '\'' +
-                ", managerid=" + managerid +
-                ", otime='" + otime + '\'' +
-                '}';
-    }
 }

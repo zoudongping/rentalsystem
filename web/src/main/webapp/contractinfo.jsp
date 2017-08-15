@@ -44,63 +44,79 @@
 </div>
 <div class="view-body">
   <div class="view-sidebar">
-    <div class="sidebar-content">
-      <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
-      <div class="sidebar-nav">
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">修改个人资料</span>
-          </a>
+    <div class="view-sidebar">
+      <div class="sidebar-content">
+        <!--一级菜单循环从这里开始 ，动态循环显示一级菜单-->
+        <div class="sidebar-nav">
+          <div class="sidebar-title">
+            <a href="#">
+              <span class="icon"><b class="fl icon-arrow-down"></b></span>
+              <span class="text-normal">菜单</span>
+            </a>
+          </div>
+          <ul class="sidebar-trans">
+            <!--二级菜单循环从这里开始 ，动态循环显示二级菜单-->
+            <li>
+              <a href="toShowUser">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">用户管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="FindAllCommodityServlet">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallorder">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">订单管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="getcontractinfo">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">合同管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="showcomment.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">商品评论</span>
+              </a>
+            </li>
+            <li>
+              <a href="showtransinfo.jsp">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">交易记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">操作记录</span>
+              </a>
+            </li>
+            <li>
+              <a href="findallgeneral">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">总账管理</span>
+              </a>
+            </li>
+            <li>
+              <a href="toUpdateManagerPwd.html">
+                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
+                <span class="text-normal">修改密码</span>
+              </a>
+            </li>
+          </ul>
+          <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
+
         </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">收货地址</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的订单</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的合同</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="findcomment">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">我的评论</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">修改密码</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">绑定银行账户</span>
-          </a>
-        </div>
-        <div class="sidebar-title">
-          <a href="#">
-            <span class="icon"><b class="fl icon-arrow-down"></b></span>
-            <span class="text-normal">查询账单</span>
-          </a>
-        </div>
+
+</div>
       </div>
-
-      <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
-
-    </div>
-  </div>
 
   <div class="view-product">
     <div class="authority">
@@ -176,7 +192,7 @@
                   ${r.penalty}
                 </div>
                 <div class="td w10">
-                    ${r.cstatusid}
+                    ${r.contractStatusInfo.sname}
                 </div>
                 <div class="td w10">
                   <a href="deletecontractinfo.action?pid=${r.cid}" class="button-word2 btn_ajax_confirm">删除</a>

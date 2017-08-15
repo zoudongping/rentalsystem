@@ -39,19 +39,31 @@ public class ContractInfo {
     private String secondparty;
     private double penalty;
     private int cstatusid;
+    public ContractStatusInfo contractStatusInfo;
+
     @Override
     public String toString() {
         return "ContractInfo{" +
-                "cid=" + cid +
-                ", beginrentdate=" + beginrentdate +
-                ", overrentdate=" + overrentdate +
+                "beginrentdate='" + beginrentdate + '\'' +
+                ", cid=" + cid +
+                ", overrentdate='" + overrentdate + '\'' +
                 ", content='" + content + '\'' +
                 ", firstparty='" + firstparty + '\'' +
                 ", secondparty='" + secondparty + '\'' +
                 ", penalty=" + penalty +
                 ", cstatusid=" + cstatusid +
+                ", contractStatusInfo=" + contractStatusInfo +
                 '}';
     }
+
+    public ContractStatusInfo getContractStatusInfo() {
+        return contractStatusInfo;
+    }
+
+    public void setContractStatusInfo(ContractStatusInfo contractStatusInfo) {
+        this.contractStatusInfo = contractStatusInfo;
+    }
+
     public int getCid() {
         return cid;
     }

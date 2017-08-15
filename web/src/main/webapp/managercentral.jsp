@@ -92,7 +92,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="findoperation">
             <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
             <span class="text-normal">操作记录</span>
           </a>
@@ -112,7 +112,7 @@
       </ul>
       <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
-    </div>
+      </div>
 
 
   </div>

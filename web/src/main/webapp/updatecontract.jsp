@@ -88,7 +88,10 @@
                 输入新状态
               </p>
               <div class="content-right-zoon">
-                <input class="width-main input" type="text" name="cstatusid" datatype="*" value="">
+                <select name="cstatusid" class="width-main input">
+                  <option value="1">生效</option>
+                  <option value="2">失效</option>
+                </select>
               </div>
             </div>
             <p>&nbsp;</p>

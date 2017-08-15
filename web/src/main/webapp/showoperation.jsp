@@ -32,11 +32,11 @@
       <li class="fl topbar-info-item">
         <div class="dropdown">
           <a href="#" class="topbar-btn">
-            <span class="fl text-normal">小朱</span>
+            <span class="fl text-normal">${manager.mname}</span>
             <span class="icon-arrow-down"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="login.html">退出</a></li>
+            <li><a href="managerlogin.html">退出</a></li>
           </ul>
         </div>
       </li>
@@ -94,7 +94,7 @@
               </a>
             </li>
             <li>
-              <a href="findoperation">
+              <a href="#">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">操作记录</span>
               </a>
@@ -115,59 +115,43 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
         </div>
-        </div>
       </div>
     </div>
+  </div>
 
 
   <div class="view-product">
     <div class="authority">
       <div class="authority-head">
         <div class="manage-head">
-          <h6 class="layout padding-left manage-head-con">总账管理中心
+          <h6 class="layout padding-left manage-head-con">操作管理中心
           </h6>
-          <div class="margin-tb manage-detail-con clearfix">
-            <a class="h5 margin-large-left custom fl" href="bookkeeping">记账</a>
-          </div>
-
         </div>
       </div>
       <div class="authority-content">
         <div class="list-content show">
           <div class="offcial-table tr-border margin-big-top clearfix">
             <div class="tr-th clearfix">
-              <div class="th w20">
-                记账时间
+              <div class="th w30">
+                操作时间
               </div>
-              <div class="th w20">
-                盈亏类型
+              <div class="th w40">
+                操作内容
               </div>
-              <div class="th w20">
-                记账描述
-              </div>
-              <div class="th w20">
-                本期记账金额
-              </div>
-              <div class="th w20">
-                总资金
+              <div class="th w30">
+                操作人
               </div>
             </div>
-            <c:forEach var="g" items="${glist}">
+            <c:forEach var="o" items="${operation}">
               <div class="tr clearfix border-bottom-none">
-                <div class="td w20">
-                    ${g.bookkeepingtime}
+                <div class="td w30">
+                    ${o.otime}
                 </div>
-                <div class="td w20">
-                    ${g.type}
+                <div class="td w40">
+                    ${o.content}
                 </div>
-                <div class="td w20">
-                    ${g.content}
-                </div>
-                <div class="td w20">
-                    ${g.currentamount}
-                </div>
-                <div class="td w20">
-                    ${g.general}
+                <div class="td w30">
+                    ${o.managerInfo.mname}
                 </div>
               </div>
             </c:forEach>
@@ -205,5 +189,5 @@
   });
 </script>
 </body>
-
 </html>
+

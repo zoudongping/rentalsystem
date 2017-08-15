@@ -25,7 +25,6 @@ public class GetContractInfoServlet extends HttpServlet {
         request.setAttribute("all",all);
         request.getRequestDispatcher("contractinfo.jsp").forward(request,response);
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }

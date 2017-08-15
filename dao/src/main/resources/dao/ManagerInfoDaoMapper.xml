@@ -10,10 +10,10 @@
     <update id="updatePassword" parameterType="ManagerInfo">
         update managerinfo set pwd=#{pwd} where mid=#{mid}
     </update>
-    <select id="findByManagerId" parameterType="ManagerInfo">
+    <select id="findByManagerId" parameterType="ManagerInfo" resultType="ManagerInfo">
         SELECT *FROM managerinfo WHERE mid=#{mid}
     </select>
-    <select id="findManagerNameAndPwd" parameterType="ManagerInfo">
-        SELECT *FROM managerinfo WHERE mname=#{mname} AND pwd
+    <select id="findManagerNameAndPwd" parameterType="ManagerInfo" resultType="ManagerInfo">
+        SELECT *FROM managerinfo WHERE mname=#{mname} AND pwd=#{pwd}
     </select>
 </mapper>

@@ -162,7 +162,7 @@
                         ${r.penalty}
                     </div>
                     <div class="td w10">
-                        ${r.cstatusid}
+                        ${r.contractStatusInfo.sname}
                     </div>
                   </div>
                 </c:forEach>
