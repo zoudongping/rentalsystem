@@ -30,7 +30,7 @@ public class AddContractInfoServlet extends HttpServlet {
         r.setCstatusid(Integer.valueOf(cstatusid));
         int num=dao.addContract(r);
         String oper= "添加合同";
-        String operation= "添加了"+r+"合同";
+        String operation= "添加了合同";
         SqlSessionHelper.getSqlSession().commit();
         System.out.println("受影响行数"+num);
         SqlSessionHelper.closeSession();
