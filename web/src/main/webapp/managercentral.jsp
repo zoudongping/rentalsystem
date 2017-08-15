@@ -41,7 +41,7 @@
     </ul>
   </div>
 </div>
-<div class="view-body">
+ <div class="view-body">
   <div class="view-sidebar">
     <div class="view-sidebar">
       <div class="sidebar-content">

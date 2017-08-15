@@ -196,8 +196,8 @@
                     ${r.sex}
                 </div>
                 <div class="td w10">
-                  <a href="findAddressBySid?id=${r.uid}"  class="button-word2 btn_ajax_confirm">编辑</a>
-                  <a href="toDeleteAddress?id=${r.uid}" class="button-word2 btn_ajax_confirm">删除</a>
+                  <a href="toFindUserStatus?id=${r.uid}"  class="button-word2 btn_ajax_confirm">编辑</a>
+                  <a href="toDeleteUser?id=${r.uid}" class="button-word2 btn_ajax_confirm">删除</a>
                 </div>
               </div>
             </c:forEach>

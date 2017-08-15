@@ -31,4 +31,6 @@ public interface UserInfoDao {
     public int updatePwd(UserInfo userinfo);
 
     public int deleteUser(String uid);
+
+    public int updateUserStatus(UserInfo userinfo);
 }
