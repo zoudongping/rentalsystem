@@ -31,7 +31,7 @@ public class DeleteCommentServlet extends HttpServlet {
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("operation", operation);
         request.getSession().setAttribute("oper", oper);
-        response.sendRedirect("operationinsert");
+        request.getRequestDispatcher("operationinsert").forward(request,response);
 //        request.getSession().setAttribute("user",userInfo);
 //        response.sendRedirect("findcomment");
     }

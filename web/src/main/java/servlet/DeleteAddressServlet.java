@@ -21,16 +21,11 @@ public class DeleteAddressServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int num=dao.deleteAddress(id);
         if(num==1){
-            String oper="删除地址";
-            String operation="删除了"+id+"地址";
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();
-            request.getSession().setAttribute("operation", operation);
-            request.getSession().setAttribute("oper", oper);
-            response.sendRedirect("operationinsert");
-//            response.sendRedirect("toShowAddress");
-//            SqlSessionHelper.getSqlSession().commit();
-//            SqlSessionHelper.closeSession();
+            response.sendRedirect("toShowAddress");
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
         }else{
             response.getWriter().append("Sorry!SYSTEM ERROR!/(ToT)/~~");
         }

@@ -81,13 +81,13 @@
               </a>
             </li>
             <li>
-              <a href="showcomment.jsp">
+              <a href="findallcomment">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">商品评论</span>
               </a>
             </li>
             <li>
-              <a href="showtransinfo.jsp">
+              <a href="findalltransinfo">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">交易记录</span>
               </a>
@@ -115,9 +115,9 @@
 
         </div>
 
-       </div>
       </div>
-      </div>
+    </div>
+  </div>
 
 <div class="view-product">
   <div class="authority">
@@ -131,8 +131,7 @@
         <div style="float: right">
           <div id="u4" class="ax_droplist">
             <select id="by" name="by">
-              <option selected value="all">全部</option>
-              <option value="level">评论等级</option>
+              <option value="level" selected>评论等级</option>
               <option value="commodity">商品名</option>
             </select>
           </div>
@@ -176,11 +175,8 @@
               <div class="td w15">
                   ${c.userinfo.uname}
               </div>
-              <div class="td w5">
-                <a href="#" class="button-word2 btn_ajax_confirm">编辑</a>
-                </div>
-              <div class="td w5">
-                <a href="#" class="button-word2 btn_ajax_confirm">删除</a>
+              <div class="td w10">
+                <a href="deleteComment?id=${c.cid}" class="button-word2 btn_ajax_confirm">删除</a>
               </div>
             </div>
           </c:forEach>

@@ -22,11 +22,11 @@ public class UpdateUserStatusServlet extends HttpServlet {
         UserInfoDao dao= SqlSessionHelper.getSqlSession().getMapper(UserInfoDao.class);
         request.setCharacterEncoding("UTF-8");
         UserInfo userInfo=new UserInfo();
-        userInfo.setUid(Integer.parseInt(id));
+        userInfo=dao.findUserByUserId(Integer.valueOf(id));
         userInfo.setCreditstatus(status);
         int num=dao.updateUserStatus(userInfo);
         String oper="修改用户状态";
-        String operation = "修改了"+ num+ "用户状态 ";
+        String operation = "修改了"+userInfo.getUname()+ "用户状态 ";
         if(num==1){
 
 //            response.sendRedirect("toShowUser");
