@@ -21,7 +21,7 @@
       <a href="#" class="topbar-logo fl">
         <span><img src="Images/logo.png" width="20" height="20"/></span>
       </a>
-      <a href="index.html" class="topbar-home-link topbar-btn text-center fl"><span>用户中心</span></a>
+      <a href="home.jsp" class="topbar-home-link topbar-btn text-center fl"><span>首页</span></a>
     </div>
   </div>
   <div class="topbar-info">
@@ -29,7 +29,7 @@
 
       <li class="fl topbar-info-item">
         <div class="dropdown">
-          <a href="#" class="topbar-btn">
+          <a href="usercentral.jsp" class="topbar-btn">
             <span class="fl text-normal">${user.uname}</span>
             <span class="icon-arrow-down"></span>
           </a>
@@ -74,7 +74,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="findbyunameservlet">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">我的合同</span>
               </a>
@@ -86,15 +86,9 @@
               </a>
             </li>
             <li>
-              <a href="updatePwd.html">
+              <a href="updatePwd.jsp">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
-                <span class="text-normal">绑定银行账户</span>
               </a>
             </li>
             <li>
@@ -108,6 +102,8 @@
           <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
         </div>
       </div>
+      </div>
+    </div>
 <div class="view-product">
   <div class="authority">
     <div class="authority-head">
@@ -119,32 +115,32 @@
       <div class="list-content show">
         <div class="offcial-table tr-border margin-big-top clearfix">
           <div class="tr-th clearfix">
-            <div class="th w20">
+            <div class="th w30">
               订单时间
             </div>
-            <div class="th w20">
+            <div class="th w30">
               商品名
             </div>
-            <div class="th w10">
+            <div class="th w20">
               租赁类型
             </div>
-            <div class="th w10">
+            <div class="th w20">
               订单金额
             </div>
           </div>
 
           <c:forEach var="o" items="${olist}">
             <div class="tr clearfix border-bottom-none">
-              <div class="td w20">
+              <div class="td w30">
                   ${o.otime}
               </div>
-              <div class="td w20">
+              <div class="td w30">
                   ${o.commodityinfo.cname}
               </div>
-              <div class="td w10">
+              <div class="td w20">
                   ${o.rentaltypeinfo.tname}
               </div>
-              <div class="td w10">
+              <div class="td w20">
                   ${o.ordertotal}
               </div>
             </div>
