@@ -25,9 +25,14 @@ public class UpdateUserStatusServlet extends HttpServlet {
         userInfo.setUid(Integer.parseInt(id));
         userInfo.setCreditstatus(status);
         int num=dao.updateUserStatus(userInfo);
-
+        String oper="修改用户状态";
+        String operation = "修改了"+ num+ "用户状态 ";
         if(num==1){
-            response.sendRedirect("toShowUser");
+
+//            response.sendRedirect("toShowUser");
+            request.getSession().setAttribute("operation", operation);
+            request.getSession().setAttribute("oper", oper);
+            response.sendRedirect("operationinsert");
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();
         }else{

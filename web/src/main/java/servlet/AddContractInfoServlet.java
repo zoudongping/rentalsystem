@@ -29,11 +29,16 @@ public class AddContractInfoServlet extends HttpServlet {
         r.setSecondparty(secondparty);
         r.setCstatusid(Integer.valueOf(cstatusid));
         int num=dao.addContract(r);
+        String oper= "添加合同";
+        String operation= "添加了"+r+"合同";
         SqlSessionHelper.getSqlSession().commit();
         System.out.println("受影响行数"+num);
         SqlSessionHelper.closeSession();
         if(num==1){
-           response.sendRedirect("getcontractinfo");
+            request.getSession().setAttribute("operation", operation);
+            request.getSession().setAttribute("oper", oper);
+            response.sendRedirect("operationinsert");
+//           response.sendRedirect("getcontractinfo");
         }else{
             response.getWriter().append("Sorry!").close();
         }

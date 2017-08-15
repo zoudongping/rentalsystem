@@ -23,9 +23,12 @@ public class DeleteCommodityServlet extends HttpServlet {
         SqlSession sqlSession= SqlSessionHelper.getSqlSession();
         CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
         int num =commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
+        String oper="删除商品";
+        String operation= "删除了"+num+"商品";
         sqlSession.commit();
         if(num!=0){
-            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+//            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+            request.getRequestDispatcher("operationinsert").forward(request,response);
         }else {
             request.getRequestDispatcher("Error.jsp").forward(request,response);
         }

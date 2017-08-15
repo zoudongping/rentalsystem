@@ -19,10 +19,16 @@ public class DeleteContractInfoServlet extends HttpServlet {
         String cid=request.getParameter("pid");
         ContractInfoDao d= SqlSessionHelper.getSqlSession().getMapper(ContractInfoDao.class);
         int bo=d.deleteContract(Integer.valueOf(cid));
+        String oper= "删除合同";
+        String operation="删除了"+bo+"合同";
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
+        request.getSession().setAttribute("operation", operation);
+        request.getSession().setAttribute("oper", oper);
+
         if(bo==1){
-            response.sendRedirect("getcontractinfo");
+            response.sendRedirect("operationinsert");
+//            response.sendRedirect("getcontractinfo");
         }else {
             response.getWriter().append("sorry!System error!/(ToT)/~~");
         }

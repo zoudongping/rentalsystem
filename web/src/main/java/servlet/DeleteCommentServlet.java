@@ -24,11 +24,16 @@ public class DeleteCommentServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String id=request.getParameter("id");
         commentDao.delete(id);
-        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
+        String oper= "删除评论";
+        String operation= "删除了"+id+"评论";
+//        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
-        request.getSession().setAttribute("user",userInfo);
-        response.sendRedirect("findcomment");
+        request.getSession().setAttribute("operation", operation);
+        request.getSession().setAttribute("oper", oper);
+        response.sendRedirect("operationinsert");
+//        request.getSession().setAttribute("user",userInfo);
+//        response.sendRedirect("findcomment");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

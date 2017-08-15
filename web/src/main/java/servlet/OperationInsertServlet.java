@@ -4,6 +4,7 @@ import dao.OperationDao;
 import dao.SqlSessionHelper;
 import entity.ManagerInfo;
 import entity.OperationInfo;
+import org.apache.ibatis.jdbc.SQL;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,8 +35,78 @@ public class OperationInsertServlet extends HttpServlet {
             request.setAttribute("manager",m);
             request.getRequestDispatcher("findallorder").forward(request,response);
         }
-
-
+        else if (oper.equals("删除评论")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("findcomment").forward(request,response);
+        }
+        else if (oper.equals("删除地址")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("toShowAddress").forward(request,response);
+        }
+        else if (oper.equals("删除商品")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+        }
+        else if (oper.equals("添加总账")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("findallgeneral").forward(request,response);
+        }
+        else if (oper.equals("删除合同")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("getcontractinfo").forward(request,response);
+        }
+        else if (oper.equals("添加合同")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("getcontractinfo").forward(request,response);
+        }
+        else if (oper.equals("删除用户")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("toShowUser").forward(request,response);
+        }
+        else if (oper.equals("修改用户状态")){
+            operationInfo.setContent(operation);
+            operationInfo.setManagerid(m.getMid());
+            operationDao.insert(operationInfo);
+            SqlSessionHelper.getSqlSession().commit();
+            SqlSessionHelper.closeSession();
+            request.setAttribute("manager",m);
+            request.getRequestDispatcher("toShowUser").forward(request,response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
