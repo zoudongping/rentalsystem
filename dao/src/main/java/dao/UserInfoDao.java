@@ -32,5 +32,5 @@ public interface UserInfoDao {
 
     public int deleteUser(String uid);
 
-    public int updateUserStatus(UserInfo userinfo);
+    public int  updateUserStatus(UserInfo userinfo);
 }

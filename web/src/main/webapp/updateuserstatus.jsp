@@ -149,13 +149,12 @@
         </div>
         <form name="setp0" action="toUpdateUserStatus" method="post" autocomplete="off">
 
-
           <div class="authority-content">
             <div class="list-content show">
               <div class="offcial-table tr-border margin-big-top clearfix">
                 <div class="text-center height-main margin-top-25">
                   <p class="content-left-zoon">
-                    支付方式
+                    信用状态：
                   </p>
                   <div class="content-right-zoon">
                     <select class="width-main select " name="status">

@@ -40,7 +40,8 @@
         update userinfo set creditstatus=#{creditstatus} where uid=#{uid}
     </update>
 
-    <delete id="deleteUser" parameterType="String">
+
+    <delete id="deleteUser"  parameterType="String">
         delete from userinfo where uid=#{uid}
     </delete>
 </mapper>

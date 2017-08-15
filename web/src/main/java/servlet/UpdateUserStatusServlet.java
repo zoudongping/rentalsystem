@@ -25,6 +25,7 @@ public class UpdateUserStatusServlet extends HttpServlet {
         userInfo.setUid(Integer.parseInt(id));
         userInfo.setCreditstatus(status);
         int num=dao.updateUserStatus(userInfo);
+
         if(num==1){
             response.sendRedirect("toShowUser");
             SqlSessionHelper.getSqlSession().commit();

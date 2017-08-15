@@ -21,6 +21,7 @@ public class DeleteUserServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         int num=dao.deleteUser(id);
         if(num==1){
+
             response.sendRedirect("toShowUser");
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();
