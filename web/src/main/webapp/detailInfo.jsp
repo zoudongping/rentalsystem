@@ -149,24 +149,24 @@
   <div class="aside">
     <h3>看了还看<span><img src="Images/fod.png"width="22" height="22"/>换一批</span></h3>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/photos/small_sony1.png"/></a></dt>
+      <dt><a href=""><img src="https://img11.360buyimg.com/n1/s180x180_jfs/t1072/262/578187678/128218/8507cf15/55306d31N5e41e6b4.jpg"/></a></dt>
       <dd>
-        O2+索尼（SONY） DSC-H400 长焦数码相机
-        <span>￥1949</span>
+        佳能（Canon）EOS 750D 单反套机 (EF-S 18-135mm f/3.5-5.6 IS
+        <span>￥5999.00</span>
       </dd>
     </dl>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/photos/small_canon1.png"/></a></dt>
+      <dt><a href=""><img src="https://img11.360buyimg.com/n1/s180x180_jfs/t673/244/519621717/165186/39247885/546f1ad8N42b1a236.jpg"/></a></dt>
       <dd>
-        O2+佳能（Canon）EOS 800D 单反套机
-        <span>￥5499</span>
+        尼康（Nikon） D810 单反机身
+        <span>￥16199.00</span>
       </dd>
     </dl>
     <dl class="ac-mod-list">
-      <dt><a href=""><img src="Images/photos/small_nikon1.png"/></a></dt>
+      <dt><a href=""><img src="https://img13.360buyimg.com/n1/s180x180_g14/M01/1E/1E/rBEhVlNDnxwIAAAAAAFGXb6gbSIAALiQAPUjEUAAUZ1327.jpg"/></a></dt>
       <dd>
-        O2+尼康（Nikon）D5300套机
-        <span>￥4799</span>
+        索尼（SONY） DSC-WX350 数码相机 黑色（1820万有效像素 20倍
+        <span>￥1499.00</span>
       </dd>
     </dl>
   </div>
