@@ -22,10 +22,11 @@ public class FindCommentByCommodityServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
-        CommodityInfo commodityInfo=(CommodityInfo)request.getSession().getAttribute("c");
-        List<CommentInfo> clist=commentDao.findByCommodityid(commodityInfo.getCid());
+        String cid=request.getParameter("cid");
+        List<CommentInfo> clist=commentDao.findByCommodityid(Integer.valueOf(cid));
         request.getSession().setAttribute("clist",clist);
-        request.getRequestDispatcher("commoditycomment.jsp").forward(request,response);
+        request.setAttribute("cid",cid);
+        request.getRequestDispatcher("FindByCommodityId").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

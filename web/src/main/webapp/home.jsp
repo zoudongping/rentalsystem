@@ -219,7 +219,7 @@
                   <span class="text-normal"> ${c.deposit}</span>
                 </div>
                 <div class="td w20">
-                  <a href="FindByCommodityId?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
+                  <a href="findcommentbycommodity?cid=${c.cid}"  class="button-word2 btn_ajax_confirm">查看详细信息</a>
                 </div>
               </div>
             </c:forEach>

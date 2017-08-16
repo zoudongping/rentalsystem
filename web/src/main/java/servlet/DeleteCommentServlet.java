@@ -3,6 +3,7 @@ package servlet;
 import dao.CommentDao;
 import dao.SqlSessionHelper;
 import entity.CommentInfo;
+import entity.ManagerInfo;
 import entity.UserInfo;
 
 import javax.servlet.ServletException;
@@ -26,14 +27,19 @@ public class DeleteCommentServlet extends HttpServlet {
         commentDao.delete(id);
         String oper= "删除评论";
         String operation= "删除了"+id+"评论";
-//        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
+        ManagerInfo managerInfo=(ManagerInfo)request.getSession().getAttribute("manager");
+        UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
-        request.getSession().setAttribute("operation", operation);
-        request.getSession().setAttribute("oper", oper);
-        request.getRequestDispatcher("operationinsert").forward(request,response);
-//        request.getSession().setAttribute("user",userInfo);
-//        response.sendRedirect("findcomment");
+        if(managerInfo!=null) {
+            request.getSession().setAttribute("operation", operation);
+            request.getSession().setAttribute("oper", oper);
+            request.getRequestDispatcher("operationinsert").forward(request, response);
+        }
+        if(userInfo!=null) {
+            request.getSession().setAttribute("user", userInfo);
+            response.sendRedirect("findcomment");
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

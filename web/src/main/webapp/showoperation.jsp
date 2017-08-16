@@ -64,7 +64,7 @@
               </a>
             </li>
             <li>
-              <a href="FindAllCommodityServlet">
+              <a href="FindAllCommodity">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">商品管理</span>
               </a>
@@ -106,7 +106,7 @@
               </a>
             </li>
             <li>
-              <a href="toUpdateManagerPwd.html">
+              <a href="updateManagerPwd.jsp">
                 <b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
                 <span class="text-normal">修改密码</span>
               </a>
@@ -119,7 +119,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="view-product">
     <div class="authority">

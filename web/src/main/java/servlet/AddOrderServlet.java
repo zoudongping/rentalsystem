@@ -37,15 +37,15 @@ public class AddOrderServlet extends HttpServlet {
         o.setDeposit(commodityInfo.getDeposit()*Double.valueOf(rentalamount));
         if(rentaltype.equals("dayprice")) {
             o.setRentaltype(1);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getDayprice()+commodityInfo.getDeposit());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getDayprice()+o.getDeposit());
         }
         if(rentaltype.equals("monthprice")) {
             o.setRentaltype(2);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getMonthprice()+commodityInfo.getDeposit());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getMonthprice()+o.getDeposit());
         }
         if(rentaltype.equals("yearprice")) {
             o.setRentaltype(3);
-            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getYearprice()+commodityInfo.getDeposit());
+            o.setOrdertotal(Double.valueOf(rentalamount)*Double.valueOf(timeamount)*commodityInfo.getYearprice()+o.getDeposit());
         }
 
         orderinfoDao.insertOrderinfo(o);

@@ -23,26 +23,23 @@ public class DeleteCommodityServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        SqlSession sqlSession= SqlSessionHelper.getSqlSession();
-        CommodityInfoDao commodityInfoDao=sqlSession.getMapper(CommodityInfoDao.class);
-        int num =commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
-        String oper="删除商品";
-        String operation= "删除了"+num+"商品";
-        CollocationInfoDao collocationInfoDao=sqlSession.getMapper(CollocationInfoDao.class);
+        SqlSession sqlSession = SqlSessionHelper.getSqlSession();
+        CommodityInfoDao commodityInfoDao = sqlSession.getMapper(CommodityInfoDao.class);
+        int num = commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
+        String oper = "删除商品";
+        String operation = "删除了" + num + "商品";
+        CollocationInfoDao collocationInfoDao = sqlSession.getMapper(CollocationInfoDao.class);
         ImageListDao imageListDao = sqlSession.getMapper(ImageListDao.class);
         int num1 = commodityInfoDao.delete(Integer.valueOf(request.getParameter("cid")));
         int num2 = collocationInfoDao.delete(Integer.valueOf(request.getParameter("collocationId")));
         int num3 = imageListDao.delete(Integer.valueOf(request.getParameter("imageId")));
         sqlSession.commit();
-        if(num!=0){
+        if (num != 0 && num2 != 0 && num3 != 0) {
 //            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
-            request.getRequestDispatcher("operationinsert").forward(request,response);
-        if(num1!=0&&num2!=0&&num3!=0){
-            request.getRequestDispatcher("FindAllCommodity").forward(request,response);
+            request.getRequestDispatcher("operationinsert").forward(request, response);
         }else {
-            request.getRequestDispatcher("Error.jsp").forward(request,response);
+            request.getRequestDispatcher("Error.jsp").forward(request, response);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -51,7 +51,7 @@ public class OperationInsertServlet extends HttpServlet {
             SqlSessionHelper.getSqlSession().commit();
             SqlSessionHelper.closeSession();
             request.setAttribute("manager",m);
-            request.getRequestDispatcher("FindCommodityServlet").forward(request,response);
+            request.getRequestDispatcher("FindAllCommodity").forward(request,response);
         }
         else if (oper.equals("添加总账")){
             operationInfo.setContent(operation);

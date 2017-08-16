@@ -71,7 +71,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="FindAllCommodityServlet">
+									<a href="FindAllCommodity">
 										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
 										<span class="text-normal">商品管理</span>
 									</a>
@@ -89,13 +89,13 @@
 									</a>
 								</li>
 								<li>
-									<a href="showcomment.jsp">
+									<a href="findallcomment">
 										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
 										<span class="text-normal">商品评论</span>
 									</a>
 								</li>
 								<li>
-									<a href="showtransinfo.jsp">
+									<a href="findalltransinfo">
 										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
 										<span class="text-normal">交易记录</span>
 									</a>
@@ -113,7 +113,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="toUpdateManagerPwd.html">
+									<a href="updateManagerPwd.jsp">
 										<b class="sidebar-icon"><img src="Images/icon_author.png" width="16" height="16" /></b>
 										<span class="text-normal">修改密码</span>
 									</a>
@@ -122,6 +122,7 @@
 							<!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
 
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -131,7 +132,7 @@
 						<h6 class="padding-left manage-head-con">管理员密码修改</h6>
 					</div>
 
-					<form name="setp0" action="toUpdatePwd" method="post" autocomplete="off">
+					<form name="setp0" action="toUpdateManagerPwd" method="post" autocomplete="off">
 						<div class="basic-info-detail clearfix">
 
 							<div class="unit-style padding-big-lr clearfix">

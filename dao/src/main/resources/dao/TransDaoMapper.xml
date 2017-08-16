@@ -19,6 +19,7 @@
 
     <select id="findAll" resultMap="transinfoMap">
         SELECT * FROM transinfo t JOIN userinfo u ON t.uid=u.uid JOIN transtypeinfo tr ON t.transtype=tr.tid
+        order by transdate desc
     </select>
     <select id="findByUname" parameterType="String" resultMap="transinfoMap">
         select * from transinfo t join userinfo u on t.uid=u.uid
