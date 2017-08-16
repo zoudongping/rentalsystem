@@ -38,7 +38,7 @@ public class updateManagerPwdServlet extends HttpServlet {
         if(manager!=null){
             if(newPwd.equals(rePwd)){
                 manager.setPwd(newPwd);
-                int num=dao.updatePassword()
+                int num=dao.updatePassword(manager);
                 if(num==1){
                     SqlSessionHelper.getSqlSession().commit();
                     SqlSessionHelper.closeSession();
