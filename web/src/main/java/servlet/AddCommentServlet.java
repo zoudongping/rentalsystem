@@ -22,12 +22,12 @@ public class AddCommentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         commentDao= SqlSessionHelper.getSqlSession().getMapper(CommentDao.class);
         request.setCharacterEncoding("UTF-8");
-        //String id=request.getParameter("id1");
+        String id=request.getParameter("cid");
         String content=request.getParameter("content");
         String level=request.getParameter("level");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         CommentInfo c=new CommentInfo();
-        c.setCommodityid(1);
+        c.setCommodityid(Integer.valueOf(id));
         c.setUid(userInfo.getUid());
         c.setContent(content);
         if(level.equals("优")) {

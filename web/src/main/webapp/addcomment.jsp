@@ -129,6 +129,7 @@
 										具体描述
 									</p>
 									<div class="content-right-zoon">
+										<input type="hidden" name="cid" value="${cid}">
 										<input class="width-main input" type="text" name="content" datatype="*" value="">
 									</div>
 								</div>

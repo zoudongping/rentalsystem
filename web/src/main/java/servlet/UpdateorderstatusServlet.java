@@ -24,6 +24,7 @@ public class UpdateorderstatusServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         UserInfo userInfo=(UserInfo)request.getSession().getAttribute("user");
         Orderinfo o=new Orderinfo();
+        String cid=request.getParameter("shangpingid");
         String oid=request.getParameter("id");
         o.setOid(Integer.valueOf(oid));
         o.setOstatus(3);
@@ -31,6 +32,7 @@ public class UpdateorderstatusServlet extends HttpServlet {
         SqlSessionHelper.getSqlSession().commit();
         SqlSessionHelper.closeSession();
         request.getSession().setAttribute("user", userInfo);
+        request.getSession().setAttribute("cid",cid);
         request.getRequestDispatcher("addcomment.jsp").forward(request,response);
     }
 
