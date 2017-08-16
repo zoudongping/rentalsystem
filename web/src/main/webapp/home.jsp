@@ -29,18 +29,6 @@
   </div>
   <div class="">
     <div class="margin-center padding-little-top" align="center">
-      <form action="#" method="post">
-        <table>
-          <tr>
-            <td>
-              <input class="width-main input" type="text" name="search" datatype="*" placeholder="请输入你的最爱...">
-            </td>
-            <td>
-              <input class="width-mains input"  type="button" value="搜索">
-            </td>
-          </tr>
-        </table>
-      </form>
     </div>
   </div>
   <div class="topbar-info">
@@ -147,7 +135,6 @@
       <!--一级菜单循环从这里结束 ，动态循环显示一级菜单-->
     </div>
   </div>
-
   <div class="view-product">
     <div class="authority">
       <div class="authority-head">
