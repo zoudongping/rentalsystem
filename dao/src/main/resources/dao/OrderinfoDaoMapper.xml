@@ -32,10 +32,11 @@
         SELECT *
         FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
         LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid
+        order by otime desc
     </select>
 
     <select id="findTotalBillByUid" parameterType="java.lang.Integer" resultType="java.lang.Double">
-        SELECT SUM(ordertotal) FROM orderinfo WHERE uid=#{uid} AND ostatus="2"
+        SELECT SUM(ordertotal) FROM orderinfo WHERE uid=#{uid} AND (ostatus="2" or ostatus="3")
     </select>
 
     <select id="findByOid" parameterType="String" resultMap="orderinfoMap">
@@ -54,6 +55,7 @@
         SELECT *
         FROM orderinfo A LEFT JOIN orderstatusinfo B ON A.ostatus=B.sid LEFT JOIN paymenttype C ON A.payment=C.pid
         LEFT JOIN rentaltypeinfo D ON A.rentaltype=D.tid LEFT JOIN commodityinfo E ON A.commodityid=E.cid  WHERE a.uid=#{uid}
+        order by otime desc
     </select>
 
     <insert id="insertOrderinfo" parameterType="entity.Orderinfo">

@@ -63,7 +63,7 @@
       <span class="nowprice">￥<a href="">${c.singlecost}</a></span>
       <div class="cumulative">
         <span class="number ty1">累计租出<br /><em >370</em></span>
-        <span class="number tyu">累计评价<br /><em >25</em></span>
+        <span class="number tyu">累计评价<br /><em >${clist.size()}</em></span>
       </div>
     </div>
     <div class="txt-h">
@@ -267,7 +267,6 @@
               </div>
             </div>
           </div>
-      </div>
         </ul>
       </div>
       <!--4.售后保障-->

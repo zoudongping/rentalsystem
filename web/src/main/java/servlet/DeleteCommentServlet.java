@@ -38,7 +38,7 @@ public class DeleteCommentServlet extends HttpServlet {
         }
         if(userInfo!=null) {
             request.getSession().setAttribute("user", userInfo);
-            response.sendRedirect("findcomment");
+            response.sendRedirect("findusercomment");
         }
     }
 
